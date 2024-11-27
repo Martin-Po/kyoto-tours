@@ -6,10 +6,13 @@ import IconButton from '@mui/material/IconButton'
 import Container from '@mui/material/Container'
 import Logo from '../assets/logo_light.png'
 import MenuIcon from '@mui/icons-material/Menu'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-import { Divider, Menu, MenuItem, Typography } from '@mui/material'
+import { Button, Divider, Menu, MenuItem, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { AccountCircle } from '@mui/icons-material'
+import { useLang } from './utils/LangProvider'
 
 const Navegacion = [
     {
@@ -41,6 +44,21 @@ const Navegacion = [
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null)
+    const [anchorElLang, setAnchorElLang] = React.useState(null);
+    const { lang, changeLanguage } = useLang();
+
+    const handleLangMenu = (event) => {
+        setAnchorElLang(event.currentTarget);
+    };
+
+    const handleLangClose = () => {
+        setAnchorElLang(null);
+    };
+
+    const handleLangChange = (newLang) => {
+        changeLanguage(newLang);
+        setAnchorElLang(null);
+    };
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget)
@@ -49,6 +67,9 @@ function ResponsiveAppBar() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
     }
+
+
+
 
     return (
         <AppBar position="static">
@@ -101,7 +122,7 @@ function ResponsiveAppBar() {
                             {Navegacion.map((page, index) => [
                                 <Link
                                     key={page.link}
-                                    to={page.link}
+                                    to={lang + page.link}
                                     style={{
                                         display: 'flex',
                                         width: '100%',
@@ -146,7 +167,7 @@ function ResponsiveAppBar() {
                         {Navegacion.map((page) => (
                             <React.Fragment key={page.id}>
                                 <Link
-                                    to={page.link}
+                                    to={lang + page.link}
                                     style={{
                                         display: 'flex',
                                         width: 'fit-content',
@@ -168,16 +189,39 @@ function ResponsiveAppBar() {
                                 </Link>
                                 {page.id !==
                                     Navegacion[Navegacion.length - 1].id && (
-                                    <Divider
-                                        sx={{ borderLeftWidth: 1 }}
-                                        orientation="vertical"
-                                        variant="middle"
-                                        flexItem
-                                    />
-                                )}
+                                        <Divider
+                                            sx={{ borderLeftWidth: 1 }}
+                                            orientation="vertical"
+                                            variant="middle"
+                                            flexItem
+                                        />
+                                    )}
                             </React.Fragment>
                         ))}
                     </Box>
+                    <Button variant="outlined" sx={{ color: 'black' }}
+                        onClick={handleLangMenu}
+                    >
+                        {lang} <ExpandMoreIcon />
+                    </Button>
+                    <Menu
+                        id="menu-appbar"
+                        anchorEl={anchorElLang}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElLang)}
+                        onClose={handleLangClose}
+                    >
+                        <MenuItem onClick={() => handleLangChange("es")}>Español</MenuItem>
+                        <MenuItem onClick={() => handleLangChange("en")}>English</MenuItem>
+                    </Menu>
                 </Toolbar>
             </Container>
         </AppBar>
