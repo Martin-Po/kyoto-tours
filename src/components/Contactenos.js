@@ -16,6 +16,7 @@ const Contactenos = () => {
                 container
                 margin="50px auto 40px auto"
                 columnSpacing={4}
+                rowSpacing={'2rem'}
 
                 display="flex"
                 justifyContent="space-evenly"
@@ -36,7 +37,7 @@ const Contactenos = () => {
                     size={12}
 
                 >
-                    <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '1.5rem' }}>
+                    <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem' }}>
                         {lang === 'en' ? 'Contact Us' : 'Contáctenos'}
                     </Typography>
 

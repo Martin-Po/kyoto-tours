@@ -105,6 +105,21 @@ export const FAQData = {
   ]
 };
 
+export const AboutImages = [
+  { id: 1, url: "/images/destinos/placeholder.svg" },
+  { id: 2, url: "/images/destinos/placeholder.svg" },
+  { id: 3, url: "/images/destinos/placeholder.svg" },
+  { id: 4, url: "/images/destinos/placeholder.svg" },
+  { id: 5, url: "/images/destinos/placeholder.svg" },
+  { id: 6, url: "/images/destinos/placeholder.svg" },
+  { id: 7, url: "/images/destinos/placeholder.svg" },
+  { id: 8, url: "/images/destinos/placeholder.svg" },
+  { id: 9, url: "/images/destinos/placeholder.svg" },
+  { id: 10, url: "/images/destinos/placeholder.svg" },
+  { id: 11, url: "/images/destinos/placeholder.svg" },
+  { id: 12, url: "/images/destinos/placeholder.svg" }
+];
+
 export const Navegacion = 
  { es: [
     {

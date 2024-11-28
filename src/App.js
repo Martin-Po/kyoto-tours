@@ -11,6 +11,7 @@ import { Concepto } from './components/Home/Concepto';
 import { Destinos } from './components/Home/Destinos';
 import { LangProvider } from './components/utils/LangProvider';
 import { FAQs } from './components/FAQs';
+import { Nosotros } from './components/Nosotros';
 
 
 
@@ -74,13 +75,13 @@ function App() {
             <Routes>
                 <Route path="/:langParam?/faqs" element={<FAQs />} />
                 <Route path="/:langParam?/contact" element={<Contactenos/>} /> 
+                <Route path="/:langParam/about" element={<Nosotros />} />
                 
                 <Route path="/:langParam?/*" element={<Home />} />
 
                 {/* <Route path="/:lang(en|es)?/tours" element={<Tours />} />
       
       
-      <Route path="/:lang(en|es)?/about" element={<About />} />
       */
       
       }
