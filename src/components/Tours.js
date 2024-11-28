@@ -2,7 +2,7 @@ import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, 
 import { useLang } from "./utils/LangProvider";
 import { ToursData, ToursImages } from "../data";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 
 
@@ -27,9 +27,30 @@ const Tours = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-             <Helmet>
-            <title>{lang === 'en' ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto': 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'}</title>
-            <meta name='description' content={lang === 'en' ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.': 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'} />
+            <Helmet>
+                <title>{lang === 'en'
+                    ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto'
+                    : 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'}</title>
+                <meta name='description' content={lang === 'en'
+                    ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.'
+                    : 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'} />
+                {/* Open Graph Tags */}
+                <meta property="og:title"
+                    content={
+                        lang === 'en'
+                            ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto'
+                            : 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'
+                    }
+                />
+                <meta property="og:description"
+                    content={
+                        lang === 'en'
+                            ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.'
+                            : 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'
+                    }
+                />
+                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                <meta property="og:type" content="website" />
             </Helmet>
             <Grid
                 container
@@ -137,14 +158,14 @@ const Tours = () => {
                             size={{ xs: 12 }}
 
                         >
-                            <Box sx={{marginBottom:'1.5rem'}}>
+                            <Box sx={{ marginBottom: '1.5rem' }}>
                                 <Box sx={{ display: 'flex', gap: '1.5rem', flexDirection: { xs: 'column', sm: 'row' }, marginBottom: '1.5rem', }}>
                                     <TextField
                                         label={lang === 'en' ? "Name" : 'Nombre'}
                                         fullWidth
                                         onChange={(e) => setName(e.target.value)}
                                         value={name}
-                                        sx={{  backgroundColor: 'white' }}
+                                        sx={{ backgroundColor: 'white' }}
                                     />
                                     <TextField
                                         label="Email"
@@ -156,7 +177,7 @@ const Tours = () => {
                                     />
 
                                 </Box>
-                                <Box sx={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexDirection: { xs: 'column', sm: 'row' }, marginBottom:'1.5rem'}}>
+                                <Box sx={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexDirection: { xs: 'column', sm: 'row' }, marginBottom: '1.5rem' }}>
                                     <FormControl fullWidth>
 
                                         <InputLabel id="demo-simple-select-autowidth-label">Tour</InputLabel>
@@ -179,17 +200,17 @@ const Tours = () => {
                                     <TextField
                                         label="Number of people"
                                         fullWidth
-                                        type="number"                                    
+                                        type="number"
                                         onChange={(e) => setPeople(e.target.value)}
                                         value={people}
-                                        sx={{  backgroundColor: 'white' }}
+                                        sx={{ backgroundColor: 'white' }}
                                         inputProps={{
                                             min: 0, // Sets the minimum date to today
                                         }}
                                     />
                                     <TextField
 
-                                        sx={{ backgroundColor: 'white',  }}
+                                        sx={{ backgroundColor: 'white', }}
                                         label="Tour date"
                                         type="date"
                                         value={date}

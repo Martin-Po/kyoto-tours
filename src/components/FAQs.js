@@ -1,7 +1,7 @@
 import { Box, Paper, Typography } from "@mui/material"
 import { FAQData } from "../data"
 import { useLang } from "./utils/LangProvider";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet';
 
 const FAQs = () => {
     const { lang } = useLang();
@@ -10,13 +10,31 @@ const FAQs = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-               <Helmet>
-            <title>{lang === 'en' 
-            ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
-            : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'}</title>
-            <meta name='description' content={lang === 'en' 
-                ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
-                : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'} />
+            <Helmet>
+                <title>{lang === 'en'
+                    ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
+                    : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'}</title>
+                <meta name='description' content={lang === 'en'
+                    ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
+                    : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'} />
+
+                {/* Open Graph Tags */}
+                <meta property="og:title"
+                    content={
+                        lang === 'en'
+                            ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
+                            : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'
+                    }
+                />
+                <meta property="og:description"
+                    content={
+                        lang === 'en'
+                            ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
+                            : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'
+                    }
+                />
+                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                <meta property="og:type" content="website" />
             </Helmet>
             <Box sx={{
                 flexDirection: 'column',
@@ -43,8 +61,8 @@ const FAQs = () => {
                     fontWeight: 700,
                     lineHeight: '2.5rem',
                     marginBottom: '2rem',
-                    textAlign:'center'
-                    
+                    textAlign: 'center'
+
                 }}>
                     {lang === 'en' ? 'FAQs' : 'Preguntas Frecuentes'}
                 </Typography>

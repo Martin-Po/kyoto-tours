@@ -2,7 +2,7 @@ import { Button, Grid2 as Grid, Typography } from '@mui/material'
 import Background from '../../assets/placeholder.svg'
 import { Link } from 'react-router-dom'
 import { useLang } from '../utils/LangProvider';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const Hero = () => {
     const { lang } = useLang();

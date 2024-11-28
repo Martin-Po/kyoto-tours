@@ -1,7 +1,7 @@
 import { Box, Button, Divider, FormControl, Grid2 as Grid, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import { useLang } from "./utils/LangProvider";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const Contactenos = () => {
     const [name, setName] = useState('')
@@ -13,13 +13,31 @@ const Contactenos = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-               <Helmet>
-            <title>{lang === 'en' 
-            ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
-            : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'}</title>
-            <meta name='description' content={lang === 'en' 
-                ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
-                : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'} />
+            <Helmet>
+                <title>{lang === 'en'
+                    ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
+                    : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'}</title>
+                <meta name='description' content={lang === 'en'
+                    ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
+                    : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'} />
+
+                {/* Open Graph Tags */}
+                <meta property="og:title"
+                    content={
+                        lang === 'en'
+                            ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
+                            : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'
+                    }
+                />
+                <meta property="og:description"
+                    content={
+                        lang === 'en'
+                            ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
+                            : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'
+                    }
+                />
+                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                <meta property="og:type" content="website" />
             </Helmet>
             <Grid
                 container
@@ -61,14 +79,14 @@ const Contactenos = () => {
                             fullWidth
                             onChange={(e) => setName(e.target.value)}
                             value={name}
-                            sx={{marginBottom:'1.5rem'}}
+                            sx={{ marginBottom: '1.5rem' }}
                         />
                         <TextField
                             label="Email"
                             fullWidth
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
-                            sx={{marginBottom:'1.5rem'}}
+                            sx={{ marginBottom: '1.5rem' }}
 
                         />
                         <TextField
@@ -79,14 +97,14 @@ const Contactenos = () => {
                             rows={4}
                             onChange={(e) => setMessage(e.target.value)}
                             value={message}
-                            sx={{marginBottom:'1.5rem'}}
+                            sx={{ marginBottom: '1.5rem' }}
 
                         />
 
                     </Box>
-                    <Button 
+                    <Button
                         variant="contained"
-                    
+
                     >
                         <Typography
                             sx={{
@@ -96,8 +114,8 @@ const Contactenos = () => {
                                     fontSize: '0.85rem',
                                 },
                             }}
-                        >                           
-                        {lang === 'en' ? 'Send message' : 'Enviar mensaje'}
+                        >
+                            {lang === 'en' ? 'Send message' : 'Enviar mensaje'}
                         </Typography>
                     </Button>
 
@@ -112,14 +130,14 @@ const Contactenos = () => {
                         {lang === 'en' ? 'Contact Information' : 'Información de Contacto'}
 
                     </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1,  marginBottom:'0.5rem'}}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginBottom: '0.5rem' }}>
                         <Typography fontWeight="bold">Email:</Typography>
                         <Typography color='primary.main'>info@besttoursinkyoto.com</Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 
-                    <Typography fontWeight="bold">{lang === 'en' ? 'Phone' : 'Teléfono'}</Typography>
-                    <Typography color='primary.main'>+81 123-456-789</Typography>
+                        <Typography fontWeight="bold">{lang === 'en' ? 'Phone' : 'Teléfono'}</Typography>
+                        <Typography color='primary.main'>+81 123-456-789</Typography>
 
                     </Box>
 
