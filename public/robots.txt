@@ -8,5 +8,4 @@ Allow: /en/*
 Allow: /es/*
 
 # Sitemap location for both languages
-Sitemap: https://kyoto-tours.vercel.app/sitemap-en.xml
-Sitemap: https://kyoto-tours.vercel.app/sitemap-es.xml
+Sitemap: https://kyoto-tours.vercel.app/sitemap.xml

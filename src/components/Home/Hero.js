@@ -7,6 +7,12 @@ import { Helmet } from 'react-helmet';
 const Hero = () => {
     const { lang } = useLang();
 
+    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
+  const esUrl = `${baseUrl}/es/home`; // URL para la versión en español de la página home
+  const enUrl = `${baseUrl}/en/home`; // URL para la versión en inglés de la página home
+  const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
+
+
     return (
         <div
             style={{
@@ -23,7 +29,15 @@ const Hero = () => {
             }}
         >
             <Helmet>
+
+            <link rel="alternate" href={enUrl} hreflang="en" />
+        <link rel="alternate" href={esUrl} hreflang="es" />
+        <link rel="alternate" href={baseUrl} hreflang="x-default" />
+
+          {/* Canonical tag */}
+          <link rel="canonical" href={canonicalUrl} />
             {/* Page Title */}
+            
     <title>
         {lang === 'en' 
             ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 

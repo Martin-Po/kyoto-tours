@@ -9,11 +9,22 @@ const Contactenos = () => {
     const [message, setMessage] = useState('')
 
     const { lang } = useLang();
+    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
+    const esUrl = `${baseUrl}/es/contact`; // URL para la versión en español de la página home
+    const enUrl = `${baseUrl}/en/contact`; // URL para la versión en inglés de la página home
+    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
 
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
             <Helmet>
+                <link rel="alternate" href={enUrl} hreflang="en" />
+                <link rel="alternate" href={esUrl} hreflang="es" />
+                <link rel="alternate" href={baseUrl} hreflang="x-default" />
+
+                {/* Canonical tag */}
+                <link rel="canonical" href={canonicalUrl} />
+
                 <title>{lang === 'en'
                     ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
                     : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'}</title>

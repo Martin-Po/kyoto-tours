@@ -24,10 +24,21 @@ const Tours = () => {
         setSelectedTour(event.target.value)
     }
 
+    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
+    const esUrl = `${baseUrl}/es/tours`; // URL para la versión en español de la página home
+    const enUrl = `${baseUrl}/en/tours`; // URL para la versión en inglés de la página home
+    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
+
+
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
             <Helmet>
+                <link rel="alternate" href={enUrl} hreflang="en" />
+                <link rel="alternate" href={esUrl} hreflang="es" />
+                <link rel="alternate" href={baseUrl} hreflang="x-default" />
+                {/* Canonical tag */}
+                <link rel="canonical" href={canonicalUrl} />
                 <title>{lang === 'en'
                     ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto'
                     : 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'}</title>

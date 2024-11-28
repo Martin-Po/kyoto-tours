@@ -6,11 +6,22 @@ import { Helmet } from 'react-helmet';
 const FAQs = () => {
     const { lang } = useLang();
     console.log('en el faq');
+    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
+    const esUrl = `${baseUrl}/es/faqs`; // URL para la versión en español de la página home
+    const enUrl = `${baseUrl}/en/faqs`; // URL para la versión en inglés de la página home
+    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
+
 
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
             <Helmet>
+                <link rel="alternate" href={enUrl} hreflang="en" />
+                <link rel="alternate" href={esUrl} hreflang="es" />
+                <link rel="alternate" href={baseUrl} hreflang="x-default" />
+
+                {/* Canonical tag */}
+                <link rel="canonical" href={canonicalUrl} />
                 <title>{lang === 'en'
                     ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
                     : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'}</title>

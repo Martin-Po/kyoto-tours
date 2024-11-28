@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home Pages -->
+    <url>
+        <loc>https://kyoto-tours.vercel.app/</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- English Routes -->
+    <url>
+        <loc>https://kyoto-tours.vercel.app/en/home</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/en/about</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/en/tours</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/en/contact</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/en/faqs</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Spanish Routes -->
+    <url>
+        <loc>https://kyoto-tours.vercel.app/es/home</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/es/about</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/es/tours</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/es/contact</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kyoto-tours.vercel.app/es/faqs</loc>
+        <lastmod>2024-11-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
