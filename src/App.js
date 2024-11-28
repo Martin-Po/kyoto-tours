@@ -73,14 +73,18 @@ function App() {
 
             <Routes>
                 <Route path="/:langParam?/faqs" element={<FAQs />} />
+                <Route path="/:langParam?/contact" element={<Contactenos/>} /> 
+                
                 <Route path="/:langParam?/*" element={<Home />} />
 
                 {/* <Route path="/:lang(en|es)?/tours" element={<Tours />} />
       
       
       <Route path="/:lang(en|es)?/about" element={<About />} />
+      */
       
-      <Route path="/:lang(en|es)?/contact" element={<Contact />} /> */}
+      }
+
             </Routes>
       </LangProvider>
 

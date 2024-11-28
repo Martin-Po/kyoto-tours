@@ -11,7 +11,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Drawer, List, ListItem, Menu, MenuItem, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { AccountCircle } from '@mui/icons-material'
 import { useLang } from './utils/LangProvider'
 import { Navegacion} from '../data'
 

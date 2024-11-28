@@ -33,7 +33,9 @@ const FAQs = () => {
                     fontSize: '2.25rem',
                     fontWeight: 700,
                     lineHeight: '2.5rem',
-                    marginBottom: '2rem'
+                    marginBottom: '2rem',
+                    textAlign:'center'
+                    
                 }}>
                     {lang === 'en' ? 'FAQs' : 'Preguntas Frecuentes'}
                 </Typography>
@@ -52,11 +54,11 @@ const FAQs = () => {
                                 fontWeight: 'bold',
                                 fontSize: '1.25rem',
                                 marginBottom: '0.5rem',
-                                lineHeight:'1.75rem'
+                                lineHeight: '1.75rem'
                             }}>
                                 {faq.question}
                             </Typography>
-                            <Typography sx={{color:'rgb(55 65 81)'}}>
+                            <Typography sx={{ color: 'rgb(55 65 81)' }}>
                                 {faq.answer}
                             </Typography>
 

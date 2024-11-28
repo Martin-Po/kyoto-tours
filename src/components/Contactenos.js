@@ -1,298 +1,121 @@
-import { Box, Divider, Typography } from '@mui/material'
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid'
-import EmailIcon from '@mui/icons-material/Email'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import InstagramIcon from '@mui/icons-material/Instagram'
-
-const iconComponents = {
-    PhoneAndroidIcon,
-    EmailIcon,
-    FacebookIcon,
-    InstagramIcon,
-}
-
-const iconColors = {
-    PhoneAndroidIcon: 'rgb(233 59 129)',
-    EmailIcon: 'rgb(253 117 144)',
-    FacebookIcon: 'rgb((8 102 255)',
-    InstagramIcon: 'inherit',
-}
-
-const Horarios = [
-    {
-        id: 1,
-        dia: 'Lunes',
-        Horario: ['10:00 - 14:00', '16:00 - 20:00'],
-    },
-    {
-        id: 2,
-        dia: 'Martes',
-        Horario: ['10:00 - 14:00', '16:00 - 20:00'],
-    },
-    {
-        id: 3,
-        dia: 'Miércoles',
-        Horario: ['10:00 - 14:00', '16:00 - 20:00'],
-    },
-    {
-        id: 4,
-        dia: 'Jueves',
-        Horario: ['10:00 - 14:00', '16:00 - 20:00'],
-    },
-    {
-        id: 5,
-        dia: 'Viernes',
-        Horario: ['10:00 - 14:00', '16:00 - 20:00'],
-    },
-    {
-        id: 6,
-        dia: 'Sábado',
-        Horario: ['11:00 - 14:00'],
-    },
-    {
-        id: 7,
-        dia: 'Domingo',
-        Horario: ['Cerrado'],
-    },
-]
-
-const Contacto = [
-    {
-        id: 1,
-        url: 'https://www.facebook.com/arservicepalermo/?locale=es_LA',
-        text: 'facebook.com/arservicepalermo',
-        icon: 'FacebookIcon',
-    },
-    {
-        id: 2,
-        url: 'https://www.instagram.com/arservicepalermo/?hl=es',
-        text: 'instagram.com/arservicepalermo',
-        icon: 'InstagramIcon',
-    },
-]
+import { Box, Button, Divider, FormControl, Grid2 as Grid, TextField, Typography } from '@mui/material'
+import { useState } from 'react'
+import { useLang } from "./utils/LangProvider";
 
 const Contactenos = () => {
-    return (
-        <div
-            style={{
-                width: '100vw',
-                maxWidth: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}
-        >
-            <Box
-                sx={{
-                    display: 'flex',
-                    alignContent: 'center',
-                    width: '1280px',
-                    height: 'fit-content',
-                    direction: 'column',
-                    flexDirection: 'column',
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
 
-                    '@media (max-width: 1300px)': {
-                        width: '992px',
-                        paddingLeft: '1.5rem',
-                        paddingRight: '1.5rem',
-                        display: 'flex',
+    const { lang } = useLang();
+
+
+    return (
+        <div style={{ width: '100vw', maxWidth: '100%' }}>
+            <Grid
+                container
+                margin="50px auto 40px auto"
+                columnSpacing={4}
+
+                display="flex"
+                justifyContent="space-evenly"
+                alignItems='flex-start'
+                sx={{
+                    width: '100%', // Default width for smaller screens
+                    maxWidth: '1400px', // Limits the maximum width to 1400px
+                    '@media (max-width:1399px)': {
+                        width: '1280px', // Sets width to 1280px when screen size is between 1300px and 1399px
                     },
-                    '@media (max-width:1024px)': {
-                        width: '100%',
-                        alignItems: 'baseline',
-                        marginBottom: '2rem',
+                    '@media (max-width:1299px)': {
+                        width: '100%', // Full width for screens 1299px or smaller
                     },
                 }}
+                paddingX={{ xs: '1rem', md: '1.5rem' }}
             >
-                <Typography
-                    sx={{
-                        margin: '1rem',
+                <Grid
+                    size={12}
 
-                        display: 'flex',
-                        justifyContent: 'center',
-                        width: '100%',
-                        fontWeight: 'bold',
-                        fontSize: '2rem',
-                        '@media (max-width:600px)': { fontSize: '1.25rem' },
-                    }}
                 >
-                    Comunícate con nosotros para obtener más información sobre
-                    nuestros servicios.
-                </Typography>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        minHeight: '425px',
-                        justifyContent: 'space-evenly',
-                        '@media (max-width:1024px)': {
-                            flexDirection: 'column',
-                        },
-                    }}
+                    <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '1.5rem' }}>
+                        {lang === 'en' ? 'Contact Us' : 'Contáctenos'}
+                    </Typography>
+
+                </Grid>
+                <Grid
+                    size={{ xs: 12, sm: 6 }}
+
                 >
-                    <Box
-                        sx={{
-                            '@media (max-width:1024px)': {
-                                width: '100%',
-                                alignItems: 'baseline',
-                            },
-                        }}
+                    <Box>
+                        <TextField
+                            label={lang === 'en' ? "Name" : 'Nombre'}
+                            fullWidth
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            sx={{marginBottom:'1.5rem'}}
+                        />
+                        <TextField
+                            label="Email"
+                            fullWidth
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            sx={{marginBottom:'1.5rem'}}
+
+                        />
+                        <TextField
+                            label={lang === 'en' ? "Message" : 'Mensaje'}
+
+                            fullWidth
+                            multiline
+                            rows={4}
+                            onChange={(e) => setMessage(e.target.value)}
+                            value={message}
+                            sx={{marginBottom:'1.5rem'}}
+
+                        />
+
+                    </Box>
+                    <Button 
+                        variant="contained"
+                    
                     >
                         <Typography
                             sx={{
+                                color: 'white',
                                 fontWeight: 'bold',
-                                fontSize: '1.5rem',
-                                marginBottom: '0.85rem',
                                 '@media (max-width:600px)': {
-                                    marginTop: '0.85rem',
+                                    fontSize: '0.85rem',
                                 },
                             }}
-                        >
-                            Horarios
+                        >                           
+                        {lang === 'en' ? 'Send message' : 'Enviar mensaje'}
                         </Typography>
-                        {Horarios.map((horario, index) => {
-                            return (
-                                <Box key={horario.id}>
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        <Typography>{horario.dia}</Typography>
-                                        <Box
-                                            sx={{
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignItems: 'flex-end',
-                                                flex: 1,
-                                            }}
-                                        >
-                                            {horario.Horario.map((franja) => {
-                                                return (
-                                                    <Typography key={franja}>
-                                                        {franja}
-                                                    </Typography>
-                                                )
-                                            })}
-                                        </Box>
-                                    </Box>
-                                    {index !== Horarios.length - 1 && (
-                                        <Divider
-                                            sx={{ margin: '0.45rem' }}
-                                            orientation="horizontal"
-                                            variant="middle"
-                                            flexItem
-                                        />
-                                    )}
-                                </Box>
-                            )
-                        })}
+                    </Button>
+
+                </Grid>
+
+                <Grid
+                    size={{ xs: 12, sm: 6 }}
+
+
+                >
+                    <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
+                        {lang === 'en' ? 'Contact Information' : 'Información de Contacto'}
+
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1,  marginBottom:'0.5rem'}}>
+                        <Typography fontWeight="bold">Email:</Typography>
+                        <Typography color='primary.main'>info@besttoursinkyoto.com</Typography>
                     </Box>
-                    <Box
-                        sx={{
-                            marginLeft: '2rem',
-                            '@media (max-width:1024px)': {
-                                marginLeft: '0',
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 
-                                width: '100%',
-                                alignItems: 'baseline',
-                            },
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: '1.5rem',
-                                marginBottom: '0.85rem',
-                                '@media (max-width:600px)': {
-                                    marginTop: '0.85rem',
-                                },
-                            }}
-                        >
-                            Contactos
-                        </Typography>
-                        <Typography
-                            sx={{
-                                marginBottom: '0.85rem',
-                            }}
-                        >
-                            011 - 4775-6044
-                        </Typography>
-                        <Typography
-                            sx={{
-                                marginBottom: '0.85rem',
-                            }}
-                        >
-                            arservicepalermo@hotmail.com
-                        </Typography>
-                        <Typography
-                            sx={{
-                                marginBottom: '0.85rem',
-                            }}
-                        >
-                            Paraguay 5101, CABA, Buenos Aires
-                        </Typography>
+                    <Typography fontWeight="bold">{lang === 'en' ? 'Phone' : 'Teléfono'}</Typography>
+                    <Typography color='primary.main'>+81 123-456-789</Typography>
+
                     </Box>
-                    <Box
-                        sx={{
-                            marginLeft: '2rem',
-                            '@media (max-width:1024px)': {
-                                marginLeft: '0',
 
-                                width: '100%',
-                                alignItems: 'baseline',
-                            },
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: '1.5rem',
-                                marginBottom: '0.85rem',
+                </Grid>
 
-                                '@media (max-width:600px)': {
-                                    marginTop: '0.85rem',
-                                },
-                            }}
-                        >
-                            Redes sociales
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            {Contacto.map((icono) => {
-                                const IconComponent = iconComponents[icono.icon]
-
-                                return (
-                                    <Box
-                                        key={icono.id}
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            marginBottom: '1rem',
-                                        }}
-                                    >
-                                        <a
-                                            style={{
-                                                display: 'flex',
-                                                color: iconColors[icono.icon],
-                                                textDecoration: 'none',
-                                            }}
-                                            href={icono.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {IconComponent && <IconComponent />}
-
-                                            {icono.text}
-                                        </a>
-                                    </Box>
-                                )
-                            })}
-                        </Box>
-                    </Box>
-                </Box>
-            </Box>
+            </Grid>
         </div>
     )
 }

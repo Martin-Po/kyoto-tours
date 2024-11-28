@@ -40,7 +40,7 @@ const Concepto = () => {
                         xs={12}
                         lg={6}
                         sx={{
-                            display: {lg: 'flex' },
+                            display: { lg: 'flex' },
 
                             flexDirection: 'row',
                             justifyContent: 'flex-start',
@@ -53,7 +53,7 @@ const Concepto = () => {
                             '@media (max-width:1024px)': {
                                 marginBottom: '20px',
 
-                    },
+                            },
                         }}
                     >
                         <img
@@ -97,7 +97,7 @@ const Concepto = () => {
                                 fontWeight: '300',
                                 fontSize: '1.15rem',
                                 '@media (max-width:600px)': {
-                                marginBottom: '70px',
+                                    marginBottom: '70px',
 
                                 },
                             }}
@@ -125,7 +125,7 @@ const Concepto = () => {
                             flexDirection: 'column',
                             alignItems: 'center',
                             marginBottom: '20px',
-                           
+
                         }}
                     >
                         <Typography
@@ -172,7 +172,7 @@ const Concepto = () => {
                             '@media (max-width:1024px)': {
                                 marginBottom: '20px',
 
-                    },
+                            },
                         }}
                     >
                         <img
@@ -201,37 +201,37 @@ const Concepto = () => {
                 >
                     <Link
                         to={`/nosotros`}
-                        >
-
-                    <Button
-                        sx={{
-                            marginTop: '1.5rem',
-                            paddingTop: '0.75rem',
-                            paddingBottom: '0.75rem',
-                            paddingLeft: '2rem',
-                            paddingRight: '2rem',
-                            borderRadius: '35px',
-                            fontSize: '1.125rem',
-                            backgroundColor: 'primary.main',
-                            '@media (max-width:600px)': {
-                                paddingLeft: '1rem',
-                                paddingRight: '1rem',
-                            },
-                        }}
-                        variant="contained"
                     >
-                        <Typography
+
+                        <Button
                             sx={{
-                                color: 'white',
-                                fontWeight: 'bold',
+                                marginTop: '1.5rem',
+                                paddingTop: '0.75rem',
+                                paddingBottom: '0.75rem',
+                                paddingLeft: '2rem',
+                                paddingRight: '2rem',
+                                borderRadius: '35px',
+                                fontSize: '1.125rem',
+                                backgroundColor: 'primary.main',
                                 '@media (max-width:600px)': {
-                                    fontSize: '0.85rem',
+                                    paddingLeft: '1rem',
+                                    paddingRight: '1rem',
                                 },
                             }}
+                            variant="contained"
                         >
-                            Conocé más sobre nosotros
-                        </Typography>
-                    </Button>
+                            <Typography
+                                sx={{
+                                    color: 'white',
+                                    fontWeight: 'bold',
+                                    '@media (max-width:600px)': {
+                                        fontSize: '0.85rem',
+                                    },
+                                }}
+                            >
+                                Conocé más sobre nosotros
+                            </Typography>
+                        </Button>
                     </Link>
 
                 </Grid>
