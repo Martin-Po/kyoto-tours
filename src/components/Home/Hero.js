@@ -23,8 +23,42 @@ const Hero = () => {
             }}
         >
             <Helmet>
-            <title>{lang === 'en' ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto': 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}</title>
-            <meta name='description' content={lang === 'en' ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.': 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'} />
+            {/* Page Title */}
+    <title>
+        {lang === 'en' 
+            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
+            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}
+    </title>
+
+    {/* Meta Description */}
+    <meta 
+        name="description" 
+        content={
+            lang === 'en' 
+                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
+                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+        } 
+    />
+
+    {/* Open Graph Tags */}
+    <meta property="og:title" 
+        content={
+            lang === 'en' 
+                ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
+                : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
+        } 
+    />
+    <meta property="og:description" 
+        content={
+            lang === 'en' 
+                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
+                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+        } 
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+    <meta property="og:type" content="website" />
+
+    
             </Helmet>
             <Grid
                 container
