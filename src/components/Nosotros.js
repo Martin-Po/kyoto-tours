@@ -79,7 +79,7 @@ const Nosotros = () => {
                     container>
 
                     <Grid
-                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'center' }}
+                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                         size={{ xs: 12, sm: 'auto' }}
                     >
                         <img
@@ -151,28 +151,27 @@ const Nosotros = () => {
                 }}
                 paddingX={{ xs: '1rem', md: '1.5rem' }}
             >
-                {AboutImages.map(image => 
-                    {
-                        return (
-            <Grid
-                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'center' }}
-                        size={{ xs: 12, sm: 4, md:3, }}
-                    >
-                        <img
-                            style={{
-                                borderRadius: '15px',
-                                width: '350px',
-                                maxWidth: '100%',
-                                aspectRatio: 1 / 1
-                            }}
-                            loading="lazy"
-                            src={image.url}
-                            alt="Testimonial"
-                        />
-                    </Grid>
+                {AboutImages.map(image => {
+                    return (
+                        <Grid
+                            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+                            size={{ xs: 12, sm: 4, md: 3, }}
+                        >
+                            <img
+                                style={{
+                                    borderRadius: '15px',
+                                    width: '350px',
+                                    maxWidth: '100%',
+                                    aspectRatio: 1 / 1
+                                }}
+                                loading="lazy"
+                                src={image.url}
+                                alt="Testimonial"
+                            />
+                        </Grid>
 
-                        )
-                    }
+                    )
+                }
                 )}
             </Grid>
 
