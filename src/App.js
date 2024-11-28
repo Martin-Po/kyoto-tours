@@ -80,9 +80,9 @@ function App() {
                 <Route path="/:langParam/tours" element={<Tours />} />                
                 <Route path="/:langParam?/*" element={<Home />} />
             </Routes>
-      </LangProvider>
 
             <Footer />
+      </LangProvider>
         </div>
     )
 }

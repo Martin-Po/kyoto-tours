@@ -1,51 +1,17 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Divider, Grid2 as Grid, Typography } from '@mui/material'
 import { RedSocial } from './Contactos'
 import { Link } from 'react-router-dom'
+import { Navegacion } from '../data'
+import { useLang } from './utils/LangProvider';
+import { Mail, Phone } from '@mui/icons-material';
 
 
 
-const Navegacion = [
-    {
-        id: 1,
-        text: 'Inicio',
-        link: '/inicio'
-    },
-    {
-        id: 2,
-        text: 'Tours',
-        link: '/tours'
-    },
-    {
-        id: 5,
-        text: 'Preguntas frecuentes',
-        link: '/faqs'
-    },
-    {
-        id: 3,
-        text: 'Contacto',
-        link: '/contacto'
-    },
-    {
-        id: 4,
-        text: 'Quienes somos',
-        link: '/nosotros'
-    },
-]
 
-const Contacto = [
-    {
-        id: 1,
-        url: 'https://www.facebook.com/arservicepalermo/?locale=es_LA',
-        icon: 'FacebookIcon'
-    },
-    {
-        id: 2,
-        url: 'https://www.instagram.com/arservicepalermo/?hl=es',
-        icon: 'InstagramIcon'
-    }
-]
+
 
 function Footer() {
+    const { lang } = useLang();
     return (
         <Box
             sx={{
@@ -60,10 +26,12 @@ function Footer() {
                     margin: '25px auto 0 auto',
                     width: '1280px',
                     display: 'flex',
-                    justifyContent: 'space-evenly',
+                    justifyContent: 'right',
                     alignItems: 'flex-start',
                     paddingLeft: '1.5rem',
                     paddingRight: '1.5rem',
+                    columnGap:'1.5rem',
+
 
                     '@media (max-width: 1300px)': {
                         width: '992px',
@@ -74,32 +42,21 @@ function Footer() {
                 }}
             >
                 <Grid
-                    item
-                    xs={12}
-                    sm={4}
+                size={12}                   
                     sx={{
-                        
-                        alignItems: 'center',
+                        display:'flex',                        
+                        justifyContent:'center',
+                        gap:'1rem',
+                        marginBottom:'1.5rem'
                     }}
                 >
-                    <Typography
-                        sx={{
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            '@media (max-width:600px)': {
-                                fontSize: '0.85rem',
-                            },
-                        }}
-                    >
-                        Navegacion
-                    </Typography>
 
-                    {Navegacion.map((nav) => {
+                    {Navegacion[lang].map((nav) => {
                         return (
                             <Link to={nav.link} key={nav.id}  style={{ display:'flex', width: 'fit-content', textDecoration: 'none', color:'inherit' }} className="menu-link">
                             <Typography
                                 sx={{
-                                    fontSize: '0.85rem',
+                                     color:'white'
                                 }}
                             >
                                 {nav.text}
@@ -109,80 +66,54 @@ function Footer() {
                     })}
                 </Grid>
                 <Grid
-                    item
-                    xs={12}
-                    sm={4}
-                    sx={{
-                        alignItems: 'center',
-                    }}
+                     size={12}                   
+                     sx={{
+                         display:'flex',     
+                         flexDirection:{xs:'column', sm:'row'},                   
+                         justifyContent:'center',
+                         alignItems:'center',
+                         gap:'1rem'
+                         
+                     }}
                 >
-                    <Typography
+                    
+                            <Typography
                         sx={{
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            '@media (max-width:600px)': {
-                                marginTop: '0.85rem',
-                            }
+                            display: 'flex',
+                                    color:'white',
+        
+                                }}
+                            >
+                               <Mail/> info@besttoursinkyoto.com
+                            </Typography>                    
+                    <Typography
+                        sx={{display:'flex',
+                            color:'white',
                         }}
                     >
-                        Contactos
-                    </Typography>
-                    <Typography
-                        sx={{
-                            fontSize: '0.85rem',
-                        }}
-                    >
-                        011 - 4775-6044
-                    </Typography>
-                    <Typography
-                        sx={{
-                            fontSize: '0.85rem',
-                        }}
-                    >
-                        arservicepalermo@hotmail.com
-                    </Typography>
-                    <Typography
-                        sx={{
-                            fontSize: '0.85rem',
-                        }}
-                    >
-                        Paraguay 5101, CABA, Buenos Aires
+                        <Phone/> +81 123-456-789
                     </Typography>
                 </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={4}
-                    sx={{
-                        alignItems: 'center',
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            '@media (max-width:600px)': {
-                                marginTop: '0.85rem',
-                            }
-                        }}
-                    >
-                        Redes sociales
-                    </Typography>
-                    <Box sx={{display:'flex', }}>
-
-                        {Contacto.map(icono => {return (
-                            <RedSocial contacto={icono} key={icono.id} />
-                        )} )}
-                    </Box>
-                </Grid>
+                
             </Grid>
-
             <Box
                 sx={{
+                    margin: '25px auto 0 auto',
+                    width: '1280px',
                     display: 'flex',
                     justifyContent: 'center',
-                    paddingTop: '1rem',
                     paddingBottom: '1rem',
+                    paddingTop:'1rem',
+                    borderTop:'1px solid',
+                    borderColor:'rgb(239 68 68)',
+
+
+                    '@media (max-width: 1300px)': {
+                        width: '992px',
+                    },
+                    '@media (max-width:1024px)': {
+                        width: '100%',
+                    },
                 }}
             >
                 <Typography
@@ -190,10 +121,12 @@ function Footer() {
                     fontSize="1rem"
                     fontWeight="500"
                     opacity="0.85"
+                    color='white'
                 >
                     Hecho por Martin Ponce
                 </Typography>
             </Box>
+
         </Box>
     )
 }
