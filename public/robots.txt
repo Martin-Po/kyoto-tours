@@ -1,3 +1,12 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow all robots to crawl everything
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /user/
+
+# Allow the important multilingual routes to be crawled
+Allow: /en/*
+Allow: /es/*
+
+# Sitemap location for both languages
+Sitemap: https://kyoto-tours.vercel.app/sitemap-en.xml
+Sitemap: https://kyoto-tours.vercel.app/sitemap-es.xml

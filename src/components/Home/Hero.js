@@ -57,6 +57,23 @@ const Hero = () => {
     />
     <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
     <meta property="og:type" content="website" />
+     {/* Twitter Card Tags */}
+     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" 
+        content={
+            lang === 'en' 
+                ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
+                : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
+        } 
+    />
+    <meta name="twitter:description" 
+        content={
+            lang === 'en' 
+                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
+                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+        } 
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/images/logo_light.webp" />
 
     
             </Helmet>
