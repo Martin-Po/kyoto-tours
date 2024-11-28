@@ -19,36 +19,60 @@ export const destinos = [
   },
 ];
 
-export const tours = [
-  {
-    name: "Kyoto Histórico",
-    precio:
-      "¥10,000 - ¥15,000",
-    Capacidad: "6",
-    image: "/images/destinos/placeholder.svg",
-  },
-  {
-    name: "Osaka Gastronómico",
-    precio:
-      "¥8,000 - ¥12,000",
-    Capacidad: "8",
-    image: "/images/destinos/placeholder.svg",
-  },
-  {
-    name: "Nara y sus Ciervos",
-    precio:
-      "¥9,000 - ¥13,000",
-    Capacidad: "4",
-    image: "/images/destinos/placeholder.svg",
-  },
-  {
-    name: "Kyoto de Noche",
-    precio:
-      "¥10,000 - ¥15,000",
-    Capacidad: "6",
-    image: "/images/destinos/placeholder.svg",
-  },
-];
+export const ToursData = {
+  es: [
+    {
+      name: "Kyoto Histórico",
+      precio: "¥10,000 - ¥15,000",
+      capacidad: "6",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Osaka Gastronómico",
+      precio: "¥8,000 - ¥12,000",
+      capacidad: "8",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Nara y sus Ciervos",
+      precio: "¥9,000 - ¥13,000",
+      capacidad: "4",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Kyoto de Noche",
+      precio: "¥10,000 - ¥15,000",
+      capacidad: "6",
+      image: "/images/tours/placeholder.svg",
+    },
+  ],
+  en: [
+    {
+      name: "Historic Kyoto",
+      precio: "¥10,000 - ¥15,000",
+      capacidad: "6",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Gastronomic Osaka",
+      precio: "¥8,000 - ¥12,000",
+      capacidad: "8",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Nara and its Deer",
+      precio: "¥9,000 - ¥13,000",
+      capacidad: "4",
+      image: "/images/tours/placeholder.svg",
+    },
+    {
+      name: "Kyoto by Night",
+      precio: "¥10,000 - ¥15,000",
+      capacidad: "6",
+      image: "/images/tours/placeholder.svg",
+    },
+  ]
+};
 
 export const FAQData = {
   es: [
@@ -106,18 +130,18 @@ export const FAQData = {
 };
 
 export const AboutImages = [
-  { id: 1, url: "/images/destinos/placeholder.svg" },
-  { id: 2, url: "/images/destinos/placeholder.svg" },
-  { id: 3, url: "/images/destinos/placeholder.svg" },
-  { id: 4, url: "/images/destinos/placeholder.svg" },
-  { id: 5, url: "/images/destinos/placeholder.svg" },
-  { id: 6, url: "/images/destinos/placeholder.svg" },
-  { id: 7, url: "/images/destinos/placeholder.svg" },
-  { id: 8, url: "/images/destinos/placeholder.svg" },
-  { id: 9, url: "/images/destinos/placeholder.svg" },
-  { id: 10, url: "/images/destinos/placeholder.svg" },
-  { id: 11, url: "/images/destinos/placeholder.svg" },
-  { id: 12, url: "/images/destinos/placeholder.svg" }
+  { id: 1, url: "/images/about/placeholder.svg" },
+  { id: 2, url: "/images/about/placeholder.svg" },
+  { id: 3, url: "/images/about/placeholder.svg" },
+  { id: 4, url: "/images/about/placeholder.svg" },
+  { id: 5, url: "/images/about/placeholder.svg" },
+  { id: 6, url: "/images/about/placeholder.svg" },
+  { id: 7, url: "/images/about/placeholder.svg" },
+  { id: 8, url: "/images/about/placeholder.svg" },
+  { id: 9, url: "/images/about/placeholder.svg" },
+  { id: 10, url: "/images/about/placeholder.svg" },
+  { id: 11, url: "/images/about/placeholder.svg" },
+  { id: 12, url: "/images/about/placeholder.svg" }
 ];
 
 export const Navegacion = 
