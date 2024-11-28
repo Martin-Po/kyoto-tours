@@ -74,6 +74,21 @@ export const ToursData = {
   ]
 };
 
+export const ToursImages = [
+  { id: 1, url: "/images/about/placeholder.svg" },
+  { id: 2, url: "/images/about/placeholder.svg" },
+  { id: 3, url: "/images/about/placeholder.svg" },
+  { id: 4, url: "/images/about/placeholder.svg" },
+  { id: 5, url: "/images/about/placeholder.svg" },
+  { id: 6, url: "/images/about/placeholder.svg" },
+  { id: 7, url: "/images/about/placeholder.svg" },
+  { id: 8, url: "/images/about/placeholder.svg" },
+  { id: 9, url: "/images/about/placeholder.svg" },
+  { id: 10, url: "/images/about/placeholder.svg" },
+  { id: 11, url: "/images/about/placeholder.svg" },
+  { id: 12, url: "/images/about/placeholder.svg" }
+];
+
 export const FAQData = {
   es: [
     {
