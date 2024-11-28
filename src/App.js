@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { CssBaseline } from '@mui/material';
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useParams } from 'react-router-dom'
 import Footer from './components/Footer';
 import { Contactenos } from './components/Contactenos';
 import { EncontranosMaps } from './components/EncontranosMaps';
@@ -11,6 +10,7 @@ import AppBar from './components/AppBar'
 import { Concepto } from './components/Home/Concepto';
 import { Destinos } from './components/Home/Destinos';
 import { LangProvider } from './components/utils/LangProvider';
+import { FAQs } from './components/FAQs';
 
 
 
@@ -40,6 +40,7 @@ function App() {
             </>
         )
     }
+    
 
     const ContactenosSite = () => {
         return (
@@ -49,6 +50,10 @@ function App() {
             </>
         )
     }
+
+    
+    
+    
 
     return (
         <div
@@ -63,13 +68,15 @@ function App() {
             <CssBaseline />
             <LangProvider>
             <AppBar />
+            
+            
 
             <Routes>
-                <Route path="/:langParam(en|es)?/*" element={<Home />} />
+                <Route path="/:langParam?/faqs" element={<FAQs />} />
+                <Route path="/:langParam?/*" element={<Home />} />
 
                 {/* <Route path="/:lang(en|es)?/tours" element={<Tours />} />
       
-      <Route path="/:lang(en|es)?/faqs" element={<FAQs />} />
       
       <Route path="/:lang(en|es)?/about" element={<About />} />
       

@@ -50,7 +50,7 @@ export const tours = [
   },
 ];
 
-export const FAQs = {
+export const FAQData = {
   es: [
     {
       question: "¿Cómo puedo reservar un tour?",
@@ -104,3 +104,62 @@ export const FAQs = {
     }
   ]
 };
+
+export const Navegacion = 
+ { es: [
+    {
+        id: 1,
+        text: 'Inicio',
+        link: '/home',
+    },
+    {
+        id: 2,
+        text: 'Tours',
+        link: '/tours',
+    },
+    {
+        id: 5,
+        text: 'Preguntas frecuentes',
+        link: '/faqs',
+    },
+    {
+        id: 3,
+        text: 'Contactenos',
+        link: '/contact',
+    },
+    {
+        id: 4,
+        text: 'Quienes somos',
+        link: '/about',
+    },
+
+  ],
+  en: [
+    {
+        id: 1,
+        text: 'Home',
+        link: '/home',
+    },
+    {
+        id: 2,
+        text: 'Tours',
+        link: '/tours',
+    },
+    {
+        id: 5,
+        text: 'FAQs',
+        link: '/faqs',
+    },
+    {
+        id: 3,
+        text: 'Contact',
+        link: '/contact',
+    },
+    {
+        id: 4,
+        text: 'About',
+        link: '/about',
+    },
+
+  ]
+}

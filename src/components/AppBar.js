@@ -13,39 +13,13 @@ import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Drawer,
 import { Link } from 'react-router-dom'
 import { AccountCircle } from '@mui/icons-material'
 import { useLang } from './utils/LangProvider'
+import { Navegacion} from '../data'
 
-const Navegacion = [
-    {
-        id: 1,
-        text: 'Inicio',
-        link: '/inicio',
-    },
-    {
-        id: 2,
-        text: 'Tours',
-        link: '/tours',
-    },
-    {
-        id: 5,
-        text: 'Preguntas frecuentes',
-        link: '/faqs',
-    },
-    {
-        id: 3,
-        text: 'Contactenos',
-        link: '/Contactenos',
-    },
-    {
-        id: 4,
-        text: 'Quienes somos',
-        link: '/nosotros',
-    },
-]
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null)
     const [anchorElLang, setAnchorElLang] = React.useState(null);
     const { lang, changeLanguage } = useLang();
+
 
     const handleLangMenu = (event) => {
         setAnchorElLang(event.currentTarget);
@@ -60,13 +34,6 @@ function ResponsiveAppBar() {
         setAnchorElLang(null);
     };
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget)
-    }
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
-    }
 
     const [state, setState] = React.useState(false);
 
@@ -119,7 +86,7 @@ function ResponsiveAppBar() {
                         >
                             <List>
 
-                                {Navegacion.map((page, index) => [
+                                {Navegacion[lang].map((page, index) => [
                                     <Link
                                         key={page.link}
                                         to={lang + page.link}
@@ -143,7 +110,7 @@ function ResponsiveAppBar() {
                                             </Typography>
                                         </ListItem>
                                     </Link>,
-                                    index !== Navegacion.length - 1 && (
+                                    index !== Navegacion[lang].length - 1 && (
                                         <Divider
                                             style={{ margin: '0px' }}
                                             orientation="horizontal"
@@ -211,7 +178,7 @@ function ResponsiveAppBar() {
                             marginRight: 'auto',
                         }}
                     >
-                        {Navegacion.map((page) => (
+                        {Navegacion[lang].map((page) => (
                             <React.Fragment key={page.id}>
                                 <Link
                                     to={lang + page.link}
@@ -224,7 +191,6 @@ function ResponsiveAppBar() {
                                     className="menu-link"
                                 >
                                     <Typography
-                                        onClick={handleCloseNavMenu}
                                         sx={{
                                             fontSize: '1.15rem',
                                             paddingLeft: '0.5rem',
@@ -235,7 +201,7 @@ function ResponsiveAppBar() {
                                     </Typography>
                                 </Link>
                                 {page.id !==
-                                    Navegacion[Navegacion.length - 1].id && (
+                                    Navegacion[lang][Navegacion[lang].length - 1].id && (
                                         <Divider
                                             sx={{ borderLeftWidth: 1 }}
                                             orientation="vertical"
