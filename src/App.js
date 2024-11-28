@@ -13,6 +13,7 @@ import { LangProvider } from './components/utils/LangProvider';
 import { FAQs } from './components/FAQs';
 import { Nosotros } from './components/Nosotros';
 import { Tours } from './components/Tours';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -58,7 +59,7 @@ function App() {
     
 
     return (
-        <div
+        <div        
             style={{
                 minHeight: '100vh',
                 position: 'relative',
@@ -66,7 +67,7 @@ function App() {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}
-        >
+        >           
             <CssBaseline />
             <LangProvider>
             <AppBar />

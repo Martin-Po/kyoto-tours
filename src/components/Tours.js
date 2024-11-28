@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, 
 import { useLang } from "./utils/LangProvider";
 import { ToursData, ToursImages } from "../data";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -26,6 +27,10 @@ const Tours = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
+             <Helmet>
+            <title>{lang === 'en' ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto': 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'}</title>
+            <meta name='description' content={lang === 'en' ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.': 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'} />
+            </Helmet>
             <Grid
                 container
                 margin="50px auto 40px auto"

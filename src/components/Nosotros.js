@@ -2,6 +2,7 @@ import { Grid2 as Grid, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
 import GuideImage from '../assets/placeholder.svg'
 import { AboutImages } from "../data";
+import { Helmet } from "react-helmet-async";
 
 
 const Nosotros = () => {
@@ -10,6 +11,14 @@ const Nosotros = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
+             <Helmet>
+            <title>{lang === 'en' 
+            ? 'About Us | Best Tours in Kyoto, Osaka & Nara - Best of Kyoto'
+            : 'Sobre Nosotros | Mejores Tours en Kyoto, Osaka y Nara - Best of Kyoto'}</title>
+            <meta name='description' content={lang === 'en' 
+                ? 'Learn about our passion for showcasing Japan’s culture, history, and beauty through personalized travel experiences.'
+                : 'Conoce nuestra pasión por mostrar la cultura, historia y belleza de Japón a través de experiencias de viaje personalizadas.'} />
+            </Helmet>
             <Grid
                 container
                 margin="50px auto 40px auto"

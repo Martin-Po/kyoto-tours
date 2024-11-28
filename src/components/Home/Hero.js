@@ -1,8 +1,12 @@
 import { Button, Grid2 as Grid, Typography } from '@mui/material'
 import Background from '../../assets/placeholder.svg'
 import { Link } from 'react-router-dom'
+import { useLang } from '../utils/LangProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Hero = () => {
+    const { lang } = useLang();
+
     return (
         <div
             style={{
@@ -18,6 +22,10 @@ const Hero = () => {
                 alignItems: 'center', // Center vertically
             }}
         >
+            <Helmet>
+            <title>{lang === 'en' ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto': 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}</title>
+            <meta name='description' content={lang === 'en' ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.': 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'} />
+            </Helmet>
             <Grid
                 container
                 direction="column"

@@ -1,6 +1,7 @@
 import { Box, Button, Divider, FormControl, Grid2 as Grid, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import { useLang } from "./utils/LangProvider";
+import { Helmet } from 'react-helmet-async';
 
 const Contactenos = () => {
     const [name, setName] = useState('')
@@ -12,6 +13,14 @@ const Contactenos = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
+               <Helmet>
+            <title>{lang === 'en' 
+            ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
+            : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'}</title>
+            <meta name='description' content={lang === 'en' 
+                ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
+                : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'} />
+            </Helmet>
             <Grid
                 container
                 margin="50px auto 40px auto"

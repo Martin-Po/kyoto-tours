@@ -1,6 +1,7 @@
 import { Box, Paper, Typography } from "@mui/material"
 import { FAQData } from "../data"
 import { useLang } from "./utils/LangProvider";
+import { Helmet } from "react-helmet-async";
 
 const FAQs = () => {
     const { lang } = useLang();
@@ -9,6 +10,14 @@ const FAQs = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
+               <Helmet>
+            <title>{lang === 'en' 
+            ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
+            : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'}</title>
+            <meta name='description' content={lang === 'en' 
+                ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
+                : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'} />
+            </Helmet>
             <Box sx={{
                 flexDirection: 'column',
                 margin: '50px auto 40px auto',
