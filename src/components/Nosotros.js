@@ -16,7 +16,7 @@ const Nosotros = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet>
+            <Helmet htmlAttributes={{lang: lang,}}  >
                 <link rel="alternate" href={enUrl} hreflang="en" />
                 <link rel="alternate" href={esUrl} hreflang="es" />
                 <link rel="alternate" href={baseUrl} hreflang="x-default" />

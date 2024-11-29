@@ -8,9 +8,9 @@ const Hero = () => {
     const { lang } = useLang();
 
     const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
-  const esUrl = `${baseUrl}/es/home`; // URL para la versión en español de la página home
-  const enUrl = `${baseUrl}/en/home`; // URL para la versión en inglés de la página home
-  const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
+    const esUrl = `${baseUrl}/es/home`; // URL para la versión en español de la página home
+    const enUrl = `${baseUrl}/en/home`; // URL para la versión en inglés de la página home
+    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
 
 
     return (
@@ -28,68 +28,68 @@ const Hero = () => {
                 alignItems: 'center', // Center vertically
             }}
         >
-            <Helmet>
+            <Helmet htmlAttributes={{lang: lang,}}  >
 
-            <link rel="alternate" href={enUrl} hreflang="en" />
-        <link rel="alternate" href={esUrl} hreflang="es" />
-        <link rel="alternate" href={baseUrl} hreflang="x-default" />
+                <link rel="alternate" href={enUrl} hreflang="en" />
+                <link rel="alternate" href={esUrl} hreflang="es" />
+                <link rel="alternate" href={baseUrl} hreflang="x-default" />
 
-          {/* Canonical tag */}
-          <link rel="canonical" href={canonicalUrl} />
-            {/* Page Title */}
-            
-    <title>
-        {lang === 'en' 
-            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
-            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}
-    </title>
+                {/* Canonical tag */}
+                <link rel="canonical" href={canonicalUrl} />
+                {/* Page Title */}
 
-    {/* Meta Description */}
-    <meta 
-        name="description" 
-        content={
-            lang === 'en' 
-                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
-                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
-        } 
-    />
+                <title>
+                    {lang === 'en'
+                        ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
+                        : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}
+                </title>
 
-    {/* Open Graph Tags */}
-    <meta property="og:title" 
-        content={
-            lang === 'en' 
-                ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
-                : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
-        } 
-    />
-    <meta property="og:description" 
-        content={
-            lang === 'en' 
-                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
-                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
-        } 
-    />
-    <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
-    <meta property="og:type" content="website" />
-     {/* Twitter Card Tags */}
-     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" 
-        content={
-            lang === 'en' 
-                ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto' 
-                : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
-        } 
-    />
-    <meta name="twitter:description" 
-        content={
-            lang === 'en' 
-                ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.' 
-                : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
-        } 
-    />
-    <meta name="twitter:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                {/* Meta Description */}
+                <meta
+                    name="description"
+                    content={
+                        lang === 'en'
+                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
+                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+                    }
+                />
 
-    
+                {/* Open Graph Tags */}
+                <meta property="og:title"
+                    content={
+                        lang === 'en'
+                            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
+                            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
+                    }
+                />
+                <meta property="og:description"
+                    content={
+                        lang === 'en'
+                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
+                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+                    }
+                />
+                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                <meta property="og:type" content="website" />
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title"
+                    content={
+                        lang === 'en'
+                            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
+                            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
+                    }
+                />
+                <meta name="twitter:description"
+                    content={
+                        lang === 'en'
+                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
+                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+                    }
+                />
+                <meta name="twitter:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+
+
             </Helmet>
             <Grid
                 container
@@ -160,39 +160,39 @@ const Hero = () => {
                         alignItems: 'center',
                     }}
                 >
-                     <Link
+                    <Link
                         to={`/tours`}>
-                    <Button
-                        sx={{
-                            marginTop: '1.5rem',
-                            paddingTop: '0.75rem',
-                            paddingBottom: '0.75rem',
-                            paddingLeft: '2rem',
-                            paddingRight: '2rem',
-                            borderRadius: '35px',
-                            fontSize: '1.75rem',
-                            backgroundColor: 'secondary.main',
-                            '@media (max-width:600px)': {
-                                paddingLeft: '1rem',
-                                paddingRight: '1rem',
-                            },
-                        }}
-                        variant="contained"
-                    >
-                        <Typography
+                        <Button
                             sx={{
-                                color: 'primary.main',
-                                fontWeight: 'bold',
+                                marginTop: '1.5rem',
+                                paddingTop: '0.75rem',
+                                paddingBottom: '0.75rem',
+                                paddingLeft: '2rem',
+                                paddingRight: '2rem',
+                                borderRadius: '35px',
+                                fontSize: '1.75rem',
+                                backgroundColor: 'secondary.main',
                                 '@media (max-width:600px)': {
-                                    fontSize: '0.85rem',
+                                    paddingLeft: '1rem',
+                                    paddingRight: '1rem',
                                 },
                             }}
+                            variant="contained"
                         >
-                            ver tours
-                        </Typography>
-                    </Button>
+                            <Typography
+                                sx={{
+                                    color: 'primary.main',
+                                    fontWeight: 'bold',
+                                    '@media (max-width:600px)': {
+                                        fontSize: '0.85rem',
+                                    },
+                                }}
+                            >
+                                ver tours
+                            </Typography>
+                        </Button>
 
-                        </Link>
+                    </Link>
                 </Grid>
             </Grid>
         </div>
