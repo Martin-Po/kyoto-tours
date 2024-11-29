@@ -4,11 +4,13 @@ import React from 'react';
 import { destinos } from '../../data';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { useLang } from '../utils/LangProvider';
 
 
 const Destinos = () => {
     const theme = useTheme();
     const route = process.env.PUBLIC_URL + '/assets/marcas/'
+    const { lang } = useLang();
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%', backgroundColor: theme.palette.secondary.main }} >
@@ -33,7 +35,10 @@ const Destinos = () => {
             >
                 <Grid size={{ xs: 12 }} display="flex" justifyContent="center">
                     <Typography variant="h3" textAlign="center" sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '2rem' }} >
-                        Descubre Kyoto, Osaka y Nara
+                    {lang === 'en' 
+                        ? 'Discover Kyoto, Osaka and Nara' 
+                        : 'Descubre Kyoto, Osaka y Nara'}
+                        
                     </Typography>
                 </Grid>
                 <Grid
@@ -82,7 +87,10 @@ const Destinos = () => {
                     <Link
                         to={`/tours`}>
                         <Button variant="contained" sx={{ marginTop: '1.5rem', borderRadius: '35px', fontWeight: 600, fontSize: '1.125rem', color: 'white', letterSpacing: '0.1rem' }}>
-                            Ver todos nuestros tours
+                        {lang === 'en' 
+                        ? 'Visit our tours' 
+                        : 'Ver todos nuestros tours'}
+                            
                         </Button>
                     </Link>
                 </Grid>

@@ -127,7 +127,10 @@ const Hero = () => {
                             },
                         }}
                     >
-                        Best Tours in Kyoto, Osaka and Nara
+                        {lang === 'en' 
+                        ? 'Best Tours in Kyoto, Osaka and Nara' 
+                        : 'Los mejores toures en Kyoto, Osaka y Nara'}
+                        
                     </Typography>
                 </Grid>
                 <Grid
@@ -148,7 +151,10 @@ const Hero = () => {
                             },
                         }}
                     >
-                        Experiencias únicas diseñadas por expertos locales
+                         {lang === 'en' 
+                        ? 'Unique experiencies designed by local experts' 
+                        : 'Experiencias únicas diseñadas por expertos locales'}
+                        
                     </Typography>
                 </Grid>
                 <Grid
@@ -188,7 +194,10 @@ const Hero = () => {
                                     },
                                 }}
                             >
-                                ver tours
+                                 {lang === 'en' 
+                        ? 'See our tours' 
+                        : 'ver tours'}
+                                
                             </Typography>
                         </Button>
 

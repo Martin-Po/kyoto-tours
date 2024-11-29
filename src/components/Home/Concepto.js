@@ -2,8 +2,11 @@ import { Box, Button, Grid, Typography } from '@mui/material'
 import BannerImage from '../../assets/placeholder.svg'
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useLang } from '../utils/LangProvider';
 
 const Concepto = () => {
+    const { lang } = useLang();
+
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
 
@@ -89,7 +92,10 @@ const Concepto = () => {
                                 '@media (max-width:600px)': { fontWeight: '600' },
                             }}
                         >
-                            Experiencia Local Auténtica
+                            {lang === 'en'
+                                ? 'Authentic local experience'
+                                : 'Experiencia Local Auténtica'}
+
                         </Typography>
                         <Typography
                             sx={{
@@ -102,7 +108,10 @@ const Concepto = () => {
                                 },
                             }}
                         >
-                            Nuestros tours están diseñados y guiados por expertos locales con años de experiencia, ofreciendo una perspectiva única y auténtica de Kyoto, Osaka y Nara.
+                            {lang === 'en'
+                                ? 'Our tours are designed and guided by local experts with years of experience, offering a unique and authentic perspective of Kyoto, Osaka, and Nara.'
+                                : 'Nuestros tours están diseñados y guiados por expertos locales con años de experiencia, ofreciendo una perspectiva única y auténtica de Kyoto, Osaka y Nara.'}
+
 
                         </Typography>
                     </Grid>
@@ -139,7 +148,10 @@ const Concepto = () => {
 
                             }}
                         >
-                            Tours Personalizados
+                            {lang === 'en'
+                                ? 'Customized tours'
+                                : 'Tours Personalizados'}
+
                         </Typography>
                         <Typography
                             sx={{
@@ -150,7 +162,10 @@ const Concepto = () => {
                                 },
                             }}
                         >
-                            Adaptamos cada tour a tus intereses y preferencias, asegurando una experiencia única y memorable en cada visita.
+                            {lang === 'en'
+                                ? 'We tailor each tour to your interests and preferences, ensuring a unique and memorable experience with every visit.'
+                                : 'Adaptamos cada tour a tus intereses y preferencias, asegurando una experiencia única y memorable en cada visita.'}
+
                         </Typography>
                     </Grid>
                     <Grid
@@ -229,7 +244,10 @@ const Concepto = () => {
                                     },
                                 }}
                             >
-                                Conocé más sobre nosotros
+                                {lang === 'en'
+                                    ? 'Conocé más sobre nosotros'
+                                    : 'Conocé más sobre nosotros'}
+
                             </Typography>
                         </Button>
                     </Link>
