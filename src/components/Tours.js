@@ -183,7 +183,7 @@ const Tours = () => {
                                         fullWidth
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
-                                        sx={{ marginBottom: '1.5rem', backgroundColor: 'white' }}
+                                        sx={{ backgroundColor: 'white' }}
 
                                     />
 
