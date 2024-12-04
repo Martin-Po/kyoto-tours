@@ -81,22 +81,7 @@ const Concepto = () => {
                             alignItems: 'center',
                             marginBottom: '20px',
                         }}
-                    >
-                        <Typography
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: '1.5rem',
-                                alignSelf: 'start',
-                                color: 'primary.main',
-                                lineHeight: '2rem',
-                                '@media (max-width:600px)': { fontWeight: '600' },
-                            }}
-                        >
-                            {lang === 'en'
-                                ? 'Authentic local experience'
-                                : 'Experiencia Local Auténtica'}
-
-                        </Typography>
+                    >                      
                         <Typography
                             sx={{
                                 marginTop: '1rem',
@@ -109,8 +94,8 @@ const Concepto = () => {
                             }}
                         >
                             {lang === 'en'
-                                ? 'Our tours are designed and guided by local experts with years of experience, offering a unique and authentic perspective of Kyoto, Osaka, and Nara.'
-                                : 'Nuestros tours están diseñados y guiados por expertos locales con años de experiencia, ofreciendo una perspectiva única y auténtica de Kyoto, Osaka y Nara.'}
+                                ? 'Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world.'
+                                : 'Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo.'}
 
 
                         </Typography>
@@ -137,23 +122,7 @@ const Concepto = () => {
 
                         }}
                     >
-                        <Typography
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: '1.5rem',
-                                alignSelf: 'start',
-                                color: 'primary.main',
-                                lineHeight: '2rem',
-                                '@media (max-width:600px)': { fontWeight: '600' },
-
-                            }}
-                        >
-                            {lang === 'en'
-                                ? 'Customized tours'
-                                : 'Tours Personalizados'}
-
-                        </Typography>
-                        <Typography
+                      <Typography
                             sx={{
                                 marginTop: '1rem',
                                 fontWeight: '300',
@@ -163,8 +132,8 @@ const Concepto = () => {
                             }}
                         >
                             {lang === 'en'
-                                ? 'We tailor each tour to your interests and preferences, ensuring a unique and memorable experience with every visit.'
-                                : 'Adaptamos cada tour a tus intereses y preferencias, asegurando una experiencia única y memorable en cada visita.'}
+                                ? 'You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding and/Or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit'
+                                : 'Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.'}
 
                         </Typography>
                     </Grid>
@@ -245,8 +214,8 @@ const Concepto = () => {
                                 }}
                             >
                                 {lang === 'en'
-                                    ? 'Conocé más sobre nosotros'
-                                    : 'Conocé más sobre nosotros'}
+                                    ? 'Please contact us, let’s know each other'
+                                    : 'Por favor, contáctanos, ¡conozcámonos!'}
 
                             </Typography>
                         </Button>

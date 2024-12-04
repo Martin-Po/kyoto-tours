@@ -50,7 +50,7 @@ const Hero = () => {
                     content={
                         lang === 'en'
                             ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
-                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
+                            : 'Unique experiences designed by local experts. From iconic landmarks to places where you will not see other travellers.'
                     }
                 />
 
@@ -69,7 +69,7 @@ const Hero = () => {
                             : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
                     }
                 />
-                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
+                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webpp" />
                 <meta property="og:type" content="website" />
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -152,8 +152,15 @@ const Hero = () => {
                         }}
                     >
                          {lang === 'en' 
-                        ? 'Unique experiencies designed by local experts' 
-                        : 'Experiencias únicas diseñadas por expertos locales'}
+                        ? <>
+                            <p>Unique experiences designed by local experts</p>
+                            <p>From iconic landmarks to places where you will not see other travellers</p>
+                            </>
+                        : <>
+                            <p>Experiencias únicas diseñadas por expertos locales</p>
+                            <p>Desde lugares icónicos hasta rincones donde no verás a otros viajeros</p>
+                          </> 
+                        }
                         
                     </Typography>
                 </Grid>

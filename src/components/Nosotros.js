@@ -86,17 +86,19 @@ const Nosotros = () => {
                     >
                         {lang === 'en' ? (
                             <>
-                                At Best Tours in Kyoto, Osaka, and Nara, we believe in offering unique and personalized travel experiences. Our mission is to showcase the beauty and culture of Japan through the eyes of a local, allowing our clients to fully immerse themselves in the rich history and traditions of these fascinating cities.
+                                We like to meet and communicate with people of all backgrounds and nationalities, either solo travellers, couples, families, groups of friends, young, aged, etc.
                                 <br />
+                                We will adapt to different kinds of motivations and points of views.
                                 <br />
-                                We strive to create genuine connections between our visitors and local communities, promoting responsible and sustainable tourism that benefits both travelers and residents.
+                                We value empathy and we  hope, as usually happens, to end the tour with a feeling of  friendship.
                             </>
                         ) : (
-                            <>
-                                En Best Tours in Kyoto, Osaka and Nara, creemos en ofrecer experiencias de viaje únicas y personalizadas. Nuestra misión es mostrar la belleza y la cultura de Japón a través de los ojos de un local, permitiendo a nuestros clientes sumergirse completamente en la rica historia y las tradiciones de estas fascinantes ciudades.
-                                <br />
-                                <br />
-                                Nos esforzamos por crear conexiones genuinas entre nuestros visitantes y las comunidades locales, promoviendo un turismo responsable y sostenible que beneficie tanto a los viajeros como a los residentes.
+                            <> 
+                                Nos gusta conocer y comunicarnos con personas de todos los orígenes y nacionalidades, ya sean viajeros solitarios, parejas, familias, grupos de amigos, jóvenes, mayores, etc.
+                                <br /> 
+                                Nos adaptaremos a diferentes tipos de motivaciones y puntos de vista.
+                                <br /> 
+                                Valoramos la empatía y esperamos, como suele suceder, terminar el tour con un sentimiento de amistad.
                             </>
                         )}
                     </Typography>
@@ -108,7 +110,7 @@ const Nosotros = () => {
                 >
 
                     <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                        {lang === 'en' ? 'Our Guide' : 'Nuestro Guía'}
+                        {lang === 'en' ? 'Hi there! Thanks very much for visiting this site 🙏 ' : '¡Hola! Muchas gracias por visitar este sitio. 🙏'}
                     </Typography>
                 </Grid>
                 <Grid
@@ -136,7 +138,7 @@ const Nosotros = () => {
                         size='grow'
                     >
                         <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                            {lang === 'en' ? 'Guide´s name' : 'Nombre del guia'}
+                            {'Alex (Alejandro Oberti)'}
                         </Typography>
 
                         <Typography
@@ -148,22 +150,34 @@ const Nosotros = () => {
                         >
                             {lang === 'en' ? (
                                 <>
-                                    With over 10 years of experience living and working in Japan, our lead guide is passionate about Japanese culture and an expert in the history and traditions of Kyoto, Osaka, and Nara. Their deep knowledge and love for these cities shine through in every tour they design and lead.
-                                    <br />
-                                    <br />
-                                    In addition to their expertise in tourism, our guide is an avid photographer and a local cuisine enthusiast, adding a unique dimension to our tours. This allows visitors to capture unforgettable moments and uncover the culinary secrets of the region.
+                                    I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
+                                    <br /> 
+                                    Since then I had many personal experiences in this country in different fields such as human relations, jobs in different sectors, trips, bizarre situations, etc, experiences that I always like to share, together with some knowledge about aspects of the culture that I studied for years, just for the sake of getting knowledge without thinking that I would do this activity later on. 
+                                    <br /> 
+                                    By the way, I appreciate a lot the human factor, and besides having a responsibility I enjoy a lot just meeting and being with new people. In other words; I love this job, I love the culture I show, and I love human communication in itself. 
+                                    <br /> 
+                                    Let’s meet and spend time together so I can show you the best of this city, the cultural capital of Japan
                                 </>
                             ) : (
-                                <>
-                                    Con más de 10 años de experiencia viviendo y trabajando en Japón, nuestro guía principal es un apasionado de la cultura japonesa y un experto en la historia y las tradiciones de Kyoto, Osaka y Nara. Su profundo conocimiento y amor por estas ciudades se reflejan en cada tour que diseña y conduce.
-                                    <br />
-                                    <br />
-                                    Además de su experiencia en turismo, nuestro guía es un ávido fotógrafo y un entusiasta de la gastronomía local, lo que añade una dimensión única a nuestros tours, permitiendo a los visitantes capturar momentos inolvidables y descubrir los secretos culinarios de la región.
+                                <>                                    
+                                ¡Hola! Soy Alex (Alejandro Oberti). Antes de establecerme en Japón, llevé una vida nómada durante muchos años, recorriendo varios países de Asia. Pasé la mayor parte de ese tiempo en la India, donde, además de otras actividades, tuve mis primeras experiencias como guía turístico. Fue allí donde conocí a mi esposa, y cuando nuestra relación se volvió más seria, decidimos establecernos y tener una vida más estable. Elegimos Japón, su país natal.
+                                <br /> 
+                                Desde entonces, he tenido muchas experiencias personales en este país en diferentes ámbitos: relaciones humanas, trabajos en diversos sectores, viajes, situaciones curiosas, entre otras. Estas vivencias siempre me gusta compartirlas, junto con conocimientos sobre aspectos de la cultura que estudié durante años, simplemente por el placer de aprender, sin imaginar que algún día me dedicaría a esta actividad.
+                                <br /> 
+                                Valoro enormemente el factor humano. Además de sentir la responsabilidad de mi trabajo, disfruto mucho conociendo y compartiendo tiempo con nuevas personas. En otras palabras, amo este trabajo, amo la cultura que muestro y amo la comunicación humana en sí misma.
+                                <br /> 
+                                ¡Conozcámonos y pasemos tiempo juntos! Déjame mostrarte lo mejor de esta ciudad, la capital cultural de Japón.
                                 </>
                             )}
                         </Typography>
 
                     </Grid>
+                        <Typography sx={{ fontWeight: '600', fontSize: '1.15rem', lineHeight: '2rem', marginBottom: '1rem' }}>
+                            {lang === 'en' 
+                                ?   'Other hosts here are freelance tour guides in who I put all my trust; for being so friendly, nice to spend time with, for having years of experience doing this activity and for their general experiences living here'
+                                :   "Otros guías aquí son guías turísticos independientes en quienes deposito toda mi confianza; por ser tan amables, por lo agradable que es pasar tiempo con ellos, por tener años de experiencia en esta actividad y por sus experiencias generales viviendo aquí."
+                            }
+                        </Typography>
                 </Grid>
             </Grid>
             <Grid

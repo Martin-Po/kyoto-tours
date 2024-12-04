@@ -1,8 +1,10 @@
-import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, InputLabel, ListItem, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
 import { ToursData, ToursImages } from "../data";
 import { useState } from "react";
 import { Helmet } from 'react-helmet';
+import { useTheme } from '@mui/material/styles';
+
 
 
 
@@ -13,6 +15,9 @@ const Tours = () => {
     const [message, setMessage] = useState('')
     const [selectedTour, setSelectedTour] = useState()
     const [date, setDate] = useState('');
+
+    const theme = useTheme();
+
 
 
     const { lang } = useLang();
@@ -33,7 +38,7 @@ const Tours = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet htmlAttributes={{lang: lang,}}  >
+            <Helmet htmlAttributes={{ lang: lang, }}  >
                 <link rel="alternate" href={enUrl} hreflang="en" />
                 <link rel="alternate" href={esUrl} hreflang="es" />
                 <link rel="alternate" href={baseUrl} hreflang="x-default" />
@@ -101,7 +106,7 @@ const Tours = () => {
                     >
                         {lang === 'en' ? (
                             <>
-                                We offer unique and personalized experiences in Kyoto, Osaka, and Nara. Each tour is designed to suit your interests and preferences, ensuring an unforgettable experience in Japan.
+                                There are itineraries for all the tours but they are flexible in the sense that new places to visit can be added and others removed in accordance to the requests of the travellers.
                             </>
                         ) : (
                             <>
@@ -121,43 +126,8 @@ const Tours = () => {
                     }}
                 >
                     {ToursData[lang].map((tour, index) => (
-                        <Grid
-                            key={index}
-                            size={{ xs: 12, sm: 6, md: 3, }}
-                            display="flex"
-                            justifyContent="center"
-                        >
-                            <Card
-                                sx={{
-                                }}
-                            >
-                                <CardMedia
-                                    component="img"
-                                    sx={{
-                                        maxWidth: '445px',
-                                        maxHeight: '445px', // Optional: Prevent overly tall images
-                                        aspectRatio: 1 / 1
-                                    }}
-                                    image={tour.image}
-                                    title={tour.name}
-                                />
-                                <CardContent sx={{ textAlign: 'left' }} >
-                                    <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600', fontSize: '1.25rem', lineHeight: '1.75rem' }}>
-                                        {tour.name}
-                                    </Typography>
-                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                        {lang === 'en' ? 'Price: ' : 'Precio: '}
-                                        {tour.precio}
-                                    </Typography>
-                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                        {lang === 'en' ? 'Capacity: ' : 'Capacidad: '}
-                                        {tour.capacidad}
-                                        {lang === 'en' ? ' people' : ' personas'}
+                        <TourCard tour={tour} key={index} />
 
-                                    </Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
                     ))}
 
                     <Grid
@@ -321,6 +291,119 @@ const Tours = () => {
 
         </div>
     )
+}
+
+const TourCard = ({ tour, index }) => {
+    const [selectedType, setSelectedType] = useState(tour.options[0].duration_type)
+
+
+    const theme = useTheme();
+    const { lang } = useLang();
+    return (
+        <Grid
+            key={index}
+            size={{ xs: 12, sm: 6, md: 3, }}
+            display="flex"
+            justifyContent="center"
+        >
+            <Card sx={{ position: 'relative' }}>
+                <Box
+                    sx={{
+                        position: 'absolute', // Ensure it's positioned relative to the card
+                        top: 0, // Anchor to the top of the card
+                        right: 0, // Anchor to the right of the card
+                        backgroundColor: 'primary.main',
+                        padding: '4px 8px', // Padding to ensure the box size fits the content
+                        color: 'white',
+                        fontSize: '0.75rem', // Adjust font size as needed
+                        whiteSpace: 'nowrap', // Prevents text wrapping
+                        fontWeight:600
+                    }}
+                >
+                    {tour.type}
+                </Box>
+
+                <CardMedia
+                    component="img"
+                    sx={{
+                        maxWidth: '445px',
+                        maxHeight: '445px',
+                        aspectRatio: 1 / 1
+                    }}
+                    image={tour.image}
+                    title={tour.name}
+                />
+                <CardContent sx={{ textAlign: 'left' }}>
+                    <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '600', fontSize: '1.25rem', lineHeight: '1.75rem' }}>
+                        {tour.name}
+                    </Typography>
+                    <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
+                        {lang === 'en' ? 'Location: ' : 'Ubicacion: '}
+                        {tour.location}
+                    </Typography>
+                    <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
+                        {lang === 'en' ? 'Meeting place: ' : 'Punto de encuentro: '}
+                        {tour.meeting_place}
+                    </Typography>
+                    <Grid container gap="0.5rem" marginBottom="1rem">
+                        {tour.options.map(option => {
+                            return (
+                                <Button
+                                    variant="contained"
+                                    size="small"
+                                    sx={{
+                                        backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.400',
+                                        '&:hover': {
+                                            backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.500',
+                                        },
+                                    }}
+                                    onClick={() => setSelectedType(option.duration_type)}
+                                >
+                                    <Typography sx={{ color: 'white', fontSize: '0.70rem' }}>
+                                        {option.duration_type}
+                                    </Typography>
+                                </Button>
+                            )
+                        })}
+                    </Grid>
+
+                    <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
+                        {lang === 'en' ? 'Duration: ' : 'Duración: '}
+                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.duration}
+                    </Typography>
+
+                    <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
+                        {lang === 'en' ? 'Price: ' : 'Precio: '}
+                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.price}
+                    </Typography>
+
+                    <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
+                        {lang === 'en' ? 'Capacity: Up to ' : 'Capacidad: Hasta '}
+                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.capacity}
+                        {lang === 'en' ? ' people' : ' personas'}
+                    </Typography>
+
+                    <Typography sx={{ fontWeight: '600' }}>
+                        {lang === 'en' ? 'Inclusions: ' : 'Incluye: '}
+                    </Typography>
+                    {tour.inclusions.map(inclusion => {
+                        return (
+                            <li style={{ color: theme.palette.text.secondary }}>{inclusion}</li>
+                        )
+                    })}
+                    <Typography sx={{ fontWeight: '600' }}>
+                        {lang === 'en' ? 'Exclusions: ' : 'No incluye: '}
+                    </Typography>
+                    {tour.exclusions.map(exclusion => {
+                        return (
+                            <li style={{ color: theme.palette.text.secondary }}>{exclusion}</li>
+                        )
+                    })}
+                </CardContent>
+            </Card>
+        </Grid>
+    )
+
 }
 
 export { Tours }
