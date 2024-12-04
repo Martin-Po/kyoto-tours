@@ -298,7 +298,7 @@ const TourCard = ({ tour, index }) => {
 
     const theme = useTheme();
     const { lang } = useLang();
-    
+
     useEffect(() => {
         // Reset `selectedType` to the first option's duration_type when `lang` changes
         setSelectedType(tour.options[0].duration_type);
@@ -318,7 +318,7 @@ const TourCard = ({ tour, index }) => {
                         position: 'absolute', // Ensure it's positioned relative to the card
                         top: 0, // Anchor to the top of the card
                         right: 0, // Anchor to the right of the card
-                        backgroundColor: tour.type === 'Private Tour' ? 'primary.main' : 'primary.selected',
+                        backgroundColor: (tour.type === 'Private Tour' || tour.type === 'Tour Privado') ? 'primary.main' : 'primary.selected',
                         padding: '4px 8px', // Padding to ensure the box size fits the content
                         color: 'white',
                         fontSize: '0.75rem', // Adjust font size as needed
