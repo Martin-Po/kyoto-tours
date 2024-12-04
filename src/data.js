@@ -1,23 +1,51 @@
-export const destinos = [
-  {
-    city: "Kyoto",
-    description:
-      "Let’s explore the cultural capital of Japan! Through the most iconic landmarks such as The Fushimi Inari, The Nijo castle or The Golden Pavilion to secret gems where no other travellers go and which names you might not heard before we will provide you information that you don’t get to find on internet.",
-    image: "/images/destinos/placeholder.svg",
-  },
-  {
-    city: "Osaka",
-    description:
-      "Let’s hung out together through the streets of this amazing city. We will be able to visit famous landmarks such as the Osaka castle, Shinsekai area, or Dotombori street but we will take care to show you hidden sites and talk about details that we know by living for years here",
-    image: "/images/destinos/placeholder.svg",
-  },
-  {
-    city: "Nara",
-    description:
-      "Perfect for a walk in a park, plenty of space and deers that we can touch and feed, and to visit the monumental Todai ji temple. Adding as well off the beaten path locations. In case you want we could also spend half of the day in Nara and the other half in Kyoto",
-    image: "/images/destinos/placeholder.svg",
-  },
-];
+export const destinos = {
+  es: [
+    {
+      id: 1,
+      city: "Kioto",
+      description:
+        "¡Exploremos la capital cultural de Japón! Desde los lugares más emblemáticos como el Fushimi Inari, el Castillo Nijo o el Pabellón Dorado, hasta gemas secretas donde no van otros viajeros y cuyos nombres quizás no hayas escuchado antes, te brindaremos información que no encontrarás en internet.",
+      image: "/images/destinos/placeholder.svg",
+    },
+    {
+      id: 2,
+      city: "Osaka",
+      description:
+        "¡Paseemos juntos por las calles de esta increíble ciudad! Visitaremos lugares emblemáticos como el Castillo de Osaka, el área de Shinsekai o la calle Dotombori, pero también nos ocuparemos de mostrarte lugares ocultos y hablar sobre detalles que conocemos por vivir aquí durante años.",
+      image: "/images/destinos/placeholder.svg",
+    },
+    {
+      id: 3,
+      city: "Nara",
+      description:
+        "Perfecto para un paseo por el parque, con mucho espacio y ciervos que podemos tocar y alimentar, además de visitar el monumental templo Todai-ji. También podemos incluir lugares fuera de lo común. Si lo prefieres, podemos pasar medio día en Nara y la otra mitad en Kioto.",
+      image: "/images/destinos/placeholder.svg",
+    },
+  ],
+  en: [
+    {
+      id: 1,
+      city: "Kyoto",
+      description:
+        "Let’s explore the cultural capital of Japan! Through the most iconic landmarks such as The Fushimi Inari, The Nijo Castle, or The Golden Pavilion to secret gems where no other travelers go and which names you might not have heard before, we will provide you with information that you don’t find on the internet.",
+      image: "/images/destinos/placeholder.svg",
+    },
+    {
+      id: 2,
+      city: "Osaka",
+      description:
+        "Let’s hang out together through the streets of this amazing city. We will be able to visit famous landmarks such as the Osaka Castle, Shinsekai area, or Dotombori Street but we will take care to show you hidden sites and talk about details that we know by living here for years.",
+      image: "/images/destinos/placeholder.svg",
+    },
+    {
+      id: 3,
+      city: "Nara",
+      description:
+        "Perfect for a walk in a park, plenty of space, and deers that we can touch and feed, and to visit the monumental Todai-ji temple. Adding as well off-the-beaten-path locations. In case you want, we could also spend half of the day in Nara and the other half in Kyoto.",
+      image: "/images/destinos/placeholder.svg",
+    },
+  ],
+};
 
 export const ToursData = {
   es: [
@@ -30,13 +58,13 @@ export const ToursData = {
       exclusions: ["Transporte", "Comidas", "Entradas"],
       options: [
         {
-          duration_type: "Tour de día completo",
+          duration_type: "Día completo",
           duration: "8 horas",
           price: "0",
           capacity: "7",
         },
         {
-          duration_type: "Tour de medio día",
+          duration_type: "Medio día",
           duration: "4 horas",
           price: "0",
           capacity: "7",
@@ -53,7 +81,7 @@ export const ToursData = {
       meeting_place: "Disney Store en la intersección de Shijo Kawaramachi",
       options: [
         {
-          duration_type: "Tour de medio día",
+          duration_type: "Medio día",
           duration: "3 horas",
           price: "15,000 JPY",
           capacity: "10",
@@ -74,13 +102,13 @@ export const ToursData = {
       meeting_place: "el lobby de tu hotel o cualquier otro lugar que prefieras",
       options: [
         {
-          duration_type: "Tour de día completo",
+          duration_type: "Día completo",
           duration: "8 horas",
           price: "Desde 34,000 JPY",
           capacity: "7",
         },
         {
-          duration_type: "Tour de medio día",
+          duration_type: "Medio día",
           duration: "4 horas",
           price: "Desde 17,000 JPY",
           capacity: "7",
@@ -101,13 +129,13 @@ export const ToursData = {
       meeting_place: "el lobby de tu hotel o cualquier otro lugar que prefieras",
       options: [
         {
-          duration_type: "Tour de día completo",
+          duration_type: "Día completo",
           duration: "8 horas",
           price: "34,000 JPY",
           capacity: "7",
         },
         {
-          duration_type: "Tour de medio día",
+          duration_type: "Medio día",
           duration: "4 horas",
           price: "17,000 JPY",
           capacity: "7",
@@ -133,13 +161,13 @@ export const ToursData = {
       options: [
         {
           duration_type: "Full day tour",
-          duration: "4 hours",
+          duration: "8 hours",
           price: "0",
           capacity: "7",
         },
         {
           duration_type: "Half day tour",
-          duration: "8 hours",
+          duration: "4 hours",
           price: "0",
           capacity: "7",
         },

@@ -49,7 +49,7 @@ const Destinos = () => {
                         height: { xs: 'auto', }, // Adjusts height based on screen size
                     }}
                 >
-                    {destinos.map((destino, index) => (
+                    {destinos[lang].map((destino, index) => (
                         <Grid
                             key={index}
                             size={{ xs: 12, sm: 4 }}

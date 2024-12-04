@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, InputLabel, ListItem, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
 import { ToursData, ToursImages } from "../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet';
 import { useTheme } from '@mui/material/styles';
 
@@ -296,9 +296,15 @@ const Tours = () => {
 const TourCard = ({ tour, index }) => {
     const [selectedType, setSelectedType] = useState(tour.options[0].duration_type)
 
-
     const theme = useTheme();
     const { lang } = useLang();
+    
+    useEffect(() => {
+        // Reset `selectedType` to the first option's duration_type when `lang` changes
+        setSelectedType(tour.options[0].duration_type);
+      }, [lang, tour.options]);
+
+
     return (
         <Grid
             key={index}
@@ -312,7 +318,7 @@ const TourCard = ({ tour, index }) => {
                         position: 'absolute', // Ensure it's positioned relative to the card
                         top: 0, // Anchor to the top of the card
                         right: 0, // Anchor to the right of the card
-                        backgroundColor: 'primary.main',
+                        backgroundColor: tour.type === 'Private Tour' ? 'primary.main' : 'primary.selected',
                         padding: '4px 8px', // Padding to ensure the box size fits the content
                         color: 'white',
                         fontSize: '0.75rem', // Adjust font size as needed

@@ -129,7 +129,7 @@ const Hero = () => {
                     >
                         {lang === 'en' 
                         ? 'Best Tours in Kyoto, Osaka and Nara' 
-                        : 'Los mejores toures en Kyoto, Osaka y Nara'}
+                        : 'Los mejores tours en Kyoto, Osaka y Nara'}
                         
                     </Typography>
                 </Grid>
