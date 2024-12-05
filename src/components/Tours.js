@@ -13,7 +13,10 @@ const Tours = () => {
     const [email, setEmail] = useState('')
     const [people, setPeople] = useState('')
     const [message, setMessage] = useState('')
-    const [selectedTour, setSelectedTour] = useState()
+    const [selectedTour, setSelectedTour] = useState([])
+    const [selectedPeople, setSelectedPeople] = useState()
+    const [priceOptions, setPriceOptions] = useState([])
+
     const [date, setDate] = useState('');
 
     const theme = useTheme();
@@ -26,14 +29,36 @@ const Tours = () => {
 
 
     const handleselectedTourChange = (event) => {
-        setSelectedTour(event.target.value)
+        setSelectedPeople('')
+        const selectedTourName = event.target.value; // Get the selected tour's id
+        const newSelectedTour = toursWithOptions.find(tour => tour.name === selectedTourName); // Find the full tour object using the id
+
+        setPriceOptions(newSelectedTour.price.map((price, index) => `${index + 1} - ${price}`))
+        setSelectedTour(newSelectedTour)
     }
+
+    const handleselectedPeopleChange = (event) => {
+
+
+        // Update state or perform actions as needed
+        setSelectedPeople(event.target.value);
+    };
 
     const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
     const esUrl = `${baseUrl}/es/tours`; // URL para la versión en español de la página home
     const enUrl = `${baseUrl}/en/tours`; // URL para la versión en inglés de la página home
     const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
 
+    const toursWithOptions = ToursData[lang].flatMap((tour, index) => {
+        // Start by getting the base ID (e.g., 1 for the first tour)
+
+        return tour.options.map(option => ({
+            name: `${tour.name} - ${option.duration_type}`,
+            price: option.price,
+        }));
+
+        // If no options, return just the base ID as a string
+    });
 
 
     return (
@@ -106,11 +131,27 @@ const Tours = () => {
                     >
                         {lang === 'en' ? (
                             <>
-                                There are itineraries for all the tours but they are flexible in the sense that new places to visit can be added and others removed in accordance to the requests of the travellers.
+                                From gardens and parks to monuments and landmarks, urban modern spaces to traditional quarters and hidden streets, main markets to not very visible shops…we try to offer as more variety as possible in our tours. Specially in Kyoto
+                                <br />
+                                There are itineraries for all the tours but they are flexible in the sense that new places to visit can be added and others removed in accordance to the requests of the travellers
+                                <br />
+                                We move usually in public transportation to feel a bit the vibes of the city and mainly for its remarkable efficiency, however in case you prefer taxi or private transportation we can cover that demand
+                                <br />
+                                Our Tours are mainly in English and Spanish but in case you prefer in other language make as know and maybe we could find a solution for that
+                                <br />
+                                Keep in mind that as you will have our contact and you can feel free to write or call  without charge after the tour in case you need any recommendation or assistance of any kind, we will take care of you😌
                             </>
                         ) : (
                             <>
-                                Ofrecemos experiencias únicas y personalizadas en Kyoto, Osaka y Nara. Cada tour está diseñado para adaptarse a tus intereses y preferencias, garantizando una experiencia inolvidable en Japón.
+                                Desde jardines y parques hasta monumentos y lugares emblemáticos, espacios urbanos modernos hasta barrios tradicionales y calles ocultas, mercados principales hasta tiendas poco visibles… tratamos de ofrecer la mayor variedad posible en nuestros tours. Especialmente en Kioto.
+                                <br />
+                                Hay itinerarios para todos los tours, pero son flexibles en el sentido de que se pueden agregar nuevos lugares para visitar y eliminar otros según las solicitudes de los viajeros.
+                                <br />
+                                Usualmente nos movemos en transporte público para sentir un poco las vibras de la ciudad y, principalmente, por su notable eficiencia. Sin embargo, en caso de que prefieras taxi o transporte privado, podemos cubrir esa demanda.
+                                <br />
+                                Nuestros tours son principalmente en inglés y español, pero si prefieres otro idioma, háznoslo saber y quizá podamos encontrar una solución para ello.
+                                <br />
+                                Ten en cuenta que tendrás nuestro contacto, por lo que puedes escribir o llamar sin cargo después del tour en caso de que necesites alguna recomendación o asistencia de cualquier tipo. Nos encargaremos de ti. 😌
                             </>
                         )}
                     </Typography>
@@ -166,29 +207,39 @@ const Tours = () => {
                                             sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
                                             labelId="Tour"
                                             id="Tour-select"
-                                            value={selectedTour}
+                                            value={selectedTour?.name || ""}
                                             onChange={handleselectedTourChange}
                                             label="Tour"
                                             fullWidth
                                         >
-                                            {ToursData[lang].map((tour) => (
-                                                <MenuItem value={tour} key={tour.id}>
-                                                    {tour.name}{' '}
+                                            {toursWithOptions.map((tour, index) => (
+                                                <MenuItem value={tour.name} key={index}>
+                                                    {tour.name} {/* Display the name */}
                                                 </MenuItem>
                                             ))}
                                         </Select>
                                     </FormControl>
-                                    <TextField
-                                        label="Number of people"
-                                        fullWidth
-                                        type="number"
-                                        onChange={(e) => setPeople(e.target.value)}
-                                        value={people}
-                                        sx={{ backgroundColor: 'white' }}
-                                        inputProps={{
-                                            min: 0, // Sets the minimum date to today
-                                        }}
-                                    />
+                                    <FormControl fullWidth>
+                                        <InputLabel id="People">Number of people</InputLabel>
+                                        <Select
+                                            sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
+                                            disabled={selectedTour.length === 0}
+                                            labelId="People"
+                                            id="People-select"
+                                            value={selectedPeople || ""}
+                                            onChange={handleselectedPeopleChange} label="People"
+                                            fullWidth
+
+                                        >
+                                            {priceOptions.map((price, index) => (
+                                                <MenuItem value={price} key={index}>
+                                                    {price}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+
+
                                     <TextField
 
                                         sx={{ backgroundColor: 'white', }}
@@ -246,8 +297,9 @@ const Tours = () => {
             <Grid
                 container
                 margin="50px auto 40px auto"
-                columnSpacing={'1rem'}
-                rowSpacing={'1rem'}
+                columnSpacing={{ xs: '0.15rem', sm: '1rem' }}
+                rowSpacing={{ xs: '0.15rem', sm: '1rem' }}
+
 
                 display="flex"
                 justifyContent="space-evenly"
@@ -261,22 +313,40 @@ const Tours = () => {
                     '@media (max-width:1299px)': {
                         width: '100%', // Full width for screens 1299px or smaller
                     },
+
                 }}
                 paddingX={{ xs: '1rem', md: '1.5rem' }}
             >
                 {ToursImages.map(image => {
                     return (
                         <Grid
-                            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-                            size={{ xs: 12, sm: 4, md: 3, }}
+                            key={image.id}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                            size={{ xs: 4, md: 3, }}
                         >
+                            <style>
+                                {`
+                    .responsive-img {
+                        border-radius: 15px;
+                        width: 350px;
+                        max-width: 100%;
+                        aspect-ratio: 1 / 1;
+                    }
+
+                    @media (max-width: 768px) {
+                        .responsive-img {
+                            border-radius: 0;
+                        }
+                    }
+                `}
+                            </style>
                             <img
-                                style={{
-                                    borderRadius: '15px',
-                                    width: '350px',
-                                    maxWidth: '100%',
-                                    aspectRatio: 1 / 1
-                                }}
+                                className="responsive-img"
                                 loading="lazy"
                                 src={image.url}
                                 alt="Testimonial"
@@ -302,7 +372,7 @@ const TourCard = ({ tour, index }) => {
     useEffect(() => {
         // Reset `selectedType` to the first option's duration_type when `lang` changes
         setSelectedType(tour.options[0].duration_type);
-      }, [lang, tour.options]);
+    }, [lang, tour.options]);
 
 
     return (
@@ -313,21 +383,23 @@ const TourCard = ({ tour, index }) => {
             justifyContent="center"
         >
             <Card sx={{ position: 'relative' }}>
-                <Box
-                    sx={{
-                        position: 'absolute', // Ensure it's positioned relative to the card
-                        top: 0, // Anchor to the top of the card
-                        right: 0, // Anchor to the right of the card
-                        backgroundColor: (tour.type === 'Private Tour' || tour.type === 'Tour Privado') ? 'primary.main' : 'primary.selected',
-                        padding: '4px 8px', // Padding to ensure the box size fits the content
-                        color: 'white',
-                        fontSize: '0.75rem', // Adjust font size as needed
-                        whiteSpace: 'nowrap', // Prevents text wrapping
-                        fontWeight:600
-                    }}
-                >
-                    {tour.type}
-                </Box>
+                {(tour.type === 'Private Tour' || tour.type === 'Tour Privado') &&
+                    <Box
+                        sx={{
+                            position: 'absolute', // Ensure it's positioned relative to the card
+                            top: 0, // Anchor to the top of the card
+                            right: 0, // Anchor to the right of the card
+                            backgroundColor: 'primary.main',
+                            padding: '4px 8px', // Padding to ensure the box size fits the content
+                            color: 'white',
+                            fontSize: '0.75rem', // Adjust font size as needed
+                            whiteSpace: 'nowrap', // Prevents text wrapping
+                            fontWeight: 600
+                        }}
+                    >
+                        {tour.type}
+                    </Box>
+                }
 
                 <CardMedia
                     component="img"
@@ -352,9 +424,10 @@ const TourCard = ({ tour, index }) => {
                         {tour.meeting_place}
                     </Typography>
                     <Grid container gap="0.5rem" marginBottom="1rem">
-                        {tour.options.map(option => {
+                        {tour.options.map((option, index) => {
                             return (
                                 <Button
+                                    key={index}
                                     variant="contained"
                                     size="small"
                                     sx={{
@@ -380,7 +453,7 @@ const TourCard = ({ tour, index }) => {
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
                         {lang === 'en' ? 'Price: ' : 'Precio: '}
-                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.price}
+                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.price[0]}
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
@@ -392,17 +465,17 @@ const TourCard = ({ tour, index }) => {
                     <Typography sx={{ fontWeight: '600' }}>
                         {lang === 'en' ? 'Inclusions: ' : 'Incluye: '}
                     </Typography>
-                    {tour.inclusions.map(inclusion => {
+                    {tour.inclusions.map((inclusion, index) => {
                         return (
-                            <li style={{ color: theme.palette.text.secondary }}>{inclusion}</li>
+                            <li key={index} style={{ color: theme.palette.text.secondary }}>{inclusion}</li>
                         )
                     })}
                     <Typography sx={{ fontWeight: '600' }}>
                         {lang === 'en' ? 'Exclusions: ' : 'No incluye: '}
                     </Typography>
-                    {tour.exclusions.map(exclusion => {
+                    {tour.exclusions.map((exclusion, index) => {
                         return (
-                            <li style={{ color: theme.palette.text.secondary }}>{exclusion}</li>
+                            <li key={index} style={{ color: theme.palette.text.secondary }}>{exclusion}</li>
                         )
                     })}
                 </CardContent>

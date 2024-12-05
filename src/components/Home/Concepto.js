@@ -81,23 +81,22 @@ const Concepto = () => {
                             alignItems: 'center',
                             marginBottom: '20px',
                         }}
-                    >                      
+                    >
                         <Typography
                             sx={{
-                                marginTop: '1rem',
-                                fontWeight: '300',
-                                fontSize: '1.15rem',
-                                '@media (max-width:600px)': {
-                                    marginBottom: '70px',
-
+                                marginTop: "1rem",
+                                fontWeight: "300",
+                                fontSize: "1.15rem",
+                                textAlign: "center",
+                                color: 'black',
+                                "@media (max-width:600px)": {
+                                    marginBottom: "70px",
                                 },
                             }}
                         >
-                            {lang === 'en'
-                                ? 'Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world.'
-                                : 'Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo.'}
-
-
+                            {lang === "en"
+                                ? "Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world."
+                                : "Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo."}
                         </Typography>
                     </Grid>
                 </Box>
@@ -122,7 +121,7 @@ const Concepto = () => {
 
                         }}
                     >
-                      <Typography
+                        <Typography
                             sx={{
                                 marginTop: '1rem',
                                 fontWeight: '300',
@@ -133,7 +132,12 @@ const Concepto = () => {
                         >
                             {lang === 'en'
                                 ? 'You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding and/Or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit'
-                                : 'Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.'}
+                                : <>
+                                    Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.
+                                    <br />
+                                    Please contact us, let’s know each other
+                                </>
+                            }
 
                         </Typography>
                     </Grid>
@@ -214,8 +218,8 @@ const Concepto = () => {
                                 }}
                             >
                                 {lang === 'en'
-                                    ? 'Please contact us, let’s know each other'
-                                    : 'Por favor, contáctanos, ¡conozcámonos!'}
+                                    ? 'Get to know more about us'
+                                    : 'Conocé más sobre nosotros'}
 
                             </Typography>
                         </Button>

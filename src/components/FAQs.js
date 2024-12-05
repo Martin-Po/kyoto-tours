@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 
 const FAQs = () => {
     const { lang } = useLang();
-    console.log('en el faq');
     const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
     const esUrl = `${baseUrl}/es/faqs`; // URL para la versión en español de la página home
     const enUrl = `${baseUrl}/en/faqs`; // URL para la versión en inglés de la página home
@@ -78,9 +77,11 @@ const FAQs = () => {
                     {lang === 'en' ? 'FAQs' : 'Preguntas Frecuentes'}
                 </Typography>
 
-                {FAQData[lang].map(faq => {
+                {FAQData[lang].map((faq, index) => {
                     return (
-                        <Paper sx={{
+                        <Paper 
+                        key={index}
+                        sx={{
                             width: '100%',
                             maxWidth: '720px',
                             backgroundColor: 'secondary.light',

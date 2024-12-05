@@ -150,23 +150,27 @@ const Nosotros = () => {
                         >
                             {lang === 'en' ? (
                                 <>
-                                    I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
+                                    Hi there! I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
                                     <br /> 
-                                    Since then I had many personal experiences in this country in different fields such as human relations, jobs in different sectors, trips, bizarre situations, etc, experiences that I always like to share, together with some knowledge about aspects of the culture that I studied for years, just for the sake of getting knowledge without thinking that I would do this activity later on. 
+                                    Since then I had many personal experiences in this country in different fields such as human relations, jobs in different sectors, trips, bizarre situations, etc, experiences that I always like to share, together with some knowledge about aspects of the culture that I studied for years, just for the sake of getting knowledge without thinking I would become a tour guide in the future.
+                                    <br /> 
+                                    At the moment I still working as such for different agencies but I’m also on this project by myself
                                     <br /> 
                                     By the way, I appreciate a lot the human factor, and besides having a responsibility I enjoy a lot just meeting and being with new people. In other words; I love this job, I love the culture I show, and I love human communication in itself. 
                                     <br /> 
-                                    Let’s meet and spend time together so I can show you the best of this city, the cultural capital of Japan
+                                    Let’s meet and spend time together in the city of Kyoto where I reside and in its nearby cities full of curiosities where I go very often                                   
                                 </>
                             ) : (
                                 <>                                    
-                                ¡Hola! Soy Alex (Alejandro Oberti). Antes de establecerme en Japón, llevé una vida nómada durante muchos años, recorriendo varios países de Asia. Pasé la mayor parte de ese tiempo en la India, donde, además de otras actividades, tuve mis primeras experiencias como guía turístico. Fue allí donde conocí a mi esposa, y cuando nuestra relación se volvió más seria, decidimos establecernos y tener una vida más estable. Elegimos Japón, su país natal.
-                                <br /> 
-                                Desde entonces, he tenido muchas experiencias personales en este país en diferentes ámbitos: relaciones humanas, trabajos en diversos sectores, viajes, situaciones curiosas, entre otras. Estas vivencias siempre me gusta compartirlas, junto con conocimientos sobre aspectos de la cultura que estudié durante años, simplemente por el placer de aprender, sin imaginar que algún día me dedicaría a esta actividad.
-                                <br /> 
-                                Valoro enormemente el factor humano. Además de sentir la responsabilidad de mi trabajo, disfruto mucho conociendo y compartiendo tiempo con nuevas personas. En otras palabras, amo este trabajo, amo la cultura que muestro y amo la comunicación humana en sí misma.
-                                <br /> 
-                                ¡Conozcámonos y pasemos tiempo juntos! Déjame mostrarte lo mejor de esta ciudad, la capital cultural de Japón.
+                                    ¡Hola! Soy Alex (Alejandro Oberti). Antes de terminar en Japón, hace muchos años, llevé una vida nómada por varios países de Asia durante mucho tiempo. Pasé la mayor parte de ese tiempo en India, donde, entre otras actividades, tuve mis primeras experiencias como guía turístico. Allí también conocí a mi esposa, y cuando nuestra relación se volvió más seria, decidimos establecernos y llevar una vida más estable. Elegimos Japón, de donde ella es originaria.
+                                    <br />
+                                    Desde entonces, he tenido muchas experiencias personales en este país en diferentes ámbitos, como relaciones humanas, trabajos en distintos sectores, viajes, situaciones curiosas, etc. Son experiencias que siempre me gusta compartir, junto con algunos conocimientos sobre aspectos de la cultura que estudié durante años, solo por el placer de aprender, sin pensar que en el futuro me convertiría en guía turístico.
+                                    <br />
+                                    Actualmente sigo trabajando como guía para diferentes agencias, pero también estoy desarrollando este proyecto por mi cuenta.
+                                    <br />
+                                    Por cierto, valoro mucho el factor humano, y además de la responsabilidad que implica, disfruto mucho conocer y estar con nuevas personas. En otras palabras: amo este trabajo, amo la cultura que muestro y amo la comunicación humana en sí misma.
+                                    <br />
+                                    ¡Conozcámonos y pasemos tiempo juntos en la ciudad de Kioto, donde resido, y en las ciudades cercanas llenas de curiosidades a las que voy con mucha frecuencia!
                                 </>
                             )}
                         </Typography>
@@ -204,6 +208,7 @@ const Nosotros = () => {
                 {AboutImages.map(image => {
                     return (
                         <Grid
+                            key={image.id}
                             sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                             size={{ xs: 12, sm: 4, md: 3, }}
                         >

@@ -53,7 +53,7 @@ function Footer() {
 
                     {Navegacion[lang].map((nav) => {
                         return (
-                            <Link to={nav.link} key={nav.id}  style={{ display:'flex', width: 'fit-content', textDecoration: 'none', color:'inherit' }} className="menu-link">
+                            <Link to={lang + nav.link} key={nav.id}  style={{ display:'flex', width: 'fit-content', textDecoration: 'none', color:'inherit' }} className="menu-link">
                             <Typography
                                 sx={{
                                      color:'white'
