@@ -3,6 +3,7 @@ import { useLang } from "./utils/LangProvider";
 import GuideImage from '../assets/placeholder.svg'
 import { AboutImages } from "../data";
 import { Helmet } from 'react-helmet';
+import { Gallery } from "./utils/Gallery";
 
 
 const Nosotros = () => {
@@ -184,52 +185,9 @@ const Nosotros = () => {
                         </Typography>
                 </Grid>
             </Grid>
-            <Grid
-                container
-                margin="50px auto 40px auto"
-                columnSpacing={'1rem'}
-                rowSpacing={'1rem'}
-
-                display="flex"
-                justifyContent="space-evenly"
-                alignItems='flex-start'
-                sx={{
-                    width: '100%', // Default width for smaller screens
-                    maxWidth: '1400px', // Limits the maximum width to 1400px
-                    '@media (max-width:1399px)': {
-                        width: '1280px', // Sets width to 1280px when screen size is between 1300px and 1399px
-                    },
-                    '@media (max-width:1299px)': {
-                        width: '100%', // Full width for screens 1299px or smaller
-                    },
-                }}
-                paddingX={{ xs: '1rem', md: '1.5rem' }}
-            >
-                {AboutImages.map(image => {
-                    return (
-                        <Grid
-                            key={image.id}
-                            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-                            size={{ xs: 12, sm: 4, md: 3, }}
-                        >
-                            <img
-                                style={{
-                                    borderRadius: '15px',
-                                    width: '350px',
-                                    maxWidth: '100%',
-                                    aspectRatio: 1 / 1
-                                }}
-                                loading="lazy"
-                                src={image.url}
-                                alt="Testimonial"
-                            />
-                        </Grid>
-
-                    )
-                }
-                )}
-            </Grid>
-
+            
+            <Gallery images = {AboutImages}/>
+            
         </div>)
 }
 

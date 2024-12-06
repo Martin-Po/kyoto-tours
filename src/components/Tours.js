@@ -4,6 +4,7 @@ import { ToursData, ToursImages } from "../data";
 import { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet';
 import { useTheme } from '@mui/material/styles';
+import { Gallery } from "./utils/Gallery";
 
 
 
@@ -294,69 +295,10 @@ const Tours = () => {
                 </Grid>
 
             </Grid>
-            <Grid
-                container
-                margin="50px auto 40px auto"
-                columnSpacing={{ xs: '0.15rem', sm: '1rem' }}
-                rowSpacing={{ xs: '0.15rem', sm: '1rem' }}
-
-
-                display="flex"
-                justifyContent="space-evenly"
-                alignItems='flex-start'
-                sx={{
-                    width: '100%', // Default width for smaller screens
-                    maxWidth: '1400px', // Limits the maximum width to 1400px
-                    '@media (max-width:1399px)': {
-                        width: '1280px', // Sets width to 1280px when screen size is between 1300px and 1399px
-                    },
-                    '@media (max-width:1299px)': {
-                        width: '100%', // Full width for screens 1299px or smaller
-                    },
-
-                }}
-                paddingX={{ xs: '1rem', md: '1.5rem' }}
-            >
-                {ToursImages.map(image => {
-                    return (
-                        <Grid
-                            key={image.id}
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                            size={{ xs: 4, md: 3, }}
-                        >
-                            <style>
-                                {`
-                    .responsive-img {
-                        border-radius: 15px;
-                        width: 350px;
-                        max-width: 100%;
-                        aspect-ratio: 1 / 1;
-                    }
-
-                    @media (max-width: 768px) {
-                        .responsive-img {
-                            border-radius: 0;
-                        }
-                    }
-                `}
-                            </style>
-                            <img
-                                className="responsive-img"
-                                loading="lazy"
-                                src={image.url}
-                                alt="Testimonial"
-                            />
-                        </Grid>
-
-                    )
-                }
-                )}
-            </Grid>
+            <Gallery images = {ToursImages}/>
+            {console.log(ToursImages)
+            }
+            
 
 
         </div>
