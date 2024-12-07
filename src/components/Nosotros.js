@@ -17,7 +17,7 @@ const Nosotros = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet htmlAttributes={{lang: lang,}}  >
+            <Helmet htmlAttributes={{ lang: lang, }}  >
                 <link rel="alternate" href={enUrl} hreflang="en" />
                 <link rel="alternate" href={esUrl} hreflang="es" />
                 <link rel="alternate" href={baseUrl} hreflang="x-default" />
@@ -94,18 +94,18 @@ const Nosotros = () => {
                                 We value empathy and we  hope, as usually happens, to end the tour with a feeling of  friendship.
                             </>
                         ) : (
-                            <> 
+                            <>
                                 Nos gusta conocer y comunicarnos con personas de todos los orígenes y nacionalidades, ya sean viajeros solitarios, parejas, familias, grupos de amigos, jóvenes, mayores, etc.
-                                <br /> 
+                                <br />
                                 Nos adaptaremos a diferentes tipos de motivaciones y puntos de vista.
-                                <br /> 
+                                <br />
                                 Valoramos la empatía y esperamos, como suele suceder, terminar el tour con un sentimiento de amistad.
                             </>
                         )}
                     </Typography>
 
                 </Grid>
-               
+
                 <Grid
                     container>
 
@@ -130,7 +130,7 @@ const Nosotros = () => {
                     <Grid
                         size='grow'
                     >
-                     
+
 
                         <Typography
                             sx={{
@@ -141,19 +141,27 @@ const Nosotros = () => {
                         >
                             {lang === 'en' ? (
                                 <>
-                                    I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
-                                    <br /> 
+                                    <span
+                                        style={{
+                                            fontWeight: '600',
+                                            fontSize: '1.3rem',
+                                            lineHeight: '2rem',
+                                        }}
+                                    >
+                                        My Name is Alex (Alejandro Oberti)
+                                    </span>{' '} Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from.
+                                    <br />
                                     Since then I had many personal experiences in this country in different fields such as human relations, jobs in different sectors, trips, bizarre situations, etc, experiences that I always like to share, together with some knowledge about aspects of the culture that I studied for years, just for the sake of getting knowledge without thinking I would become a tour guide in the future.
-                                    <br /> 
+                                    <br />
                                     At the moment I still working as such for different agencies but I’m also on this project by myself
-                                    <br /> 
-                                    By the way, I appreciate a lot the human factor, and besides having a responsibility I enjoy a lot just meeting and being with new people. In other words; I love this job, I love the culture I show, and I love human communication in itself. 
-                                    <br /> 
-                                    Let’s meet and spend time together in the city of Kyoto where I reside and in its nearby cities full of curiosities where I go very often                                   
+                                    <br />
+                                    By the way, I appreciate a lot the human factor, and besides having a responsibility I enjoy a lot just meeting and being with new people. In other words; I love this job, I love the culture I show, and I love human communication in itself.
+                                    <br />
+                                    Let’s meet and spend time together in the city of Kyoto where I reside and in its nearby cities full of curiosities where I go very often
                                 </>
                             ) : (
-                                <>                                    
-                                    ¡Hola! Soy Alex (Alejandro Oberti). Antes de terminar en Japón, hace muchos años, llevé una vida nómada por varios países de Asia durante mucho tiempo. Pasé la mayor parte de ese tiempo en India, donde, entre otras actividades, tuve mis primeras experiencias como guía turístico. Allí también conocí a mi esposa, y cuando nuestra relación se volvió más seria, decidimos establecernos y llevar una vida más estable. Elegimos Japón, de donde ella es originaria.
+                                <>
+                                    Mi nombre es Alex (Alejandro Oberti). Antes de terminar en Japón, hace muchos años, llevé una vida nómada por varios países de Asia durante mucho tiempo. Pasé la mayor parte de ese tiempo en India, donde, entre otras actividades, tuve mis primeras experiencias como guía turístico. Allí también conocí a mi esposa, y cuando nuestra relación se volvió más seria, decidimos establecernos y llevar una vida más estable. Elegimos Japón, de donde ella es originaria.
                                     <br />
                                     Desde entonces, he tenido muchas experiencias personales en este país en diferentes ámbitos, como relaciones humanas, trabajos en distintos sectores, viajes, situaciones curiosas, etc. Son experiencias que siempre me gusta compartir, junto con algunos conocimientos sobre aspectos de la cultura que estudié durante años, solo por el placer de aprender, sin pensar que en el futuro me convertiría en guía turístico.
                                     <br />
@@ -167,17 +175,17 @@ const Nosotros = () => {
                         </Typography>
 
                     </Grid>
-                        <Typography sx={{ fontWeight: '600', fontSize: '1.15rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                            {lang === 'en' 
-                                ?   'Other hosts here are freelance tour guides in who I put all my trust; for being so friendly, nice to spend time with, for having years of experience doing this activity and for their general experiences living here'
-                                :   "Otros guías aquí son guías turísticos independientes en quienes deposito toda mi confianza; por ser tan amables, por lo agradable que es pasar tiempo con ellos, por tener años de experiencia en esta actividad y por sus experiencias generales viviendo aquí."
-                            }
-                        </Typography>
+                    <Typography sx={{ fontWeight: '600', fontSize: '1.15rem', lineHeight: '2rem', marginBottom: '1rem' }}>
+                        {lang === 'en'
+                            ? 'Other hosts here are freelance tour guides in who I put all my trust; for being so friendly, nice to spend time with, for having years of experience doing this activity and for their general experiences living here'
+                            : "Otros guías aquí son guías turísticos independientes en quienes deposito toda mi confianza; por ser tan amables, por lo agradable que es pasar tiempo con ellos, por tener años de experiencia en esta actividad y por sus experiencias generales viviendo aquí."
+                        }
+                    </Typography>
                 </Grid>
             </Grid>
-            
-            <Gallery images = {AboutImages}/>
-            
+
+            <Gallery images={AboutImages} />
+
         </div>)
 }
 

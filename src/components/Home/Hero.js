@@ -134,6 +134,24 @@ const Hero = () => {
                         : 'Best of Kyoto and Beyond'}    
                         
                     </Typography>
+                    <Typography
+                        sx={{
+                            color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: '4rem',
+                            margin: '2rem',
+                            '@media (max-width:600px)': {
+                                fontSize: '2rem',
+                                margin: '0',
+                                paddingTop: '1.25rem',
+                            },
+                        }}
+                    >
+                        {lang === 'en' 
+                        ? 'DAY TOURS' 
+                        : 'DAY TOURS'}    
+                        
+                    </Typography>
                 </Grid>
                 <Grid
                     xs={3}
