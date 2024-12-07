@@ -1,5 +1,5 @@
 import { Button, Grid2 as Grid, Typography } from '@mui/material'
-import Background from '../../assets/portada2.jpg'
+import Background from '../../assets/portada.jpg'
 
 import { Link } from 'react-router-dom'
 import { useLang } from '../utils/LangProvider';

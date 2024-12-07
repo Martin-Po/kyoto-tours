@@ -76,7 +76,7 @@ const Nosotros = () => {
                         {lang === 'en' ? 'About Us' : 'Quiénes Somos'}
                     </Typography>
                     <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                        {lang === 'en' ? 'Our Philosophy' : 'Nuestra Filosofía'}
+                        {lang === 'en' ? 'Our Concept' : 'Nuestro Concepto'}
                     </Typography>
                     <Typography
                         sx={{
@@ -105,15 +105,7 @@ const Nosotros = () => {
                     </Typography>
 
                 </Grid>
-                <Grid
-                    size={12}
-
-                >
-
-                    <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                        {lang === 'en' ? 'Hi there! Thanks very much for visiting this site 🙏 ' : '¡Hola! Muchas gracias por visitar este sitio. 🙏'}
-                    </Typography>
-                </Grid>
+               
                 <Grid
                     container>
 
@@ -138,9 +130,7 @@ const Nosotros = () => {
                     <Grid
                         size='grow'
                     >
-                        <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                            {'Alex (Alejandro Oberti)'}
-                        </Typography>
+                     
 
                         <Typography
                             sx={{
@@ -151,7 +141,7 @@ const Nosotros = () => {
                         >
                             {lang === 'en' ? (
                                 <>
-                                    Hi there! I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
+                                    I’m Alex(Alejandro Oberti) Before ending up in Japan, many years back, I had a nomad life across several Asian countries for many years as well. I spent most of that time in India, where among other activities I had my first experiences as a tour guide. There I also met my wife, and when the relationship got more serious we decided to settle down and have a more stable life, we chose Japan where she is from. 
                                     <br /> 
                                     Since then I had many personal experiences in this country in different fields such as human relations, jobs in different sectors, trips, bizarre situations, etc, experiences that I always like to share, together with some knowledge about aspects of the culture that I studied for years, just for the sake of getting knowledge without thinking I would become a tour guide in the future.
                                     <br /> 
