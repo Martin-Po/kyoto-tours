@@ -1,10 +1,14 @@
-import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, InputLabel, ListItem, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, IconButton, InputLabel, ListItem, Menu, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
-import { ToursData, ToursImages } from "../data";
-import { useEffect, useState } from "react";
+import { ToursData } from "../data";
+import { useEffect, useState, useRef } from "react";
 import { Helmet } from 'react-helmet';
 import { useTheme } from '@mui/material/styles';
-import { Gallery } from "./utils/Gallery";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import { AddchartOutlined } from "@mui/icons-material";
+
 
 
 
@@ -12,11 +16,26 @@ import { Gallery } from "./utils/Gallery";
 const Tours = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [people, setPeople] = useState('')
+    const [people, setPeople] = useState({ adults: 0, children: 0, guests: 0 })
+
     const [message, setMessage] = useState('')
     const [selectedTour, setSelectedTour] = useState([])
-    const [selectedPeople, setSelectedPeople] = useState()
+    const [peopleLabel, setPeopleLabel] = useState('Number of people')
+    const [selectedPeople, setSelectedPeople] = useState({ adults: 0, children: 0, guests: 0 })
     const [priceOptions, setPriceOptions] = useState([])
+    const [price, setPrice] = useState(0)
+
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const buttonRef = useRef(null);
 
     const [date, setDate] = useState('');
 
@@ -30,20 +49,104 @@ const Tours = () => {
 
 
     const handleselectedTourChange = (event) => {
-        setSelectedPeople('')
         const selectedTourName = event.target.value; // Get the selected tour's id
         const newSelectedTour = toursWithOptions.find(tour => tour.name === selectedTourName); // Find the full tour object using the id
+        const newPrice = newSelectedTour.guests ? newSelectedTour.guests[0] : newSelectedTour.adults[0]
+        const newSelectedPeople = newSelectedTour.guests ? { adults: 0, children: 0, guests: 1 } : { adults: 1, children: 0, guests: 0 }
 
+        const newLabel = newPrice + " USD - " + (newSelectedTour.guests ? '1 Guest' : '1 Adult');
+
+        setSelectedPeople(newSelectedPeople)
+        setPeopleLabel(newLabel)
+        setPrice(newPrice)
         setPriceOptions(newSelectedTour.price.map((price, index) => `${index + 1} - ${price}`))
         setSelectedTour(newSelectedTour)
     }
 
-    const handleselectedPeopleChange = (event) => {
+    const handleselectedPeople = (type, value) => {
+        // Create a shallow copy of the current state
+        const updatedPeople = { ...selectedPeople };
+
+        const tourCapacity = selectedTour.capacity
+
+        let newLabel = ''
+        let adultLabel = ''
+        let childrenLabel = ''
+        let newPrice = 0
+
+        let current_guests = updatedPeople.guests
+        let current_adults = updatedPeople.adults
+        let current_children = updatedPeople.children
+
+        let update = false
+
+        if (type === 'guests') {
+            if ((current_guests + value > 0) && (current_guests + value <= tourCapacity))
+                update = true
+        }
+        else {
+            if ((type === 'adults' && ((current_adults + value > 0) && (current_adults + value <= tourCapacity))) || (type === 'children' && ((current_children + value >= 0) && (current_children + value <= tourCapacity))))
+
+                if (((current_adults + current_children + value) <= tourCapacity))
+                    update = true
+        }
 
 
-        // Update state or perform actions as needed
-        setSelectedPeople(event.target.value);
+        if (update) {
+            updatedPeople[type] = updatedPeople[type] + value
+            if (type === 'guests') {
+                if (updatedPeople.guests === 1) {
+                    newPrice = selectedTour.guests[0]
+                    newLabel = "1 Guest"
+                }
+                else {
+                    newLabel = updatedPeople.guests + " Guests"
+                    for (let index = 0; index < updatedPeople.guests; index++) {
+                        newPrice += selectedTour.guests[index]
+                    }
+
+                }
+            }
+            else {
+
+                if (updatedPeople.adults === 1) {
+                    newPrice += selectedTour.adults[0]
+                    adultLabel = "1 Adult"
+                }
+                else {
+                    adultLabel = updatedPeople.adults + " adults"
+                    for (let index = 0; index < updatedPeople.adults; index++) {
+                        newPrice += selectedTour.adults[index]
+                    }
+                }
+
+                if (updatedPeople.children === 1) {
+                    newPrice += selectedTour.children[0]
+                    childrenLabel = "1 Child"
+                }
+                else {
+                    childrenLabel = updatedPeople.children + " children"
+                    for (let index = 0; index < updatedPeople.children; index++) {
+                        newPrice += selectedTour.children[index]
+                    }
+                }
+
+
+                if (updatedPeople.children === 0) {
+                    newLabel = adultLabel
+                }
+                else {
+                    newLabel = adultLabel + " + " + childrenLabel
+                }
+            }
+
+
+            setPeopleLabel(newPrice + " USD - " + newLabel)
+            setPrice(newPrice)
+            setSelectedPeople(updatedPeople);
+        }
     };
+
 
     const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
     const esUrl = `${baseUrl}/es/tours`; // URL para la versión en español de la página home
@@ -55,7 +158,11 @@ const Tours = () => {
 
         return tour.options.map(option => ({
             name: `${tour.name} - ${option.duration_type}`,
+            capacity: option.capacity,
             price: option.price,
+            adults: option?.adults,
+            children: option?.children,
+            guests: option?.guests
         }));
 
         // If no options, return just the base ID as a string
@@ -200,8 +307,15 @@ const Tours = () => {
                                     />
 
                                 </Box>
-                                <Box sx={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', flexDirection: { xs: 'column', sm: 'row' }, marginBottom: '1.5rem' }}>
+                                <Box sx={{
+                                    display: 'flex',
+                                    gap: '1.5rem',
+                                    alignItems: 'stretch', // Ensures all children have the same height
+                                    flexDirection: { xs: 'column', sm: 'row' },
+                                    marginBottom: '1.5rem',
+                                }}>
                                     <FormControl fullWidth>
+
 
                                         <InputLabel id="demo-simple-select-autowidth-label">Tour</InputLabel>
                                         <Select
@@ -221,7 +335,146 @@ const Tours = () => {
                                         </Select>
                                     </FormControl>
                                     <FormControl fullWidth>
-                                        <InputLabel id="People">Number of people</InputLabel>
+                                        <Button
+                                            ref={buttonRef}
+                                            id="demo-customized-button"
+                                            aria-controls={open ? 'demo-customized-menu' : undefined}
+                                            aria-haspopup="true"
+                                            aria-expanded={open ? 'true' : undefined}
+                                            variant="outlined"
+                                            sx={{
+                                                background: 'white',
+                                                height: '100%', // Match container height
+                                                color: 'black', // Text color
+                                                borderColor: 'grey.500', // Initial border color
+                                                display: 'flex', // Use flexbox for layout
+                                                justifyContent: 'space-between', // Space between text and icon
+                                                alignItems: 'center', // Center items vertically
+                                                textAlign: 'center', // Center text content
+                                                paddingRight: '16px', // Add space for the icon
+                                                '&:hover': {
+                                                    color: 'black', // Text color on hover
+                                                    borderColor: 'black', // Border color on hover
+                                                },
+                                                '@media (max-width: 768px)': {
+                                                   height:'56px',
+                                                   paddingLeft:'10px',
+                                                   paddingRight:'10px'
+                                                },
+                                            }}
+                                            disabled={!selectedTour.name}
+                                            disableElevation
+                                            onClick={handleClick}
+                                            endIcon={<KeyboardArrowDownIcon style={{ marginLeft: 'auto' }} />} // Ensure the icon is right-aligned
+                                        >
+                                            {peopleLabel}
+                                        </Button>
+                                        <Menu
+                                            id="demo-customized-menu"
+                                            MenuListProps={{
+                                                'aria-labelledby': 'demo-customized-button',
+                                            }}
+                                            anchorEl={anchorEl}
+                                            open={open}
+                                            onClose={handleClose}
+                                            sx={{
+                                                '& .MuiPaper-root': {
+                                                    minWidth: buttonRef.current ? `${buttonRef.current.offsetWidth}px` : 'auto',
+                                                },
+                                            }}
+                                        >
+                                            {selectedTour.guests
+                                                ?
+                                                (
+                                                    <MenuItem
+                                                        sx={{
+                                                            justifyContent: 'space-between',
+                                                            pointerEvents: 'none', // Disable pointer events for the MenuItem
+                                                            '&:hover': {
+                                                                backgroundColor: 'transparent', // Prevent hover color change
+                                                                cursor: 'default', // Prevent pointer cursor change
+                                                            },
+                                                        }}
+                                                        disableRipple
+                                                    >
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("guests", -1)}
+                                                        >
+
+                                                            <RemoveCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+
+                                                        Guests
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("guests", +1)}
+                                                        >
+
+                                                            <AddCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+                                                    </MenuItem>
+                                                )
+                                                : [
+                                                    <MenuItem sx={{
+                                                        justifyContent: 'space-between',
+                                                        pointerEvents: 'none', // Disable pointer events for the MenuItem
+                                                        '&:hover': {
+                                                            backgroundColor: 'transparent', // Prevent hover color change
+                                                            cursor: 'default', // Prevent pointer cursor change
+                                                        },
+                                                    }}>
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("adults", -1)}
+                                                        >
+
+                                                            <RemoveCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+                                                        Adults
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("adults", +1)}
+                                                        >
+
+                                                            <AddCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+                                                    </MenuItem>,
+                                                    <MenuItem sx={{
+                                                        justifyContent: 'space-between',
+                                                        pointerEvents: 'none', // Disable pointer events for the MenuItem
+                                                        '&:hover': {
+                                                            backgroundColor: 'transparent', // Prevent hover color change
+                                                            cursor: 'default', // Prevent pointer cursor change
+                                                        },
+                                                    }}>
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("children", -1)}
+                                                        >
+
+                                                            <RemoveCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+                                                        Children
+                                                        <IconButton color="black"
+                                                            onClick={() => handleselectedPeople("children", +1)}
+                                                        >
+
+                                                            <AddCircleOutlineIcon
+                                                                sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
+                                                            />
+                                                        </IconButton>
+
+                                                    </MenuItem>
+                                                ]
+                                            }
+                                        </Menu>
+                                        {/* <InputLabel id="People">Number of people</InputLabel>
                                         <Select
                                             sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
                                             disabled={selectedTour.length === 0}
@@ -237,7 +490,7 @@ const Tours = () => {
                                                     {price}
                                                 </MenuItem>
                                             ))}
-                                        </Select>
+                                        </Select> */}
                                     </FormControl>
 
 
@@ -295,12 +548,6 @@ const Tours = () => {
                 </Grid>
 
             </Grid>
-            <Gallery images = {ToursImages}/>
-            {console.log(ToursImages)
-            }
-            
-
-
         </div>
     )
 }
@@ -348,7 +595,13 @@ const TourCard = ({ tour, index }) => {
                     sx={{
                         maxWidth: '445px',
                         maxHeight: '445px',
-                        aspectRatio: 1 / 1
+                        aspectRatio: 1 / 1,
+                        '@media (max-width: 768px)': {
+                            maxWidth: '100%',
+                            maxHeight: '100%',
+                            aspectRatio: 'unset', // Unset aspect ratio for screens smaller than 768px
+                        },
+
                     }}
                     image={tour.image}
                     title={tour.name}
@@ -394,8 +647,11 @@ const TourCard = ({ tour, index }) => {
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Price: ' : 'Precio: '}
-                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.price[0]}
+                        {lang === 'en' ? 'Price: From ' : 'Precio: Desde '}
+                        {tour.options.filter(option => option.duration_type === selectedType)[0]?.guests
+                            ? tour.options.filter(option => option.duration_type === selectedType)[0]?.guests[0]
+                            : tour.options.filter(option => option.duration_type === selectedType)[0]?.adults[0]}
+                        {" USD"}
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>

@@ -14,6 +14,7 @@ import { FAQs } from './components/FAQs';
 import { Nosotros } from './components/Nosotros';
 import { Tours } from './components/Tours';
 import { Helmet } from 'react-helmet-async';
+import { PhotoGallery } from './components/PhotoGallery';
 
 
 
@@ -43,21 +44,7 @@ function App() {
             </>
         )
     }
-    
-
-    const ContactenosSite = () => {
-        return (
-            <>
-                <Contactenos />
-                <EncontranosMaps />
-            </>
-        )
-    }
-
-    
-    
-    
-
+ 
     return (
         <div        
             style={{
@@ -75,6 +62,7 @@ function App() {
             
 
             <Routes>
+                <Route path="/:langParam?/gallery" element={<PhotoGallery />} />
                 <Route path="/:langParam?/faqs" element={<FAQs />} />
                 <Route path="/:langParam?/contact" element={<Contactenos/>} /> 
                 <Route path="/:langParam/about" element={<Nosotros />} />

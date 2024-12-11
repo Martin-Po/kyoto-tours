@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../utils/LangProvider';
 
 
+
+
 const Destinos = () => {
     const theme = useTheme();
     const route = process.env.PUBLIC_URL + '/assets/marcas/'
@@ -35,10 +37,10 @@ const Destinos = () => {
             >
                 <Grid size={{ xs: 12 }} display="flex" justifyContent="center">
                     <Typography variant="h3" textAlign="center" sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '2rem' }} >
-                    {lang === 'en' 
-                        ? 'Discover Kyoto, Osaka and Nara' 
-                        : 'Descubre Kyoto, Osaka y Nara'}
-                        
+                        {lang === 'en'
+                            ? 'Discover Kyoto, Osaka and Nara'
+                            : 'Descubre Kyoto, Osaka y Nara'}
+
                     </Typography>
                 </Grid>
                 <Grid
@@ -62,11 +64,17 @@ const Destinos = () => {
                                 }}
                             >
                                 <CardMedia
+
                                     component="img"
                                     sx={{
                                         width: '100%',
                                         objectFit: 'cover', // Ensures the image scales properly
-                                        maxHeight: '445px', // Optional: Prevent overly tall images
+
+                                        maxHeight: '300px', // Optional: Prevent overly tall images
+                                        '@media (max-width: 768px)': {
+                                            maxHeight: '100%',  // Sets width to 1280px when screen size is between 1300px and 1399px
+                                        },
+
                                     }}
                                     image={destino.image}
                                     title={destino.city}
@@ -87,10 +95,10 @@ const Destinos = () => {
                     <Link
                         to={`/tours`}>
                         <Button variant="contained" sx={{ marginTop: '1.5rem', borderRadius: '35px', fontWeight: 600, fontSize: '1.125rem', color: 'white', letterSpacing: '0.1rem' }}>
-                        {lang === 'en' 
-                        ? 'Visit our tours' 
-                        : 'Ver todos nuestros tours'}
-                            
+                            {lang === 'en'
+                                ? 'Visit our tours'
+                                : 'Ver todos nuestros tours'}
+
                         </Button>
                     </Link>
                 </Grid>

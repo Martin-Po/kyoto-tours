@@ -24,16 +24,16 @@ export const Gallery = ({ images }) => {
         console.log(naturalWidth >= naturalHeight);
         console.log(naturalWidth);
         console.log(naturalHeight);
-        
-        
-        
+
+
+
     };
 
     return (
         <>
             <Grid
                 container
-                margin="50px auto 40px auto"
+                margin="0 auto 40px auto"
                 columnSpacing={{ xs: "0.15rem", sm: "1rem" }}
                 rowSpacing={{ xs: "0.15rem", sm: "1rem" }}
                 display="flex"
@@ -107,72 +107,72 @@ export const Gallery = ({ images }) => {
 
             {/* Modal for displaying the image */}
             <Modal
-    open={open}
-    onClose={handleClose}
-    sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        maxWidth: "100vw",
-        maxHeight: "100vh",
-        overflow: "hidden",
-    }}
->
-    <Box
-        sx={{
-            position: "relative",
-            ...(isWider
-                ? {
-                      maxWidth: "90vw", // Constrain the container to viewport width
-                      maxHeight: "90vh", // Constrain the container to viewport height
-                    }
-                    : {
-                        height: "90vh", // Set the height for non-wider case
-                        maxWidth: "90vw", // Keep max width for both cases
-                    }),
-            overflow: "hidden", // Prevent any overflow
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "black", // Optional: to avoid transparency
-            borderRadius: "10px",
-            '@media (max-width: 730px)': {
-                height: 'auto', // Set height to auto when the screen is smaller than 768px
-            },
-        }}
-    >
-        <IconButton
-            onClick={handleClose}
-            sx={{
-                position: "absolute",
-                top: "10px",
-                right: "10px",
-                zIndex: 10,
-                color: "white",
-            }}
-        >
-            <CloseIcon />
-        </IconButton>
-        <img
-            onLoad={handleImageLoad}
-            src={selectedImage?.url}
-            alt="Full-size view"
-            style={
-                isWider?
-                {
-                maxWidth: "100%", // Ensure the image does not exceed the container width
-                maxHeight: "100%", // Ensure the image does not exceed the container height
-                objectFit: "contain", // Maintain aspect ratio without cropping
-            }:
-            {
-                maxWidth: "100%", // Ensure the image does not exceed the container width
+                open={open}
+                onClose={handleClose}
+                sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    maxWidth: "100vw",
+                    maxHeight: "100vh",
+                    overflow: "hidden",
+                }}
+            >
+                <Box
+                    sx={{
+                        position: "relative",
+                        ...(isWider
+                            ? {
+                                maxWidth: "90vw", // Constrain the container to viewport width
+                                maxHeight: "90vh", // Constrain the container to viewport height
+                            }
+                            : {
+                                height: "90vh", // Set the height for non-wider case
+                                maxWidth: "90vw", // Keep max width for both cases
+                            }),
+                        overflow: "hidden", // Prevent any overflow
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: "black", // Optional: to avoid transparency
+                        borderRadius: "10px",
+                        '@media (max-width: 730px)': {
+                            height: 'auto', // Set height to auto when the screen is smaller than 768px
+                        },
+                    }}
+                >
+                    <IconButton
+                        onClick={handleClose}
+                        sx={{
+                            position: "absolute",
+                            top: "10px",
+                            right: "10px",
+                            zIndex: 10,
+                            color: "white",
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+                    <img
+                        onLoad={handleImageLoad}
+                        src={selectedImage?.url}
+                        alt="Full-size view"
+                        style={
+                            isWider ?
+                                {
+                                    maxWidth: "100%", // Ensure the image does not exceed the container width
+                                    maxHeight: "100%", // Ensure the image does not exceed the container height
+                                    objectFit: "contain", // Maintain aspect ratio without cropping
+                                } :
+                                {
+                                    maxWidth: "100%", // Ensure the image does not exceed the container width
 
-                maxHeight:'100%'
-            }
-        }
-        />
-    </Box>
-</Modal>
+                                    maxHeight: '100%'
+                                }
+                        }
+                    />
+                </Box>
+            </Modal>
 
 
 

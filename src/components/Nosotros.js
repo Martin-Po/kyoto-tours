@@ -1,9 +1,7 @@
-import { Grid2 as Grid, Typography } from "@mui/material";
+import { Box, Grid2 as Grid, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
-import GuideImage from '../assets/placeholder.svg'
-import { AboutImages } from "../data";
+import GuideImage from '../assets/about_image.jpg'
 import { Helmet } from 'react-helmet';
-import { Gallery } from "./utils/Gallery";
 
 
 const Nosotros = () => {
@@ -113,17 +111,31 @@ const Nosotros = () => {
                         sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
                         size={{ xs: 12, sm: 'auto' }}
                     >
-                        <img
-                            style={{
-                                borderRadius: '20px',
-                                width: '300px',
-                                maxWidth: '100%',
-                                aspectRatio: 1 / 1
+                        <Box
+                            sx={{
+                                maxWidth: '300px',
+                                maxHeight: '300px',
+                                aspectRatio: 1 / 1,
+                                '@media (max-width: 768px)': {
+                                    maxWidth: '100%',
+                                    maxHeight: '100%',
+                                    aspectRatio: 'unset', // Unset aspect ratio for smaller screens
+                                },
                             }}
-                            loading="lazy"
-                            src={GuideImage}
-                            alt="Testimonial"
-                        />
+                        >
+                            <img
+                                style={{
+                                    borderRadius: '20px',
+
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover', // Adjust based on your needs
+                                }}
+                                loading="lazy"
+                                src={GuideImage}
+                                alt="Testimonial"
+                            />
+                        </Box>
 
 
                     </Grid>
@@ -183,9 +195,6 @@ const Nosotros = () => {
                     </Typography>
                 </Grid>
             </Grid>
-
-            <Gallery images={AboutImages} />
-
         </div>)
 }
 
