@@ -97,10 +97,12 @@ const Tours = () => {
             if (type === 'guests') {
                 if (updatedPeople.guests === 1) {
                     newPrice = selectedTour.guests[0]
-                    newLabel = "1 Guest"
+                    newLabel = lang === 'en'
+                    ? '1 Guest'
+                    : "1 Invitado"
                 }
                 else {
-                    newLabel = updatedPeople.guests + " Guests"
+                    newLabel = updatedPeople.guests + (lang === 'en' ? "Guests" : "Invitados")
                     for (let index = 0; index < updatedPeople.guests; index++) {
                         newPrice += selectedTour.guests[index]
                     }
@@ -111,10 +113,12 @@ const Tours = () => {
 
                 if (updatedPeople.adults === 1) {
                     newPrice += selectedTour.adults[0]
-                    adultLabel = "1 Adult"
+                    adultLabel = lang === 'en'
+                    ? '1 Adult'
+                    : "1 Adulto"
                 }
                 else {
-                    adultLabel = updatedPeople.adults + " adults"
+                    adultLabel = updatedPeople.adults + (lang === 'en' ? "Adults" : "Adultos")
                     for (let index = 0; index < updatedPeople.adults; index++) {
                         newPrice += selectedTour.adults[index]
                     }
@@ -122,10 +126,12 @@ const Tours = () => {
 
                 if (updatedPeople.children === 1) {
                     newPrice += selectedTour.children[0]
-                    childrenLabel = "1 Child"
+                    childrenLabel = lang === 'en'
+                    ? '1 Child'
+                    : "1 Niño"
                 }
                 else {
-                    childrenLabel = updatedPeople.children + " children"
+                    childrenLabel = updatedPeople.children + (lang === 'en' ? "Children" : "Niños")
                     for (let index = 0; index < updatedPeople.children; index++) {
                         newPrice += selectedTour.children[index]
                     }
@@ -406,7 +412,7 @@ const Tours = () => {
                                                             />
                                                         </IconButton>
 
-                                                        Guests
+                                                        {lang === 'en' ? 'Guests' : "Invitados"}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("guests", +1)}
                                                         >
@@ -434,7 +440,7 @@ const Tours = () => {
                                                                 sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
                                                             />
                                                         </IconButton>
-                                                        Adults
+                                                        {lang === 'en' ? 'Adults' : "Adultos"}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("adults", +1)}
                                                         >
@@ -460,7 +466,7 @@ const Tours = () => {
                                                                 sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
                                                             />
                                                         </IconButton>
-                                                        Children
+                                                        {lang === 'en' ? 'Children' : "Niños"}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("children", +1)}
                                                         >
