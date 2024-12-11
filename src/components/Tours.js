@@ -631,6 +631,7 @@ const TourCard = ({ tour, index }) => {
                         {lang === 'en' ? 'Meeting place: ' : 'Punto de encuentro: '}
                         {tour.meeting_place}
                     </Typography>
+                    {(tour.options.length > 1) &&
                     <Grid container gap="0.5rem" marginBottom="1rem">
                         {tour.options.map((option, index) => {
                             return (
@@ -653,6 +654,8 @@ const TourCard = ({ tour, index }) => {
                             )
                         })}
                     </Grid>
+
+                    }
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
                         {lang === 'en' ? 'Duration: ' : 'Duración: '}

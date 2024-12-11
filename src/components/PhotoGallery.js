@@ -36,10 +36,7 @@ const PhotoGallery = () => {
                 <Grid
                     size={12}
 
-                >
-                    <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom:'1rem'}}>
-                        {lang === 'en' ? 'Photo Gallery' : 'Galería de Fotos'}
-                    </Typography>
+                >                  
                     <Typography
                         sx={{
                             fontSize: '1.125rem',
@@ -48,11 +45,11 @@ const PhotoGallery = () => {
                     >
                         {lang === 'en' ? (
                             <>
-                                Let’s meet up and have fun together visiting the most beautiful and interesting places on this side Japan                               
+                                " Let’s meet up and have fun together visiting the most beautiful and interesting places on this side Japan "
                             </>
                         ) : (
                             <>
-                                ¡Reunámonos y divirtámonos juntos visitando los lugares más hermosos e interesantes de este lado de Japón!                            
+                                " ¡Reunámonos y divirtámonos juntos visitando los lugares más hermosos e interesantes de este lado de Japón! "                            
                             </>
                         )}
                     </Typography>

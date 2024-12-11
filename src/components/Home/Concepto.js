@@ -100,11 +100,11 @@ const Concepto = () => {
                             {lang === "en"
                                 ? 
                                 <>
-                                    "Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world."
+                                    " Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world. "
                                 </>
                                 : 
                                 <>
-                                    "Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo."
+                                    " Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo. "
                                 </>
                                     }
                         </Typography>
@@ -143,15 +143,15 @@ const Concepto = () => {
                             {lang === 'en'
                                 ? 
                                 <>
-                                    "You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding and/Or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit
+                                    " You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding and/Or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit
                                     <br />
-                                    Please contact us, let’s know each other"
+                                    Please contact us, let’s know each other "
                                
                                 </>
                                 : <>
-                                    "Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.
+                                    " Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.
                                     <br />
-                                    Please contact us, let’s know each other"
+                                    Please contact us, let’s know each other "
                                 </>
                             }
 
