@@ -7,7 +7,6 @@ import { useTheme } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { AddchartOutlined } from "@mui/icons-material";
 
 
 
@@ -16,13 +15,11 @@ import { AddchartOutlined } from "@mui/icons-material";
 const Tours = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [people, setPeople] = useState({ adults: 0, children: 0, guests: 0 })
 
     const [message, setMessage] = useState('')
     const [selectedTour, setSelectedTour] = useState([])
-    const [peopleLabel, setPeopleLabel] = useState('Number of people')
+    const [peopleLabel, setPeopleLabel] = useState('')
     const [selectedPeople, setSelectedPeople] = useState({ adults: 0, children: 0, guests: 0 })
-    const [priceOptions, setPriceOptions] = useState([])
     const [price, setPrice] = useState(0)
 
 
@@ -45,6 +42,15 @@ const Tours = () => {
 
     const { lang } = useLang();
 
+    useEffect(() => {
+setPeopleLabel(lang === 'en' ? 'Number of people'
+    : "Cantidad de personas")
+    setSelectedTour([])
+    setSelectedPeople({ adults: 0, children: 0, guests: 0 })
+        
+       
+    }, [lang])
+
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
 
@@ -54,12 +60,13 @@ const Tours = () => {
         const newPrice = newSelectedTour.guests ? newSelectedTour.guests[0] : newSelectedTour.adults[0]
         const newSelectedPeople = newSelectedTour.guests ? { adults: 0, children: 0, guests: 1 } : { adults: 1, children: 0, guests: 0 }
 
-        const newLabel = newPrice + " USD - " + (newSelectedTour.guests ? '1 Guest' : '1 Adult');
+        const newLabel = newPrice + " USD - " + (newSelectedTour.guests ? (lang === 'en' ? '1 Guest'
+            : "1 Invitado") : (lang === 'en' ? '1 Adult'
+                : "1 Adulto") );
 
         setSelectedPeople(newSelectedPeople)
         setPeopleLabel(newLabel)
         setPrice(newPrice)
-        setPriceOptions(newSelectedTour.price.map((price, index) => `${index + 1} - ${price}`))
         setSelectedTour(newSelectedTour)
     }
 
@@ -118,7 +125,7 @@ const Tours = () => {
                     : "1 Adulto"
                 }
                 else {
-                    adultLabel = updatedPeople.adults + (lang === 'en' ? "Adults" : "Adultos")
+                    adultLabel = updatedPeople.adults + (lang === 'en' ? " Adults" : " Adultos")
                     for (let index = 0; index < updatedPeople.adults; index++) {
                         newPrice += selectedTour.adults[index]
                     }
@@ -131,7 +138,7 @@ const Tours = () => {
                     : "1 Niño"
                 }
                 else {
-                    childrenLabel = updatedPeople.children + (lang === 'en' ? "Children" : "Niños")
+                    childrenLabel = updatedPeople.children + (lang === 'en' ? " Children" : " Niños")
                     for (let index = 0; index < updatedPeople.children; index++) {
                         newPrice += selectedTour.children[index]
                     }
