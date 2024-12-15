@@ -22,6 +22,9 @@ export const LangProvider = ({ children }) => {
         if (location.pathname.slice(0, 4).split('').filter(e => e === '/').length === 1) {
             let newLang = 'en'
             if (location.pathname === '/es') newLang = 'es'
+            if (location.pathname === '/it') newLang = 'it'
+            if (location.pathname === '/fr') newLang = 'fr'
+
             navigate(`/${newLang}/`);
             setLang(newLang) // Update the lang state if the URL changes
 

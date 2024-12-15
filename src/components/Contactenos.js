@@ -15,6 +15,53 @@ const Contactenos = () => {
     const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
 
 
+    const contactUsText = { 
+    en: {
+        title: "Discover Kyoto, Osaka and Nara",
+        formLabels:{
+            name:"Name",
+            email:"Email",
+            message:"Message",
+            buttonText:"SEND MESSAGE"            
+        },
+        contactInfo:"Contact Information",
+        phone:"Phone",
+    },
+    es: {
+        title: "Contáctenos",
+        formLabels:{
+            name:"Nombre",
+            email:"Email",
+            message:"Mensaje",
+            buttonText:"ENVIAR MENSAJE"            
+        },
+        contactInfo:"Información de Contacto",
+        phone:"Teléfono",
+    },
+    it: {
+        title: "Contattaci",
+        formLabels:{
+            name:"Nome",
+            email:"Email",
+            message:"Messaggio",
+            buttonText:"INVIA MESSAGGIO"            
+        },
+        contactInfo:"Informazioni di contatto",
+        phone:"Telefono",
+    },
+    fr: {
+        title: "Contactez-nous",
+        formLabels:{
+            name:"Nom",
+            email:"Email",
+            message:"Message",
+            buttonText:"ENVOYER LE MESSAGE"            
+        },
+        contactInfo:"Informations de contact",
+        phone:"Téléphone",
+    },
+    };
+
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
             <Helmet htmlAttributes={{lang: lang,}}  >
@@ -76,7 +123,7 @@ const Contactenos = () => {
 
                 >
                     <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem' }}>
-                        {lang === 'en' ? 'Contact Us' : 'Contáctenos'}
+                        {contactUsText[lang].title}
                     </Typography>
 
                 </Grid>
@@ -86,14 +133,14 @@ const Contactenos = () => {
                 >
                     <Box>
                         <TextField
-                            label={lang === 'en' ? "Name" : 'Nombre'}
+                            label={contactUsText[lang].formLabels.name}
                             fullWidth
                             onChange={(e) => setName(e.target.value)}
                             value={name}
                             sx={{ marginBottom: '1.5rem' }}
                         />
                         <TextField
-                            label="Email"
+                            label={contactUsText[lang].formLabels.email}
                             fullWidth
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
@@ -101,7 +148,7 @@ const Contactenos = () => {
 
                         />
                         <TextField
-                            label={lang === 'en' ? "Message" : 'Mensaje'}
+                            label={contactUsText[lang].formLabels.message}
 
                             fullWidth
                             multiline
@@ -126,7 +173,7 @@ const Contactenos = () => {
                                 },
                             }}
                         >
-                            {lang === 'en' ? 'Send message' : 'Enviar mensaje'}
+                            {contactUsText[lang].formLabels.buttonText}
                         </Typography>
                     </Button>
 
@@ -138,7 +185,7 @@ const Contactenos = () => {
 
                 >
                     <Typography sx={{ fontWeight: '600', fontSize: '1.5rem', lineHeight: '2rem', marginBottom: '1rem' }}>
-                        {lang === 'en' ? 'Contact Information' : 'Información de Contacto'}
+                        {contactUsText[lang].contactInfo}
 
                     </Typography>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, marginBottom: '0.5rem' }}>
@@ -147,7 +194,7 @@ const Contactenos = () => {
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 
-                        <Typography fontWeight="bold">{lang === 'en' ? 'Phone' : 'Teléfono'}</Typography>
+                        <Typography fontWeight="bold">{contactUsText[lang].phone}</Typography>
                         <Typography color='primary.main'>+81 123-456-789</Typography>
 
                     </Box>

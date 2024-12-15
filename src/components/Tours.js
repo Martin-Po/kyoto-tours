@@ -43,8 +43,7 @@ const Tours = () => {
     const { lang } = useLang();
 
     useEffect(() => {
-setPeopleLabel(lang === 'en' ? 'Number of people'
-    : "Cantidad de personas")
+setPeopleLabel(toursText[lang].contactForm.people.label)
     setSelectedTour([])
     setSelectedPeople({ adults: 0, children: 0, guests: 0 })
         
@@ -60,9 +59,22 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
         const newPrice = newSelectedTour.guests ? newSelectedTour.guests[0] : newSelectedTour.adults[0]
         const newSelectedPeople = newSelectedTour.guests ? { adults: 0, children: 0, guests: 1 } : { adults: 1, children: 0, guests: 0 }
 
-        const newLabel = newPrice + " USD - " + (newSelectedTour.guests ? (lang === 'en' ? '1 Guest'
-            : "1 Invitado") : (lang === 'en' ? '1 Adult'
-                : "1 Adulto") );
+        const getLabelText = (lang, type) => {
+            switch (lang) {
+                case 'en':
+                    return type === 'guests' ? '1 Guest' : '1 Adult';
+                case 'es':
+                    return type === 'guests' ? '1 Invitado' : '1 Adulto';
+                case 'fr':
+                    return type === 'guests' ? '1 Invité' : '1 Adulte';
+                case 'it':
+                    return type === 'guests' ? '1 Ospite' : '1 Adulto';
+                default:
+                    return type === 'guests' ? '1 Guest' : '1 Adult'; // Fallback to English
+            }
+        };
+
+        const newLabel = `${newPrice} USD - ${getLabelText(lang, newSelectedTour.guests ? 'guests' : 'adults')}`;
 
         setSelectedPeople(newSelectedPeople)
         setPeopleLabel(newLabel)
@@ -104,12 +116,38 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
             if (type === 'guests') {
                 if (updatedPeople.guests === 1) {
                     newPrice = selectedTour.guests[0]
-                    newLabel = lang === 'en'
-                    ? '1 Guest'
-                    : "1 Invitado"
+                    const getGuestLabelText = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return '1 Guest';
+                            case 'es':
+                                return '1 Invitado';
+                            case 'fr':
+                                return '1 Invité';
+                            case 'it':
+                                return '1 Ospite';
+                            default:
+                                return '1 Guest'; // Fallback to English
+                        }
+                    };                    
+                    newLabel = getGuestLabelText(lang);
                 }
                 else {
-                    newLabel = updatedPeople.guests + (lang === 'en' ? "Guests" : "Invitados")
+                    const getGuestsLabel = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return 'Guests';
+                            case 'es':
+                                return 'Invitados';
+                            case 'fr':
+                                return 'Invités';
+                            case 'it':
+                                return 'Ospiti';
+                            default:
+                                return 'Guests'; // Fallback to English
+                        }
+                    };                    
+                    newLabel = updatedPeople.guests + ' ' + getGuestsLabel(lang);
                     for (let index = 0; index < updatedPeople.guests; index++) {
                         newPrice += selectedTour.guests[index]
                     }
@@ -120,12 +158,40 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
 
                 if (updatedPeople.adults === 1) {
                     newPrice += selectedTour.adults[0]
-                    adultLabel = lang === 'en'
-                    ? '1 Adult'
-                    : "1 Adulto"
+                    const getAdultLabel = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return '1 Adult';
+                            case 'es':
+                                return '1 Adulto';
+                            case 'fr':
+                                return '1 Adulte';
+                            case 'it':
+                                return '1 Adulto'; // "Adulto" is the same in Spanish and Italian
+                            default:
+                                return '1 Adult'; // Fallback to English
+                        }
+                    };
+                    
+                    adultLabel = getAdultLabel(lang);
                 }
                 else {
-                    adultLabel = updatedPeople.adults + (lang === 'en' ? " Adults" : " Adultos")
+                    const getAdultsLabel = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return ' Adults';
+                            case 'es':
+                                return ' Adultos';
+                            case 'fr':
+                                return ' Adultes';
+                            case 'it':
+                                return ' Adulti';
+                            default:
+                                return ' Adults'; // Fallback to English
+                        }
+                    };
+                    
+                    adultLabel = updatedPeople.adults + getAdultsLabel(lang);
                     for (let index = 0; index < updatedPeople.adults; index++) {
                         newPrice += selectedTour.adults[index]
                     }
@@ -133,12 +199,40 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
 
                 if (updatedPeople.children === 1) {
                     newPrice += selectedTour.children[0]
-                    childrenLabel = lang === 'en'
-                    ? '1 Child'
-                    : "1 Niño"
+                    const getChildLabel = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return '1 Child';
+                            case 'es':
+                                return '1 Niño';
+                            case 'fr':
+                                return '1 Enfant';
+                            case 'it':
+                                return '1 Bambino';
+                            default:
+                                return '1 Child'; // Fallback to English
+                        }
+                    };                    
+                    
+                    childrenLabel = getChildLabel(lang);
                 }
                 else {
-                    childrenLabel = updatedPeople.children + (lang === 'en' ? " Children" : " Niños")
+                    const getChildrenLabel = (lang) => {
+                        switch (lang) {
+                            case 'en':
+                                return ' Children';
+                            case 'es':
+                                return ' Niños';
+                            case 'fr':
+                                return ' Enfants';
+                            case 'it':
+                                return ' Bambini';
+                            default:
+                                return ' Children'; // Fallback to English
+                        }
+                    };
+                    
+                    childrenLabel = updatedPeople.children + getChildrenLabel(lang);
                     for (let index = 0; index < updatedPeople.children; index++) {
                         newPrice += selectedTour.children[index]
                     }
@@ -180,6 +274,138 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
 
         // If no options, return just the base ID as a string
     });
+
+
+    const toursText = {
+        en: {
+            title: "Our Tours",
+            intro: {
+                beggining: (
+                    <>
+                        From gardens and parks to monuments and landmarks, urban modern spaces to traditional quarters and hidden streets, main markets to not very visible shops…we try to offer as more variety as possible
+                        <br />
+                        There are itineraries for all the tours that we will share in detail after you contact us but they are flexible in the sense that new places to visit can be added and others removed in accordance to your interests and requests
+                        <br />
+                        We move usually in public transportation to feel more the vibes of the city, and mainly for its remarkable efficiency, however we can offer taxi or private transportation in case you prefer
+                        <br />
+                        We offer tours in English, Spanish, French and Italian language
+                    </>
+                ),
+                endind: (
+                    <>
+                        Keep in mind that once you book a tour with us you can feel free to write or call us without any charge, before or after the tour, in case you need any recommendation or assistance of any kind while you are in Japan
+                        <br />
+                        We will take care of you😌
+                    </>
+                )
+            },
+            contactForm: {
+                name: "Name",
+                email: "Email",
+                tour: "Tour",
+                people: {label: "NUMBER OF PEOPLE", guests: "GUESTS", adults: "ADULTS", children: "CHILDREN"},
+                date: "Tour date",
+                message: "Message",
+                formButton: "SEND MESSAGE"
+            }
+        },
+        es: {
+            title: "Our Tours",
+            intro: {
+                beggining: (
+                    <>
+                        Desde jardines y parques hasta monumentos y lugares emblemáticos, espacios urbanos y modernos hasta barrios tradicionales y calles escondidas, mercados principales hasta tiendas poco visibles…Tratamos de ofrecer la mayor variedad posible en nuestros recorridos
+                        <br />
+                        Hay itinerarios para todos los tours que compartiremos en detalle una vez que nos contactes pero son flexibles en el sentido de que se pueden agregar nuevos lugares para visitar y dejar de lado otros de acuerdo con tus intereses y solicitudes
+                        <br />
+                        Normalmente nos movemos en transporte público para sentir más la cotidianidad de la ciudad, y principalmente por su notable eficiencia, sin embargo podemos ofrecer taxi o transporte privado en caso de que lo prefieras
+                        <br />
+                        Ofrecemos tours en español, ingles, italiano y francés
+                    </>
+                ),
+                endind: (
+                    <>
+                        Ten en cuenta que una vez que reserves un tour con nosotros podrás escribirnos o llamarnos sin cargo alguno, antes o después del tour, en caso de que necesites alguna recomendación o asistencia de cualquier tipo mientras estés en Japón.
+                        <br />
+                        Vamos a cuidar de ti 😌
+                    </>
+                )
+            },
+            contactForm: {
+                name: "Nombre",
+                email: "Email",
+                tour: "Tour",
+                people: {label: "CANTIDAD DE PERSONAS", guests: "INVITADOS", adults: "ADULTOS", children: "NIÑOS"},
+                date: "Fecha del tour",
+                message: "Mensaje",
+                formButton: "ENVIAR MENSAJE"
+            }
+        },
+        it: {
+            title: "Our Tours",
+            intro: {
+                beggining: (
+                    <>
+                        Dai giardini e parchi ai monumenti e ai luoghi emblematici, dagli spazi urbani e moderni ai quartieri tradizionali e alle strade nascoste, dai mercati principali ai negozi poco appariscenti... Cerchiamo di offrire la massima varietà possibile nei nostri tour
+                        <br />
+                        Ci sono itinerari per tutti i tour che condivideremo in dettaglio una volta che ci contatterete ma sono flessibili nel senso che si possono aggiungere nuovi luoghi da visitare e altri tralasciare in base ai vostri interessi e richieste
+                        <br />
+                        Normalmente ci muoviamo con i mezzi pubblici per sentire meglio la vita quotidiana della città, e soprattutto per la loro notevole efficienza, tuttavia possiamo offrirvi taxi o trasporto privato se preferite
+                        <br />
+                        Offriamo tour in inglese, spagnolo, italianoa e francese
+                    </>
+                ),
+                endind: (
+                    <>
+                        Tieni presente che una volta prenotato un tour con noi puoi scriverci o chiamarci gratuitamente, prima o dopo il tour, nel caso in cui avessi bisogno di consigli o assistenza di qualsiasi tipo mentre sei in Giappone.
+                        <br />
+                        Ci prenderemo cura di te 😌
+                    </>
+                )
+            },
+            contactForm: {
+                name: "Nome",
+                email: "Email",
+                tour: "Tour",
+                people: {label: "NUMERO DI PERSONE", guests: "Ospiti", adults: "Adulti", children: "Bambini"},
+                date: "Data del tour",
+                message: "Messaggio",
+                formButton: "INVIA MESSAGGIO"
+            }
+        },
+        fr: {
+            title: "Our Tours",
+            intro: {
+                beggining: (
+                    <>
+                        Des jardins et parcs aux monuments et lieux emblématiques, des espaces urbains et modernes aux quartiers traditionnels et rues cachées, des principaux marchés aux boutiques discrètes...Nous essayons d'offrir la plus grande variété possible dans nos circuits.
+                        <br />
+                        il y a des itinéraires pour tous les circuits que nous partagerons en détail une fois que vous nous contacterez, mais ils sont flexibles dans le sens où de nouveaux lieux à visiter peuvent être ajoutés et d'autres supprimés en fonction de vos intérêts et demandes
+                        <br />
+                        Normalement, nous nous déplaçons en transports en commun pour mieux ressentir la vie quotidienne de la ville, et principalement en raison de leur efficacité notable, mais nous pouvons vous proposer un taxi ou un transport privé si vous préférez
+                        <br />
+                        Nous proposons des visites en anglais, espagnol, français et italien
+                    </>
+                ),
+                endind: (
+                    <>
+                        Veuillez noter qu'une fois que vous avez réservé un tour avec nous, vous pouvez nous écrire ou nous appeler gratuitement, avant ou après la             la tournée, au cas où vous auriez besoin de recommandations ou d'assistance de quelque nature que ce soit pendant votre séjour au Japon
+                        <br />
+                        Nous prendrons soin de vous 😌
+                    </>
+                )
+            },
+            contactForm: {
+                name: "Nom",
+                email: "Email",
+                tour: "Tour",
+                people: {label: "NOMBRE DE PERSONNES", guests: "Invités", adults: "Adultes", children: "Enfants"},
+                date: "Date du tour",
+                message: "Message",
+                formButton: "ENVOYER UN MESSAGE"
+            }
+        },
+    };
 
 
     return (
@@ -241,7 +467,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
 
                 >
                     <Typography sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '1.5rem' }}>
-                        {lang === 'en' ? 'Our Tours' : 'Nuestros Tours'}
+                        {toursText[lang].title}
                     </Typography>
                     <Typography
                         sx={{
@@ -250,31 +476,16 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                             marginBottom: '1rem',
                         }}
                     >
-                        {lang === 'en' ? (
-                            <>
-                                From gardens and parks to monuments and landmarks, urban modern spaces to traditional quarters and hidden streets, main markets to not very visible shops…we try to offer as more variety as possible in our tours. Specially in Kyoto
-                                <br />
-                                There are itineraries for all the tours but they are flexible in the sense that new places to visit can be added and others removed in accordance to the requests of the travellers
-                                <br />
-                                We move usually in public transportation to feel a bit the vibes of the city and mainly for its remarkable efficiency, however in case you prefer taxi or private transportation we can cover that demand
-                                <br />
-                                Our Tours are mainly in English and Spanish but in case you prefer in other language make as know and maybe we could find a solution for that
-                                <br />
-                                Keep in mind that as you will have our contact and you can feel free to write or call  without charge after the tour in case you need any recommendation or assistance of any kind, we will take care of you😌
-                            </>
-                        ) : (
-                            <>
-                                Desde jardines y parques hasta monumentos y lugares emblemáticos, espacios urbanos modernos hasta barrios tradicionales y calles ocultas, mercados principales hasta tiendas poco visibles… tratamos de ofrecer la mayor variedad posible en nuestros tours. Especialmente en Kioto.
-                                <br />
-                                Hay itinerarios para todos los tours, pero son flexibles en el sentido de que se pueden agregar nuevos lugares para visitar y eliminar otros según las solicitudes de los viajeros.
-                                <br />
-                                Usualmente nos movemos en transporte público para sentir un poco las vibras de la ciudad y, principalmente, por su notable eficiencia. Sin embargo, en caso de que prefieras taxi o transporte privado, podemos cubrir esa demanda.
-                                <br />
-                                Nuestros tours son principalmente en inglés y español, pero si prefieres otro idioma, háznoslo saber y quizá podamos encontrar una solución para ello.
-                                <br />
-                                Ten en cuenta que tendrás nuestro contacto, por lo que puedes escribir o llamar sin cargo después del tour en caso de que necesites alguna recomendación o asistencia de cualquier tipo. Nos encargaremos de ti. 😌
-                            </>
-                        )}
+                        {toursText[lang].intro.beggining}
+                        <span
+                                        style={{
+                                            fontWeight: '600',
+                                            fontSize: '1.3rem',
+                                            lineHeight: '2rem',
+                                        }}
+                                    >
+                        {toursText[lang].intro.ending}
+                                    </span>
                     </Typography>
 
                 </Grid>
@@ -304,14 +515,14 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                             <Box sx={{ marginBottom: '1.5rem' }}>
                                 <Box sx={{ display: 'flex', gap: '1.5rem', flexDirection: { xs: 'column', sm: 'row' }, marginBottom: '1.5rem', }}>
                                     <TextField
-                                        label={lang === 'en' ? "Name" : 'Nombre'}
+                                        label= {toursText[lang].contactForm.name}
                                         fullWidth
                                         onChange={(e) => setName(e.target.value)}
                                         value={name}
                                         sx={{ backgroundColor: 'white' }}
                                     />
                                     <TextField
-                                        label="Email"
+                                        label={toursText[lang].contactForm.email}
                                         fullWidth
                                         onChange={(e) => setEmail(e.target.value)}
                                         value={email}
@@ -337,7 +548,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                             id="Tour-select"
                                             value={selectedTour?.name || ""}
                                             onChange={handleselectedTourChange}
-                                            label="Tour"
+                                            label={toursText[lang].contactForm.tour}
                                             fullWidth
                                         >
                                             {toursWithOptions.map((tour, index) => (
@@ -419,7 +630,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                                             />
                                                         </IconButton>
 
-                                                        {lang === 'en' ? 'Guests' : "Invitados"}
+                                                        {toursText[lang].contactForm.people.guests}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("guests", +1)}
                                                         >
@@ -447,7 +658,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                                                 sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
                                                             />
                                                         </IconButton>
-                                                        {lang === 'en' ? 'Adults' : "Adultos"}
+                                                        {toursText[lang].contactForm.people.adults}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("adults", +1)}
                                                         >
@@ -473,7 +684,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                                                 sx={{ pointerEvents: 'auto', cursor: 'pointer' }} // Enable pointer events for the icon
                                                             />
                                                         </IconButton>
-                                                        {lang === 'en' ? 'Children' : "Niños"}
+                                                        {toursText[lang].contactForm.people.children}
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("children", +1)}
                                                         >
@@ -487,30 +698,13 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                                 ]
                                             }
                                         </Menu>
-                                        {/* <InputLabel id="People">Number of people</InputLabel>
-                                        <Select
-                                            sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
-                                            disabled={selectedTour.length === 0}
-                                            labelId="People"
-                                            id="People-select"
-                                            value={selectedPeople || ""}
-                                            onChange={handleselectedPeopleChange} label="People"
-                                            fullWidth
-
-                                        >
-                                            {priceOptions.map((price, index) => (
-                                                <MenuItem value={price} key={index}>
-                                                    {price}
-                                                </MenuItem>
-                                            ))}
-                                        </Select> */}
                                     </FormControl>
 
 
                                     <TextField
 
                                         sx={{ backgroundColor: 'white', }}
-                                        label="Tour date"
+                                        label={toursText[lang].contactForm.date}
                                         type="date"
                                         value={date}
                                         onChange={(e) => setDate(e.target.value)}
@@ -527,7 +721,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                 </Box>
 
                                 <TextField
-                                    label={lang === 'en' ? "Message" : 'Mensaje'}
+                                    label={toursText[lang].contactForm.message}
 
                                     fullWidth
                                     multiline
@@ -552,7 +746,7 @@ setPeopleLabel(lang === 'en' ? 'Number of people'
                                         },
                                     }}
                                 >
-                                    {lang === 'en' ? 'Send message' : 'Enviar mensaje'}
+                                    {toursText[lang].contactForm.formButton}
                                 </Typography>
                             </Button>
 
@@ -576,6 +770,47 @@ const TourCard = ({ tour, index }) => {
         setSelectedType(tour.options[0].duration_type);
     }, [lang, tour.options]);
 
+    const tourCardText = {
+        en: {
+                location: "Location: ",
+                meeting_place: "Meeting place: ",
+                duration: "Duration: ",
+                price: "Price: From ",
+                capacity: ["Capacity: Up to ", "people"],
+                includes: "Inclusions",
+                excludes: "Exclusions"
+
+            },
+        es: {            
+                location: "Ubicacion: ",
+                meeting_place: "Punto de encuentro: ",
+                duration: "Duración: ",
+                price: "Precio: Desde ",
+                capacity: ["Capacidad: Hasta ", "personas"],
+                includes: "Incluye",
+                excludes: "No incluye"
+
+        },
+        it: {            
+                location: "Posizione: ",
+                meeting_place: "Luogo di incontro: ",
+                duration: "Durata: ",
+                price: "Prezzo: da ",
+                capacity: ["Capacità: Fino a ", "persone"],
+                includes: "Inclusioni",
+                excludes: "Esclusioni"
+        },
+        fr: {
+                location: "Lieu : ",
+                meeting_place: "Lieu de rendez-vous: ",
+                duration: "Durée: ",
+                price: "Prix: À partir de ",
+                capacity: ["Capacité: Jusqu'à ", "personnes"],
+                includes: "Inclusions",
+                excludes: "Exclusions"
+        },
+    };
+
 
     return (
         <Grid
@@ -585,7 +820,7 @@ const TourCard = ({ tour, index }) => {
             justifyContent="center"
         >
             <Card sx={{ position: 'relative' }}>
-                {(tour.type === 'Private Tour' || tour.type === 'Tour Privado') &&
+                {(tour.type === 'Private Tour' || tour.type === 'Tour Privado' || tour.type === 'Visite privée' || tour.type === 'Tour privato') &&
                     <Box
                         sx={{
                             position: 'absolute', // Ensure it's positioned relative to the card
@@ -624,11 +859,11 @@ const TourCard = ({ tour, index }) => {
                         {tour.name}
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Location: ' : 'Ubicacion: '}
+                    {tourCardText[lang].location}
                         {tour.location}
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Meeting place: ' : 'Punto de encuentro: '}
+                        {tourCardText[lang].meeting_place}
                         {tour.meeting_place}
                     </Typography>
                     {(tour.options.length > 1) &&
@@ -658,12 +893,12 @@ const TourCard = ({ tour, index }) => {
                     }
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Duration: ' : 'Duración: '}
+                        {tourCardText[lang].duration}
                         {tour.options.filter(option => option.duration_type === selectedType)[0]?.duration}
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Price: From ' : 'Precio: Desde '}
+                        {tourCardText[lang].price}
                         {tour.options.filter(option => option.duration_type === selectedType)[0]?.guests
                             ? tour.options.filter(option => option.duration_type === selectedType)[0]?.guests[0]
                             : tour.options.filter(option => option.duration_type === selectedType)[0]?.adults[0]}
@@ -671,13 +906,13 @@ const TourCard = ({ tour, index }) => {
                     </Typography>
 
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                        {lang === 'en' ? 'Capacity: Up to ' : 'Capacidad: Hasta '}
+                        {tourCardText[lang].capacity[0]}
                         {tour.options.filter(option => option.duration_type === selectedType)[0]?.capacity}
-                        {lang === 'en' ? ' people' : ' personas'}
+                        {tourCardText[lang].capacity[1]}
                     </Typography>
 
                     <Typography sx={{ fontWeight: '600' }}>
-                        {lang === 'en' ? 'Inclusions: ' : 'Incluye: '}
+                    {tourCardText[lang].includes}
                     </Typography>
                     {tour.inclusions.map((inclusion, index) => {
                         return (
@@ -685,7 +920,7 @@ const TourCard = ({ tour, index }) => {
                         )
                     })}
                     <Typography sx={{ fontWeight: '600' }}>
-                        {lang === 'en' ? 'Exclusions: ' : 'No incluye: '}
+                    {tourCardText[lang].excludes}
                     </Typography>
                     {tour.exclusions.map((exclusion, index) => {
                         return (

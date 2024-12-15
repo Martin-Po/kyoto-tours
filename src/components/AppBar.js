@@ -164,6 +164,28 @@ function ResponsiveAppBar() {
                                             >
                                                 English
                                             </ListItem>
+                                            <ListItem
+                                                sx={{
+                                                    fontSize: '0.85rem',
+                                                    color: "white",
+                                                    fontWeight: lang === "it" ? "bold" : "normal",
+                                                    backgroundColor: lang === "it" ? "primary.selected" : "transparent",
+                                                }}
+                                                onClick={() => handleLangChange("it")}
+                                            >
+                                                Italiano
+                                            </ListItem>
+                                            <ListItem
+                                                sx={{
+                                                    fontSize: '0.85rem',
+                                                    color: "white",
+                                                    fontWeight: lang === "fr" ? "bold" : "normal",
+                                                    backgroundColor: lang === "fr" ? "primary.selected" : "transparent",
+                                                }}
+                                                onClick={() => handleLangChange("fr")}
+                                            >
+                                                Français
+                                            </ListItem>
                                         </List>
                                     </AccordionDetails>
                                 </Accordion>
@@ -264,6 +286,26 @@ function ResponsiveAppBar() {
                             onClick={() => handleLangChange("en")}
                         >
                             English
+                        </MenuItem>
+                        <MenuItem
+                            sx={{
+                                color: "white",
+                                fontWeight: lang === "it" ? "bold" : "normal",
+                                backgroundColor: lang === "it" ? "primary.selected" : "transparent",
+                            }}
+                            onClick={() => handleLangChange("it")}
+                        >
+                            Italiano
+                        </MenuItem>
+                        <MenuItem
+                            sx={{
+                                color: "white",
+                                fontWeight: lang === "fr" ? "bold" : "normal",
+                                backgroundColor: lang === "fr" ? "primary.selected" : "transparent",
+                            }}
+                            onClick={() => handleLangChange("fr")}
+                        >
+                            Français
                         </MenuItem>
                     </Menu>
                 </Toolbar>

@@ -14,6 +14,24 @@ const Destinos = () => {
     const route = process.env.PUBLIC_URL + '/assets/marcas/'
     const { lang } = useLang();
 
+    const destinationText = { en: {
+        text: "Discover Kyoto, Osaka and Nara",
+        buttonText: "Visit our tours",
+    },
+    es: {
+        text: "Descubre Kyoto, Osaka y Nara",
+        buttonText: "Visita nuestros tours",
+    },
+    it: {
+        text: "Scopri Kyoto, Osaka e Nara",
+        buttonText: "Visita i nostri tour",
+    },
+    fr: {
+        text: "Découvrez Kyoto, Osaka et Nara",
+        buttonText: "Visitez nos tours",
+    },
+    };
+
     return (
         <div style={{ width: '100vw', maxWidth: '100%', backgroundColor: theme.palette.secondary.main }} >
             <Grid
@@ -37,9 +55,7 @@ const Destinos = () => {
             >
                 <Grid size={{ xs: 12 }} display="flex" justifyContent="center">
                     <Typography variant="h3" textAlign="center" sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.875rem', marginBottom: '2rem' }} >
-                        {lang === 'en'
-                            ? 'Discover Kyoto, Osaka and Nara'
-                            : 'Descubre Kyoto, Osaka y Nara'}
+                    {destinationText[lang].title}
 
                     </Typography>
                 </Grid>
@@ -95,9 +111,7 @@ const Destinos = () => {
                     <Link
                         to={`/tours`}>
                         <Button variant="contained" sx={{ marginTop: '1.5rem', borderRadius: '35px', fontWeight: 600, fontSize: '1.125rem', color: 'white', letterSpacing: '0.1rem' }}>
-                            {lang === 'en'
-                                ? 'Visit our tours'
-                                : 'Ver todos nuestros tours'}
+                        {destinationText[lang].buttonText}
 
                         </Button>
                     </Link>

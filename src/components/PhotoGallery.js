@@ -2,11 +2,54 @@ import { Grid2 as Grid, Typography } from "@mui/material"
 import { useLang } from "./utils/LangProvider";
 import { Gallery } from "./utils/Gallery";
 import { GalleryImages } from "../data";
+import JapanFlag from "../assets/japan-flag-waving-icon-16.png"
 
 
 
 const PhotoGallery = () => {
     const { lang } = useLang();
+
+    const galleryText = {
+        en: {
+            title: (
+                <span>
+                    Let's meet up and have fun together visiting the most beautiful and interesting places on this side of Japan!
+                    <img src={JapanFlag} alt="Japan Flag" style={{ width: '20px', height: 'auto', marginLeft: '5px' }} />
+                    🌈🌱
+                </span>
+            ),
+        },
+        es: {
+            title:
+                (
+                    <span>
+                        Encontrémonos y divirtámonos juntos visitando los lugares más bellos e interesantes de este lado de Japón!
+                        <img src={JapanFlag} alt="Japan Flag" style={{ width: '20px', height: 'auto', marginLeft: '5px' }} />
+                        🌈🌱
+                    </span>
+                ),
+        },
+        it: {
+            title:
+                (
+                    <span>
+                        Incontriamoci e divertiamoci insieme visitando i luoghi più belli e interessanti di questa parte del Giappone!
+                        <img src={JapanFlag} alt="Japan Flag" style={{ width: '20px', height: 'auto', marginLeft: '5px' }} />
+                        🌈🌱
+                    </span>
+                ),
+        },
+        fr: {
+            title:
+                (
+                    <span>
+                        Rencontrons-nous et amusons-nous ensemble en visitant les endroits les plus beaux et les plus intéressants de ce côté du Japon!
+                        <img src={JapanFlag} alt="Japan Flag" style={{ width: '20px', height: 'auto', marginLeft: '5px' }} />
+                        🌈🌱
+                    </span>
+                ),
+        },
+    };
 
 
     return (
@@ -36,26 +79,18 @@ const PhotoGallery = () => {
                 <Grid
                     size={12}
 
-                >                  
+                >
                     <Typography
                         sx={{
                             fontSize: '1.125rem',
                             lineHeight: '1.75rem',
                         }}
                     >
-                        {lang === 'en' ? (
-                            <>
-                                " Let’s meet up and have fun together visiting the most beautiful and interesting places on this side Japan "
-                            </>
-                        ) : (
-                            <>
-                                " ¡Reunámonos y divirtámonos juntos visitando los lugares más hermosos e interesantes de este lado de Japón! "                            
-                            </>
-                        )}
+                        {galleryText[lang].title}
                     </Typography>
                 </Grid>
             </Grid>
-            <Gallery  images={GalleryImages}/>
+            <Gallery images={GalleryImages} />
         </>
 
     )

@@ -10,6 +10,71 @@ import { useLang } from '../utils/LangProvider';
 const Concepto = () => {
     const { lang } = useLang();
 
+    const conceptText = {
+        en: {
+            intro: (
+                <>
+                    " Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world "
+                </>
+            ),
+            details: (
+                <>
+                    " You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding, or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit "
+                    <br />
+                    Please contact us, let’s know each other!😊
+                </>
+            ),
+            buttonText: "Get to know more about us",
+        },
+        es: {
+            intro: (
+                <>
+                    " Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo "
+                </>
+            ),
+            details: (
+                <>
+                    " Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años de guías turísticas, o podemos chatear o conversar para conocer tus principales intereses y añadir a la ruta lugares que definitivamente te gustaría visitar "
+                    <br />
+                    Contáctanos por favor , Conozcámonos!😊
+                </>
+            ),
+            buttonText: "Conocé más sobre nosotros",
+        },
+        it: {
+            intro: (
+                <>
+                    " Esploriamo il meglio di Kyoto e dei suoi dintorni in modo personalizzato; dai luoghi più emblematici a quelli più sconosciuti e sorprendenti, con l'obiettivo di offrirvi anche un'idea chiara della vita quotidiana in questa parte del mondo "
+                </>
+            ),
+            details: (
+                <>
+                    " Puoi lasciarlo nelle nostre mani scegliendo il miglior itinerario applicando tutta la nostra esperienza di anni di guide turistiche, oppure possiamo scrivici o parlare per scoprire i tuoi principali interessi e aggiungere all'itinerario i luoghi che vorresti sicuramente visitare "
+                    <br />
+                    Contattaci, Conosciamoci!😊
+                </>
+            ),
+            buttonText: "Scopri di più su di noi",
+        },
+        fr: {
+            intro: (
+                <>
+                    "Explorons le meilleur de Kyoto et ses environs d’une manière personnalisée, des endroits les plus emblématiques aux plus inconnus et surprenants , dans le but de vous offrir aussi une idée claire de la vie quotidienne dans cette partie du monde "
+                </>
+            ),
+            details: (
+                <>
+                    " Vous pouvez nous laisser le soin de choisir le meilleur itinéraire en appliquant toute notre expérience de plusieurs années de guides touristiques, ou nous pouvons nous écrire ou discuter pour connaître vos principaux intérêts et ajouter des lieux à l'itinéraire que vous aimeriez certainement visiter "
+                    <br />
+                    N’hésitez pas à nous contacter, faisons connaissance!😊
+                </>
+            ),
+            buttonText: "Apprenez-en plus sur nous",
+        },
+    };
+
+
+
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
 
@@ -97,16 +162,7 @@ const Concepto = () => {
                                 },
                             }}
                         >
-                            {lang === "en"
-                                ? 
-                                <>
-                                    " Let’s explore the best of Kyoto and its surroundings, in a customised way; from most iconic to most off the beaten path locations, with the goal of providing you as well a clear notion of the daily life in this part of the world. "
-                                </>
-                                : 
-                                <>
-                                    " Exploremos lo mejor de Kioto y sus alrededores de una manera personalizada; desde los lugares más icónicos hasta los más alejados de las rutas turísticas, con el objetivo de ofrecerte también una clara noción de la vida diaria en esta parte del mundo. "
-                                </>
-                                    }
+                            {conceptText[lang].intro}
                         </Typography>
                     </Grid>
                 </Box>
@@ -140,19 +196,7 @@ const Concepto = () => {
                                 },
                             }}
                         >
-                            {lang === 'en'
-                                ? 
-                                <>
-                                    " You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding and/Or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit
-                                    <br />
-                                    Please contact us, let’s know each other "
-                               
-                                </>
-                                : <>
-                                    " Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años guiando, o podemos conversar para conocer tus principales intereses y añadir a la ruta los lugares que definitivamente te gustaría visitar.
-                                    <br />
-                                    Please contact us, let’s know each other "
-                                </>
+                            {conceptText[lang].details
                             }
 
                         </Typography>
@@ -234,9 +278,7 @@ const Concepto = () => {
                                     },
                                 }}
                             >
-                                {lang === 'en'
-                                    ? 'Get to know more about us'
-                                    : 'Conocé más sobre nosotros'}
+                                {conceptText[lang]?.buttonText}
 
                             </Typography>
                         </Button>
