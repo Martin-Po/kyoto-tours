@@ -7,6 +7,8 @@ import { useTheme } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import { metaTexts } from "../metaTextData";
+import { SeoHelmet } from "./utils/SeoHelmet";
 
 
 
@@ -254,12 +256,6 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
         }
     };
 
-
-    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
-    const esUrl = `${baseUrl}/es/tours`; // URL para la versión en español de la página home
-    const enUrl = `${baseUrl}/en/tours`; // URL para la versión en inglés de la página home
-    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
-
     const toursWithOptions = ToursData[lang].flatMap((tour, index) => {
         // Start by getting the base ID (e.g., 1 for the first tour)
 
@@ -310,7 +306,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         es: {
-            title: "Our Tours",
+            title: "Nuestros Tours",
             intro: {
                 beggining: (
                     <>
@@ -342,7 +338,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         it: {
-            title: "Our Tours",
+            title: "I nostri tours",
             intro: {
                 beggining: (
                     <>
@@ -374,7 +370,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         fr: {
-            title: "Our Tours",
+            title: "Nos tours",
             intro: {
                 beggining: (
                     <>
@@ -410,36 +406,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet htmlAttributes={{ lang: lang, }}  >
-                <link rel="alternate" href={enUrl} hreflang="en" />
-                <link rel="alternate" href={esUrl} hreflang="es" />
-                <link rel="alternate" href={baseUrl} hreflang="x-default" />
-                {/* Canonical tag */}
-                <link rel="canonical" href={canonicalUrl} />
-                <title>{lang === 'en'
-                    ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto'
-                    : 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'}</title>
-                <meta name='description' content={lang === 'en'
-                    ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.'
-                    : 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'} />
-                {/* Open Graph Tags */}
-                <meta property="og:title"
-                    content={
-                        lang === 'en'
-                            ? 'Explore Our Tours | Kyoto, Osaka & Nara Adventures - Best of Kyoto'
-                            : 'Explora Nuestros Tours | Aventuras en Kyoto, Osaka y Nara - Best of Kyoto'
-                    }
-                />
-                <meta property="og:description"
-                    content={
-                        lang === 'en'
-                            ? 'Choose from a variety of guided tours in Kyoto, Osaka, and Nara. Tailored itineraries for families, couples, and solo travelers.'
-                            : 'Elige entre una variedad de tours guiados en Kyoto, Osaka y Nara. Itinerarios personalizados para familias, parejas y viajeros individuales.'
-                    }
-                />
-                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SeoHelmet lang={lang} page="tours" />
             <Grid
                 container
                 margin="50px auto 40px auto"
@@ -815,7 +782,9 @@ const TourCard = ({ tour, index }) => {
     return (
         <Grid
             key={index}
-            size={{ xs: 12, sm: 6, md: 3, }}
+            size={lang === 'it' || lang === 'fr' 
+                ? { xs: 12, md: 4 } 
+                : { xs: 12, sm: 6, md: 3 }}
             display="flex"
             justifyContent="center"
         >

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Grid2 as Grid, Modal, Box, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
+
 export const Gallery = ({ images }) => {
     const [open, setOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);

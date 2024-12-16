@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom'
 import { useLang } from '../utils/LangProvider';
 import { Helmet } from 'react-helmet';
 
+import { metaTexts } from "../../metaTextData";
+import { SeoHelmet } from '../utils/SeoHelmet';
+
+
 const Hero = () => {
     const { lang } = useLang();
-
-    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
-    const esUrl = `${baseUrl}/es/home`; // URL para la versión en español de la página home
-    const enUrl = `${baseUrl}/en/home`; // URL para la versión en inglés de la página home
-    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
-
+  
 
     return (
         <div
@@ -30,69 +29,8 @@ const Hero = () => {
                 alignItems: 'center', // Center vertically
             }}
         >
-            <Helmet htmlAttributes={{lang: lang,}}  >
+           <SeoHelmet lang={lang} page="home" />
 
-                <link rel="alternate" href={enUrl} hreflang="en" />
-                <link rel="alternate" href={esUrl} hreflang="es" />
-                <link rel="alternate" href={baseUrl} hreflang="x-default" />
-
-                {/* Canonical tag */}
-                <link rel="canonical" href={canonicalUrl} />
-                {/* Page Title */}
-
-                <title>
-                    {lang === 'en'
-                        ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
-                        : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'}
-                </title>
-
-                {/* Meta Description */}
-                <meta
-                    name="description"
-                    content={
-                        lang === 'en'
-                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
-                            : 'Unique experiences designed by local experts. From iconic landmarks to places where you will not see other travellers.'
-                    }
-                />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title"
-                    content={
-                        lang === 'en'
-                            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
-                            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
-                    }
-                />
-                <meta property="og:description"
-                    content={
-                        lang === 'en'
-                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
-                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
-                    }
-                />
-                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webpp" />
-                <meta property="og:type" content="website" />
-                {/* Twitter Card Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title"
-                    content={
-                        lang === 'en'
-                            ? 'Best Tours in Kyoto, Osaka & Nara | Unique Travel Experiences - Best of Kyoto'
-                            : 'Mejores Tours en Kyoto, Osaka y Nara | Experiencias Únicas - Best of Kyoto'
-                    }
-                />
-                <meta name="twitter:description"
-                    content={
-                        lang === 'en'
-                            ? 'Discover the beauty of Kyoto, Osaka, and Nara with personalized tours. Explore Japan´s culture, history, and cuisine with local expert guides.'
-                            : 'Descubre la belleza de Kyoto, Osaka y Nara con tours personalizados. Explora la cultura, historia y gastronomía de Japón con guías expertos locales.'
-                    }
-                />
-                <meta name="twitter:image" content="%PUBLIC_URL%/images/logo_light.webp" />
-
-
-            </Helmet>
             <Grid
                 container
                 direction="column"

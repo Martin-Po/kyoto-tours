@@ -2,50 +2,15 @@ import { Box, Paper, Typography } from "@mui/material"
 import { FAQData } from "../data"
 import { useLang } from "./utils/LangProvider";
 import { Helmet } from 'react-helmet';
+import { metaTexts } from "../metaTextData";
+import { SeoHelmet } from "./utils/SeoHelmet";
 
 const FAQs = () => {
     const { lang } = useLang();
-    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
-    const esUrl = `${baseUrl}/es/faqs`; // URL para la versión en español de la página home
-    const enUrl = `${baseUrl}/en/faqs`; // URL para la versión en inglés de la página home
-    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
-
-
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet htmlAttributes={{lang: lang,}}  >
-                <link rel="alternate" href={enUrl} hreflang="en" />
-                <link rel="alternate" href={esUrl} hreflang="es" />
-                <link rel="alternate" href={baseUrl} hreflang="x-default" />
-
-                {/* Canonical tag */}
-                <link rel="canonical" href={canonicalUrl} />
-                <title>{lang === 'en'
-                    ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
-                    : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'}</title>
-                <meta name='description' content={lang === 'en'
-                    ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
-                    : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'} />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title"
-                    content={
-                        lang === 'en'
-                            ? 'FAQs | Your Questions About Our Japan Tours Answered - Best of Kyoto'
-                            : 'Preguntas Frecuentes | Resuelve tus Dudas sobre Nuestros Tours - Best of Kyoto'
-                    }
-                />
-                <meta property="og:description"
-                    content={
-                        lang === 'en'
-                            ? 'Find answers to frequently asked questions about our Kyoto, Osaka, and Nara tours, including booking and cancellation policies.'
-                            : 'Encuentra respuestas a las preguntas frecuentes sobre nuestros tours en Kyoto, Osaka y Nara, incluyendo reservas y cancelaciones.'
-                    }
-                />
-                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SeoHelmet lang={lang} page="faqs" />
             <Box sx={{
                 flexDirection: 'column',
                 margin: '50px auto 40px auto',

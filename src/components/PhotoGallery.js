@@ -2,11 +2,16 @@ import { Grid2 as Grid, Typography } from "@mui/material"
 import { useLang } from "./utils/LangProvider";
 import { Gallery } from "./utils/Gallery";
 import { GalleryImages } from "../data";
+import { metaTexts } from "../metaTextData";
+
 import JapanFlag from "../assets/japan-flag-waving-icon-16.png"
+import { Helmet } from "react-helmet";
+import { SeoHelmet } from "./utils/SeoHelmet";
 
 
 
 const PhotoGallery = () => {
+
     const { lang } = useLang();
 
     const galleryText = {
@@ -54,6 +59,7 @@ const PhotoGallery = () => {
 
     return (
         <>
+           <SeoHelmet lang={lang} page="gallery" />
             <Grid
                 container
                 margin="50px auto 40px auto"

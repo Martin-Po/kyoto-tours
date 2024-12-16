@@ -2,6 +2,8 @@ import { Box, Button, Divider, FormControl, Grid2 as Grid, TextField, Typography
 import { useState } from 'react'
 import { useLang } from "./utils/LangProvider";
 import { Helmet } from 'react-helmet';
+import { metaTexts } from '../metaTextData';
+import { SeoHelmet } from './utils/SeoHelmet';
 
 const Contactenos = () => {
     const [name, setName] = useState('')
@@ -9,11 +11,6 @@ const Contactenos = () => {
     const [message, setMessage] = useState('')
 
     const { lang } = useLang();
-    const baseUrl = window.location.origin; // Esto obtiene el dominio base (ej. https://kyoto-tours.vercel.app)
-    const esUrl = `${baseUrl}/es/contact`; // URL para la versión en español de la página home
-    const enUrl = `${baseUrl}/en/contact`; // URL para la versión en inglés de la página home
-    const canonicalUrl = lang === 'en' ? enUrl : esUrl; // Set the canonical URL for the current language
-
 
     const contactUsText = { 
     en: {
@@ -64,39 +61,7 @@ const Contactenos = () => {
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
-            <Helmet htmlAttributes={{lang: lang,}}  >
-                <link rel="alternate" href={enUrl} hreflang="en" />
-                <link rel="alternate" href={esUrl} hreflang="es" />
-                <link rel="alternate" href={baseUrl} hreflang="x-default" />
-
-                {/* Canonical tag */}
-                <link rel="canonical" href={canonicalUrl} />
-
-                <title>{lang === 'en'
-                    ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
-                    : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'}</title>
-                <meta name='description' content={lang === 'en'
-                    ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
-                    : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'} />
-
-                {/* Open Graph Tags */}
-                <meta property="og:title"
-                    content={
-                        lang === 'en'
-                            ? 'Contact Us | Plan Your Dream Tour in Japan - Best of Kyoto'
-                            : 'Contáctanos | Planifica el Tour de tus Sueños en Japón - Best of Kyoto'
-                    }
-                />
-                <meta property="og:description"
-                    content={
-                        lang === 'en'
-                            ? 'Get in touch with us to book your personalized tour in Kyoto, Osaka, or Nara. We’re here to make your Japan travel dreams come true.'
-                            : 'Ponte en contacto con nosotros para reservar tu tour personalizado en Kyoto, Osaka o Nara. Estamos aquí para hacer realidad tus sueños de viaje en Japón.'
-                    }
-                />
-                <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
-                <meta property="og:type" content="website" />
-            </Helmet>
+            <SeoHelmet lang={lang} page="contact" />
             <Grid
                 container
                 margin="50px auto 40px auto"
