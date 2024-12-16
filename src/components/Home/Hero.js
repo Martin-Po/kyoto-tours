@@ -133,8 +133,7 @@ const Hero = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <Link
-                        to={`/tours`}>
+                    <Link to={`/` + lang + `/tours`}>
                         <Button
                             sx={{
                                 marginTop: '1.5rem',

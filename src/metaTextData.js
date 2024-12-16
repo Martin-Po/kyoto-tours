@@ -103,7 +103,7 @@ export const metaTexts = {
             twDescription: "Discover how we create unique experiences to explore Japan with expert guides.",
             twImage: "%PUBLIC_URL%/images/logo_light.webp"
         },
-        FAQ: {
+        faqs: {
             title: "FAQ | Get Your Questions Answered About Our Tours - Best of Kyoto",
             description: "Find answers to frequently asked questions about our tours in Kyoto, Osaka, and Nara, including bookings and cancellations.",
             ogTitle: "FAQ | Get Your Questions Answered About Our Tours - Best of Kyoto",
@@ -165,7 +165,7 @@ export const metaTexts = {
             twDescription: "Scopri come creiamo esperienze uniche per esplorare il Giappone con guide esperte.",
             twImage: "%PUBLIC_URL%/images/logo_light.webp"
         },
-        FAQ: {
+        faqs: {
             title: "Domande Frequenti | Risposte alle Tue Domande sui Nostri Tour - Best of Kyoto",
             description: "Trova risposte alle domande più frequenti sui nostri tour a Kyoto, Osaka e Nara, inclusa la prenotazione e le cancellazioni.",
             ogTitle: "Domande Frequenti | Risposte alle Tue Domande sui Nostri Tour - Best of Kyoto",
@@ -227,7 +227,7 @@ export const metaTexts = {
             twDescription: "Découvrez comment nous créons des expériences uniques pour explorer le Japon avec des guides experts.",
             twImage: "%PUBLIC_URL%/images/logo_light.webp"
         },
-        FAQ: {
+        faqs: {
             title: "Questions Fréquentes | Réponses à Vos Questions sur Nos Tours - Best of Kyoto",
             description: "Trouvez des réponses aux questions fréquentes sur nos tours à Kyoto, Osaka et Nara, y compris les réservations et les annulations.",
             ogTitle: "Questions Fréquentes | Réponses à Vos Questions sur Nos Tours - Best of Kyoto",

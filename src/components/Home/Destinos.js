@@ -108,8 +108,7 @@ const Destinos = () => {
                     ))}
                 </Grid>
                 <Grid size={{ xs: 12 }} display="flex" flexDirection="column" alignItems="center">
-                    <Link
-                        to={`/tours`}>
+                <Link to={`/` + lang + `/tours`}>
                         <Button variant="contained" sx={{ marginTop: '1.5rem', borderRadius: '35px', fontWeight: 600, fontSize: '1.125rem', color: 'white', letterSpacing: '0.1rem' }}>
                         {destinationText[lang].buttonText}
 

@@ -248,9 +248,7 @@ const Concepto = () => {
                         marginBottom: '20px',
                     }}
                 >
-                    <Link
-                        to={`/nosotros`}
-                    >
+                   <Link to={`/` + lang + `/about`}>
 
                         <Button
                             sx={{
