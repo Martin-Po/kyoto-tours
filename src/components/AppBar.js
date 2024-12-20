@@ -142,6 +142,17 @@ function ResponsiveAppBar() {
                                     </AccordionSummary>
                                     <AccordionDetails sx={{padding:0}}>
                                         <List sx={{paddingTop:0, paddingBottom:0}}>
+                                            <ListItem
+                                                sx={{
+                                                    fontSize: '0.85rem',
+                                                    color: "white",
+                                                    fontWeight: lang === "en" ? "bold" : "normal",
+                                                    backgroundColor: lang === "en" ? "primary.selected" : "transparent",
+                                                }}
+                                                onClick={() => handleLangChange("en")}
+                                            >
+                                                English
+                                            </ListItem>
                                             <ListItem sx={{
                                                 
                                                 fontSize: '0.85rem',
@@ -157,13 +168,14 @@ function ResponsiveAppBar() {
                                                 sx={{
                                                     fontSize: '0.85rem',
                                                     color: "white",
-                                                    fontWeight: lang === "en" ? "bold" : "normal",
-                                                    backgroundColor: lang === "en" ? "primary.selected" : "transparent",
+                                                    fontWeight: lang === "fr" ? "bold" : "normal",
+                                                    backgroundColor: lang === "fr" ? "primary.selected" : "transparent",
                                                 }}
-                                                onClick={() => handleLangChange("en")}
+                                                onClick={() => handleLangChange("fr")}
                                             >
-                                                English
+                                                Français
                                             </ListItem>
+                                            
                                             <ListItem
                                                 sx={{
                                                     fontSize: '0.85rem',
@@ -175,17 +187,7 @@ function ResponsiveAppBar() {
                                             >
                                                 Italiano
                                             </ListItem>
-                                            <ListItem
-                                                sx={{
-                                                    fontSize: '0.85rem',
-                                                    color: "white",
-                                                    fontWeight: lang === "fr" ? "bold" : "normal",
-                                                    backgroundColor: lang === "fr" ? "primary.selected" : "transparent",
-                                                }}
-                                                onClick={() => handleLangChange("fr")}
-                                            >
-                                                Français
-                                            </ListItem>
+                                           
                                         </List>
                                     </AccordionDetails>
                                 </Accordion>
@@ -270,16 +272,6 @@ function ResponsiveAppBar() {
                         <MenuItem
                             sx={{
                                 color: "white",
-                                fontWeight: lang === "es" ? "bold" : "normal",
-                                backgroundColor: lang === "es" ? "primary.selected" : "transparent",
-                            }}
-                            onClick={() => handleLangChange("es")}
-                        >
-                            Español
-                        </MenuItem>
-                        <MenuItem
-                            sx={{
-                                color: "white",
                                 fontWeight: lang === "en" ? "bold" : "normal",
                                 backgroundColor: lang === "en" ? "primary.selected" : "transparent",
                             }}
@@ -290,12 +282,12 @@ function ResponsiveAppBar() {
                         <MenuItem
                             sx={{
                                 color: "white",
-                                fontWeight: lang === "it" ? "bold" : "normal",
-                                backgroundColor: lang === "it" ? "primary.selected" : "transparent",
+                                fontWeight: lang === "es" ? "bold" : "normal",
+                                backgroundColor: lang === "es" ? "primary.selected" : "transparent",
                             }}
-                            onClick={() => handleLangChange("it")}
+                            onClick={() => handleLangChange("es")}
                         >
-                            Italiano
+                            Español
                         </MenuItem>
                         <MenuItem
                             sx={{
@@ -307,6 +299,18 @@ function ResponsiveAppBar() {
                         >
                             Français
                         </MenuItem>
+                        
+                        <MenuItem
+                            sx={{
+                                color: "white",
+                                fontWeight: lang === "it" ? "bold" : "normal",
+                                backgroundColor: lang === "it" ? "primary.selected" : "transparent",
+                            }}
+                            onClick={() => handleLangChange("it")}
+                        >
+                            Italiano
+                        </MenuItem>
+                       
                     </Menu>
                 </Toolbar>
             </Container>

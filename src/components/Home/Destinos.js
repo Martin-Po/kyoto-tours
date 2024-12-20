@@ -28,7 +28,7 @@ const Destinos = () => {
     },
     fr: {
         text: "Découvrez Kyoto, Osaka et Nara",
-        buttonText: "Visitez nos tours",
+        buttonText: "Visitez nos circuits",
     },
     };
 

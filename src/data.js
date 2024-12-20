@@ -679,12 +679,16 @@ export const GalleryImages = [
   { id: 27, url: "/images/gallery/gallery_image_27.jpg" },
   { id: 28, url: "/images/gallery/gallery_image_28.jpg" },
   { id: 29, url: "/images/gallery/gallery_image_29.jpg" },
-  { id: 30, url: "/images/gallery/gallery_image_10.jpg" },
-  { id: 31, url: "/images/gallery/gallery_image_11.jpg" },
-  { id: 32, url: "/images/gallery/gallery_image_12.jpg" },
-  { id: 33, url: "/images/gallery/gallery_image_13.jpg" },
-  { id: 34, url: "/images/gallery/gallery_image_14.jpg" },
-  { id: 35, url: "/images/gallery/gallery_image_15.jpg" },
+  { id: 30, url: "/images/gallery/gallery_image_30.jpg" },
+  { id: 31, url: "/images/gallery/gallery_image_31.jpg" },
+  { id: 32, url: "/images/gallery/gallery_image_32.jpg" },
+  { id: 33, url: "/images/gallery/gallery_image_33.jpg" },
+  { id: 34, url: "/images/gallery/gallery_image_34.jpg" },
+  { id: 35, url: "/images/gallery/gallery_image_35.jpg" },
+  { id: 36, url: "/images/gallery/gallery_image_36.jpg" },
+  { id: 37, url: "/images/gallery/gallery_image_37.jpg" },
+  { id: 38, url: "/images/gallery/gallery_image_38.jpg" },
+  { id: 39, url: "/images/gallery/gallery_image_39.jpg" },
 
 ];
 

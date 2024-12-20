@@ -338,7 +338,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         it: {
-            title: "I nostri tours",
+            title: "I nostri tour",
             intro: {
                 beggining: (
                     <>
@@ -366,11 +366,11 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 people: {label: "NUMERO DI PERSONE", guests: "Ospiti", adults: "Adulti", children: "Bambini"},
                 date: "Data del tour",
                 message: "Messaggio",
-                formButton: "INVIA MESSAGGIO"
+                formButton: "INVIA"
             }
         },
         fr: {
-            title: "Nos tours",
+            title: "Nos circuits",
             intro: {
                 beggining: (
                     <>
@@ -398,7 +398,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 people: {label: "NOMBRE DE PERSONNES", guests: "Invités", adults: "Adultes", children: "Enfants"},
                 date: "Date du tour",
                 message: "Message",
-                formButton: "ENVOYER UN MESSAGE"
+                formButton: "ENVOYER"
             }
         },
     };

@@ -24,7 +24,7 @@ const Concepto = () => {
                     Please contact us, let’s know each other!😊
                 </>
             ),
-            buttonText: "Get to know more about us",
+            buttonText: "More about us",
         },
         es: {
             intro: (
@@ -39,7 +39,7 @@ const Concepto = () => {
                     Contáctanos por favor , Conozcámonos!😊
                 </>
             ),
-            buttonText: "Conocé más sobre nosotros",
+            buttonText: "Más sobre nosotros",
         },
         it: {
             intro: (
@@ -69,7 +69,7 @@ const Concepto = () => {
                     N’hésitez pas à nous contacter, faisons connaissance!😊
                 </>
             ),
-            buttonText: "Apprenez-en plus sur nous",
+            buttonText: "En savour plus sur nous",
         },
     };
 

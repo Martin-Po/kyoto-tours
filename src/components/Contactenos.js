@@ -14,7 +14,7 @@ const Contactenos = () => {
 
     const contactUsText = { 
     en: {
-        title: "Discover Kyoto, Osaka and Nara",
+        title: "Contact Us",
         formLabels:{
             name:"Name",
             email:"Email",
@@ -41,7 +41,7 @@ const Contactenos = () => {
             name:"Nome",
             email:"Email",
             message:"Messaggio",
-            buttonText:"INVIA MESSAGGIO"            
+            buttonText:"INVIA"            
         },
         contactInfo:"Informazioni di contatto",
         phone:"Telefono",
@@ -52,7 +52,7 @@ const Contactenos = () => {
             name:"Nom",
             email:"Email",
             message:"Message",
-            buttonText:"ENVOYER LE MESSAGE"            
+            buttonText:"ENVOYER"            
         },
         contactInfo:"Informations de contact",
         phone:"Téléphone",
