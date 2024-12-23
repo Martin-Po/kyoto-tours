@@ -27,7 +27,7 @@ export const destinos = {
       id: 1,
       city: "Kyoto",
       description:
-        "Let us show you the cultural capital of Japan! From iconic landmarks such as The Fushimi Inari, Nijo Castle or the Golden Pavilion to secret gems and locations which names you may have never heard before, we’ll provide you information on details that you won’t find on the internet.",
+        "Let us show you the cultural capital of Japan! From iconic landmarks such as The Fushimi Inari, Nijo Castle or the Golden Pavilion to secret gems and locations which names you may have never heard before, we’ll provide you information on details that you won’t find on the internet",
       image: "/images/destinos/Kyoto_image.jpg",
     },
     {
@@ -50,44 +50,44 @@ export const destinos = {
       id: 1,
       city: "Kioto",
       description:
-        "Lasciaci mostrarti la capitale culturale del Giappone! Dai punti di riferimento iconici come Fushimi Inari, il Castello Nijo o il Padiglione d'Oro ai luoghi molto più segreti di cui forse non hai mai sentito parlare prima. Ti forniremo informazioni che non troverai su Internet",
+        "Lascia che ti mostriamo la capitale culturale del Giappone! Dai luoghi iconici come Fushimi Inari, il Castello di Nijo o il Padiglione d'Oro ai tesori nascosti e ai luoghi di cui potresti non aver mai sentito parlare, ti forniremo informazioni su dettagli che non troverai su Internet",
       image: "/images/destinos/Kyoto_image.jpg",
     },
     {
       id: 2,
       city: "Osaka",
       description:
-        "Camminiamo insieme per le strade di questa incredibile città. Visiteremo luoghi iconici come il Castello di Osaka, il quartiere Shinsekai o Dotombori Street, ma ci occuperemo anche di mostrarvi luoghi nascosti e parlarvi di caratteristiche che conosciamo dall'aver vissuto qui per anni",
+        "Passeggiamo insieme per le strade di questa città incredibile. Visiteremo il Castello di Osaka, l'area di Shinsekai, la via Dotombori e altre località da non perdere, ma ci assicureremo anche di mostrarti siti nascosti e di parlare di aspetti che conosciamo vivendo qui da anni",
       image: "/images/destinos/osaka_image.jpg",
     },
     {
       id: 3,
       city: "Nara",
       description:
-        "Fantastico per una passeggiata in un parco pieno di spazio e cervi e per visitare il monumentale tempio Todai-ji. Aggiungendo anche luoghi fuori dai sentieri battuti. Se vuoi, potremmo anche trascorrere metà giornata a Nara e l'altra metà a Kyoto",
+        "Perfetto per una passeggiata in un parco spazioso pieno di cervi che possiamo toccare e nutrire, e per visitare il monumentale tempio Todai-ji. Aggiungendo anche località fuori dai percorsi tradizionali. Se vuoi, potremmo anche passare metà giornata a Nara e l'altra metà a Kyoto.",
       image: "/images/destinos/nara_image.jpg",
     },
   ],
   fr: [
     {
       id: 1,
-      city: "Kioto",
+      city: "Kyoto",
       description:
-        "Laissez-nous vous faire découvrir la capitale culturelle du Japon ! Des monuments emblématiques tels que le Fushimi Inari, le château de Nijo ou le Pavillon d'or à des lieux bien plus secrets dont vous n'avez peut-être jamais entendu parler auparavant , nous vous fournirons des informations sur des détails que vous ne trouverez pas sur Internet",
+        "Laissez-nous vous montrer la capitale culturelle du Japon ! Des sites emblématiques comme Fushimi Inari, le Château de Nijō ou le Pavillon d'Or aux joyaux secrets et aux endroits dont les noms ne vous sont peut-être jamais parvenus, nous vous fournirons des informations sur des détails que vous ne trouverez pas sur Internet",
       image: "/images/destinos/Kyoto_image.jpg",
     },
     {
       id: 2,
       city: "Osaka",
       description:
-        "Marchons ensemble dans les rues de cette ville incroyable. Nous visiterons des lieux emblématiques tels que le château d'Osaka, le quartier de Shinsekai ou la rue Dotombori, mais nous nous occuperons également de vous montrer des lieux cachés et de parler de caractéristiques que nous connaissons pour avoir vécu ici pendant des années.",
+        "Flânons ensemble dans les rues de cette ville incroyable. Nous visiterons le Château d'Osaka, le quartier de Shinsekai, la rue de Dotombori et d'autres sites incontournables, mais nous nous assurerons également de vous montrer des lieux cachés et de discuter d'aspects que nous connaissons grâce à notre vie ici depuis des années",
       image: "/images/destinos/osaka_image.jpg",
     },
     {
       id: 3,
       city: "Nara",
       description:
-        "Idéal pour se promener dans un parc très spacieux rempli de cerfs que l'on peut toucher et nourrir, ainsi que visiter le temple monumental Todai-ji. Ajout également d'emplacements hors des sentiers battus. Sur demande, nous pourrions également passer la moitié de la journée à Nara et l'autre moitié à Kyoto.",
+        "Parfait pour une promenade dans un parc spacieux plein de cerfs que nous pouvons toucher et nourrir, et pour visiter le monumental temple Todai-ji. En ajoutant également des lieux hors des sentiers battus. Si vous le souhaitez, nous pourrions également passer la moitié de la journée à Nara et l'autre moitié à Kyoto.",
       image: "/images/destinos/nara_image.jpg",
     },
   ],
@@ -105,7 +105,7 @@ export const ToursData = {
           duration_type: "Día completo",
           duration: "8 horas",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -113,7 +113,7 @@ export const ToursData = {
           duration_type: "Medio día",
           duration: "4 horas",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -158,7 +158,7 @@ export const ToursData = {
           duration_type: "Día completo",
           duration: "8 horas",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -166,7 +166,7 @@ export const ToursData = {
           duration_type: "Medio día",
           duration: "4 horas",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -189,7 +189,7 @@ export const ToursData = {
           duration_type: "Día completo",
           duration: "8 horas",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -197,7 +197,7 @@ export const ToursData = {
           duration_type: "Medio día",
           duration: "4 horas",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -224,7 +224,7 @@ export const ToursData = {
           duration_type: "Full day tour",
           duration: "8 hours",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -232,7 +232,7 @@ export const ToursData = {
           duration_type: "Half day tour",
           duration: "4 hours",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -272,7 +272,7 @@ export const ToursData = {
           duration_type: "Full day tour",
           duration: "8 hours",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -280,7 +280,7 @@ export const ToursData = {
           duration_type: "Half day tour ",
           duration: "4 hours",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -303,7 +303,7 @@ export const ToursData = {
           duration_type: "Full day tour",
           duration: "8 hours",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7 ",
         },
@@ -311,7 +311,7 @@ export const ToursData = {
           duration_type: "Half day tour ",
           duration: "4 hours",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7 ",
         },
@@ -330,15 +330,15 @@ export const ToursData = {
       name: "SCOPRI KYOTO",
       type: "Tour privato",
       location: "Kyoto",
-      meeting_place: "hall del tuo hotel o qualsiasi altro luogo a tua scelta",
-      inclusions: ["Prelievo in hotel", "Guida turistica", "Spese per la guida turistica durante il tour"],
+      meeting_place: "hall del tuo hotel o qualsiasi altra posizione tu preferisca",
+      inclusions: ["Ritiro in hotel", "Guida turistica", "Spese per la guida turistica durante il tour"],
       exclusions: ["Trasporto", "Pasti", "Biglietti d'ingresso"],
       options: [
         {
           duration_type: "Intera giornata",
           duration: "8 ore",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -346,7 +346,7 @@ export const ToursData = {
           duration_type: "Mezza giornata",
           duration: "4 ore",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -355,16 +355,38 @@ export const ToursData = {
       image: "/images/tours/discover_kyoto.jpg",
     },
     {
-      name: "OSAKA METROPOLIS",
+      name: "TOUR MAGICO DI GION; PASSEGGIATA SERALE",
+      type: "Walking tour",
+      location: "Kyoto/Gion",
+      meeting_place: "Negozio Disney all'incrocio di Shijo Kawaramachi",
+      options: [
+        {
+          duration_type: "Walking tour",
+          duration: "3 ores",
+          price: ["15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY",],
+          guests: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+          capacity: "10",
+        },
+      ],
+      inclusions: [
+        "Guida turistica",
+        "Spese della guida turistica durante il tour",
+        "Snack per i viaggiatori durante la pausa",
+      ],
+      exclusions: ["Pick-up in hotel", "Trasporti"],
+      image: "/images/tours/magical_gion.jpg",
+    },
+    {
+      name: "METROPOLI DI OSAKA",
       type: "Tour privato",
       location: "Osaka",
-      meeting_place: "hall del tuo hotel o qualsiasi altro luogo a tua scelta",
+      meeting_place: "nella hall del tuo hotel o in qualsiasi altro luogo tu preferisca",
       options: [
         {
           duration_type: "Intera giornata",
           duration: "8 ore",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -372,30 +394,30 @@ export const ToursData = {
           duration_type: "Mezza giornata",
           duration: "4 ore",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
       ],
       inclusions: [
-        "Prelievo in hotel",
+        "Pick-up in hotel",
         "Guida turistica",
-        "Spese per la guida turistica durante il tour",
+        "Spese della guida turistica durante il tour",
       ],
-      exclusions: ["Trasporto", "Pasti", "Biglietti d'ingresso"],
+      exclusions: ["Trasporto", "Pasti", "Costi di ingresso"],
       image: "/images/tours/osaka_metropolis.jpg",
     },
     {
       name: "NARA, TRADIZIONE E NATURA SVELATE",
       type: "Tour privato",
       location: "Nara o Nara e Kyoto",
-      meeting_place: "hall del tuo hotel o qualsiasi altro luogo a tua scelta",
+      meeting_place: "nella hall del tuo hotel o in qualsiasi altro luogo tu preferisca ",
       options: [
         {
           duration_type: "Intera giornata",
           duration: "8 ore",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7 ",
         },
@@ -403,17 +425,17 @@ export const ToursData = {
           duration_type: "Mezza giornata",
           duration: "4 ore",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7 ",
         },
       ],
       inclusions: [
-        "Prelievo in hotel",
+        "Pick-up in hotel",
         "Guida turistica",
-        "Spese per la guida turistica durante il tour",
+        "Spese della guida turistica durante il tour",
       ],
-      exclusions: ["Trasporto", "Pasti ", "Biglietti d'ingresso"],
+      exclusions: ["Trasporto", "Pasti ", "Costi di ingresso"],
       image: "/images/tours/nara_unvelied.jpg",
     },
   ],
@@ -422,7 +444,7 @@ export const ToursData = {
       name: "DÉCOUVRIR KYOTO",
       type: "Visite privée",
       location: "Kyoto",
-      meeting_place: "hall de votre hôtel ou tout autre lieu de votre choix",
+      meeting_place: "le hall de votre hôtel ou tout autre lieu de votre choix",
       inclusions: ["Prise en charge à l'hôtel", "Guide touristique", "Frais du guide touristique pendant la visite"],
       exclusions: ["Transport", "Repas", "Frais d'entrée"],
       options: [
@@ -430,7 +452,7 @@ export const ToursData = {
           duration_type: "Journée complète",
           duration: "8 heures",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -438,7 +460,7 @@ export const ToursData = {
           duration_type: "Demi-journée",
           duration: "4 heures",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -447,16 +469,38 @@ export const ToursData = {
       image: "/images/tours/discover_kyoto.jpg",
     },
     {
-      name: "MÉTROPOLE D'OSAKA",
+      name: "TOUR MAGICO DI GION; PASSEGGIATA SERALE",
+      type: "Walking tour",
+      location: "Kyoto/Gion",
+      meeting_place: "Boutique Disney au carrefour Shijo Kawaramachi",
+      options: [
+        {
+          duration_type: "Walking tour",
+          duration: "3 heures",
+          price: ["15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY", "15,000 JPY",],
+          guests: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
+          capacity: "10",
+        },
+      ],
+      inclusions: [
+        "Guide touristique",
+        "Frais du guide touristique pendant la visite",
+        "Collations pour les voyageurs pendant la pause",
+      ],
+      exclusions: ["Prise en charge à l'hôtel", "Transport"],
+      image: "/images/tours/magical_gion.jpg",
+    },
+    {
+      name: "MÉTROPOLIS D'OSAKA",
       type: "Visite privée",
       location: "Osaka",
-      meeting_place: "hall de votre hôtel ou tout autre endroit de votre choix",
+      meeting_place: "le hall de votre hôtel ou tout autre lieu de votre choix",
       options: [
         {
           duration_type: "Journée complète",
           duration: "8 heures",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7",
         },
@@ -464,7 +508,7 @@ export const ToursData = {
           duration_type: "Demi-journée",
           duration: "4 heures",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7",
         },
@@ -481,13 +525,13 @@ export const ToursData = {
       name: "NARA, TRADITION ET NATURE DÉVOILÉE",
       type: "Visite privée",
       location: "Nara ou Nara et Kyoto",
-      meeting_place: "hall de votre hôtel ou tout autre endroit de votre choix",
+      meeting_place: "le hall de votre hôtel ou tout autre lieu de votre choix",
       options: [
         {
           duration_type: "Journée complète",
           duration: "8 heures",
           price: ["34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY", "34,000 JPY",],
-          adults: [360, 60, 30, 30, 30, 30, 30],
+          adults: [360, 40, 20, 30, 30, 30, 30],
           children: [20, 20, 20, 20, 20, 20],
           capacity: "7 ",
         },
@@ -495,7 +539,7 @@ export const ToursData = {
           duration_type: "Demi-journée",
           duration: "4 heures",
           price: ["17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY", "17,000 JPY",],
-          adults: [200, 40, 20, 20, 20, 20, 20],
+          adults: [200, 20, 20, 20, 20, 20, 20],
           children: [10, 10, 10, 10, 10, 10],
           capacity: "7 ",
         },
@@ -545,107 +589,187 @@ export const FAQData = {
   es: [
     {
       question: "¿Cómo puedo reservar un tour?",
-      answer: "Puede reservar un tour a través de nuestra página de Tours o contactándonos directamente por correo electrónico o teléfono."
-    },
-    {
-      question: "¿Los tours son en español?",
-      answer: "Sí, ofrecemos tours en español con guías locales que hablan el idioma fluidamente."
-    },
-    {
-      question: "¿Cuál es la política de cancelación?",
-      answer: "Ofrecemos cancelación gratuita hasta 48 horas antes del inicio del tour. Para más detalles, consulte nuestra política de cancelación."
-    },
-    {
-      question: "¿Los tours son adecuados para niños?",
-      answer: "La mayoría de nuestros tours son aptos para todas las edades. Indicamos en la descripción de cada tour si hay restricciones de edad."
-    },
-    {
-      question: "¿Qué debo llevar a los tours?",
-      answer: "Recomendamos llevar ropa y calzado cómodos, protección solar, agua y una cámara. Dependiendo del tour, podríamos sugerir artículos adicionales."
+      answer: "Puedes reservar un tour a través de nuestra página de Tours contactándonos directamente por correo electrónico, WhatsApp o teléfono."
     },
     {
       question: "¿Ofrecen tours privados?",
-      answer: "Sí, ofrecemos tours privados personalizados para grupos pequeños o familias. Contáctenos para más información."
+      answer: "Sí, ofrecemos tours privados personalizados para grupos pequeños. Contáctanos para más información."
+    },
+    {
+      question: "¿El Tour de Gion es privado?",
+      answer: "No, ese es el único tour que es público; hasta diez miembros."
+    },
+    {
+      question: "¿Podemos contar con la asistencia del guía para obtener información además de la del tour?",
+      answer: "¡Sí! Es un servicio que nos gusta ofrecer (sin cargo) antes y después del tour."
+    },
+    {
+      question: "¿La tarifa cambia según la cantidad de personas en un tour?",
+      answer: "Sí, no muy significativamente, pero hay algunas diferencias que puedes consultar en la página de Tours. Contáctanos para más información."
+    },
+    {
+      question: "¿Cuánto tiempo duran los tours?",
+      answer: "Los tours de un día completo son de 8 horas y los de medio día 4 horas. Sin embargo, podemos hablar y negociar en caso de que desees una cantidad específica de horas."
+    },
+    {
+      question: "¿Son los tours adecuados para niños?",
+      answer: "La mayoría de nuestros tours son adecuados para todas las edades, desde adultos hasta familias con bebés, adolescentes, etc. De hecho, personalizaremos el tour para que sea más adecuado para los viajeros con los que estamos. Contáctanos para más información."
+    },
+    {
+      question: "¿En qué idioma son los tours?",
+      answer: "Ofrecemos tours en inglés, español, francés e italiano."
+    },
+    {
+      question: "¿Cómo nos moveremos durante el tour?",
+      answer: "Caminando y utilizando el transporte público como metro, trenes o autobuses. En algunos momentos podemos tomar taxis si lo prefieres. En caso de que no quieras caminar o tengas alguna limitación, podemos usar solo taxis o contratar transporte privado. Hay lugares con calles estrechas donde los vehículos no pueden acceder y caminar es la única opción, pero podemos evitarlos en cierta medida si lo prefieres."
+    },
+    {
+      question: "¿Tenemos que pagar los gastos del guía durante el tour?",
+      answer: "No, no tienes que pagar al guía por los gastos de boletos, comida o transporte público. La única excepción sería en caso de usar taxi o transporte privado."
+    },
+    {
+      question: "¿Qué debo llevar para el tour?",
+      answer: "Recomendamos llevar ropa y zapatos cómodos, algo de dinero en efectivo, agua y una cámara. Dependiendo del tour, la temporada y las condiciones climáticas, podemos sugerir artículos adicionales como protector solar o paraguas."
     }
   ],
   en: [
     {
       question: "How can I book a tour?",
-      answer: "You can book a tour through our Tours page or by contacting us directly via email or phone."
-    },
-    {
-      question: "Are the tours in Spanish?",
-      answer: "Yes, we offer tours in Spanish with local guides who speak the language fluently."
-    },
-    {
-      question: "What is the cancellation policy?",
-      answer: "We offer free cancellation up to 48 hours before the tour begins. For more details, see our cancellation policy."
-    },
-    {
-      question: "Are the tours suitable for children?",
-      answer: "Most of our tours are suitable for all ages. We indicate in each tour's description if there are age restrictions."
-    },
-    {
-      question: "What should I bring to the tours?",
-      answer: "We recommend bringing comfortable clothing and shoes, sunscreen, water, and a camera. Depending on the tour, we might suggest additional items."
+      answer: "You can book a Tour through our Tours page by contacting us directly via email, whatsapp or phone"
     },
     {
       question: "Do you offer private tours?",
-      answer: "Yes, we offer personalized private tours for small groups or families. Contact us for more information."
+      answer: "Yes, we offer personalized private tours for small groups. Contact us for more information"
+    },
+    {
+      question: "Is the Gion evening Tour private?",
+      answer: "No, that is the only tour that is public; up to ten members"
+    },
+    {
+      question: "Can we count on the guide for assistance and information beside of the tour?",
+      answer: "Yes! Is a service that we like to offer(without charge) for before and after the tour"
+    },
+    {
+      question: "Does the rate change by amount of people on a tour?",
+      answer: "Yes, not very significantly but there are some differences that you can check at the Tours page. Contact us for more information"
+    },
+    {
+      question: "How long do the tours last?",
+      answer: "The Full day tours are 8 hours and Half day tour 4 hours. However we can talk and negotiate in case you might want some other specific amount of hours"
+    },
+    {
+      question: "Are the tours suitable for children?",
+      answer: "Most of our tours are suitable for all ages, from advance to middle age, to families with babies, teenagers etc. We will actually customised the tour to make it more suitable for the travellers we are with. Contact us for more information"
+    },
+    {
+      question: "In which language are the tours?",
+      answer: "We offer tours in English, Spanish, French and Italian"
+    },
+    {
+      question: "How will we move during the tour?",
+      answer: "Walking and public transportation such as subways, trains or buses. At some points we can get taxis if you want. In case you don’t want to walk or you have any limitation we can use only taxis or hire private transportation. There are places with narrow streets where vehicles cannot access and walking is the only option but we can avoid them at a certain degree in case you prefer"
+    },
+    {
+      question: "Do we have to pay for the guide expenses during the tour?",
+      answer: "No, you don’t have to pay for the guide for ticket expenses, food or public transportation. The only exception would be in case of using taxi or private transportation"
+    },
+    {
+      question: "What should I bring for the tour?",
+      answer: "We recommend bringing comfortable clothing and shoes, some money in cash, water, and a camera. Depending on the tour, season and weather conditions we might suggest additional items such as sunscreen or umbrella"
     }
   ],
   it: [
     {
       question: "Come posso prenotare un tour?",
-      answer: "Puoi prenotare un tour tramite la nostra pagina dei Tour o contattandoci direttamente via email o telefono."
-    },
-    {
-      question: "I tour sono in spagnolo?",
-      answer: "Sì, offriamo tour in spagnolo con guide locali che parlano fluentemente la lingua."
-    },
-    {
-      question: "Qual è la politica di cancellazione?",
-      answer: "Offriamo cancellazione gratuita fino a 48 ore prima dell'inizio del tour. Per maggiori dettagli, consulta la nostra politica di cancellazione."
-    },
-    {
-      question: "I tour sono adatti ai bambini?",
-      answer: "La maggior parte dei nostri tour è adatta a tutte le età. Indichiamo nella descrizione di ciascun tour se ci sono restrizioni di età."
-    },
-    {
-      question: "Cosa dovrei portare ai tour?",
-      answer: "Consigliamo di portare abbigliamento e scarpe comode, crema solare, acqua e una fotocamera. A seconda del tour, potremmo suggerire articoli aggiuntivi."
+      answer: "Puoi prenotare un tour attraverso la nostra pagina Tours contattandoci direttamente via email, WhatsApp o telefono."
     },
     {
       question: "Offrite tour privati?",
-      answer: "Sì, offriamo tour privati personalizzati per piccoli gruppi o famiglie. Contattaci per maggiori informazioni."
+      answer: "Sì, offriamo tour privati personalizzati per piccoli gruppi. Contattaci per ulteriori informazioni."
+    },
+    {
+      question: "Il Tour di Gion è privato?",
+      answer: "No, questo è l'unico tour che è pubblico; fino a dieci membri."
+    },
+    {
+      question: "Possiamo contare sull'assistenza della guida per ottenere informazioni oltre al tour?",
+      answer: "Sì! È un servizio che ci piace offrire (senza alcun costo) prima e dopo il tour."
+    },
+    {
+      question: "La tariffa cambia in base al numero di persone in un tour?",
+      answer: "Sì, non in modo significativo, ma ci sono alcune differenze che puoi controllare nella pagina Tours. Contattaci per ulteriori informazioni."
+    },
+    {
+      question: "Quanto durano i tour?",
+      answer: "I tour di una giornata intera durano 8 ore e i tour di mezza giornata 4 ore. Tuttavia, possiamo parlarne e negoziare nel caso tu voglia una durata specifica."
+    },
+    {
+      question: "I tour sono adatti ai bambini?",
+      answer: "La maggior parte dei nostri tour è adatta a tutte le età, da adulti a famiglie con neonati, adolescenti, ecc. In effetti, personalizzeremo il tour per renderlo più adatto ai viaggiatori con cui siamo. Contattaci per ulteriori informazioni."
+    },
+    {
+      question: "In quale lingua sono i tour?",
+      answer: "Offriamo tour in inglese, spagnolo, francese e italiano."
+    },
+    {
+      question: "Come ci muoveremo durante il tour?",
+      answer: "A piedi e utilizzando i mezzi pubblici come metropolitane, treni o autobus. In alcuni momenti possiamo prendere taxi se lo desideri. Nel caso tu non voglia camminare o abbia qualche limitazione, possiamo utilizzare solo taxi o noleggiare un trasporto privato. Ci sono luoghi con strade strette dove i veicoli non possono accedere e camminare è l'unica opzione, ma possiamo evitarli in una certa misura se lo preferisci."
+    },
+    {
+      question: "Dobbiamo pagare le spese della guida durante il tour?",
+      answer: "No, non devi pagare la guida per le spese dei biglietti, cibo o trasporti pubblici. L'unica eccezione sarebbe in caso di utilizzo di taxi o trasporto privato."
+    },
+    {
+      question: "Cosa devo portare per il tour?",
+      answer: "Consigliamo di portare abbigliamento e scarpe comode, un po' di denaro in contante, acqua e una macchina fotografica. A seconda del tour, della stagione e delle condizioni atmosferiche, potremmo suggerire articoli aggiuntivi come crema solare o ombrello"
     }
   ],
   fr: [
     {
-      question: "Comment puis-je réserver un tour ?",
-      answer: "Vous pouvez réserver un tour via notre page de Tours ou en nous contactant directement par e-mail ou téléphone."
+      question: "Comment puis-je réserver une visite ?",
+      answer: "Vous pouvez réserver une visite via notre page des visites en nous contactant directement par e-mail, WhatsApp ou par téléphone."
     },
     {
-      question: "Les tours sont-ils en espagnol ?",
-      answer: "Oui, nous proposons des tours en espagnol avec des guides locaux qui parlent couramment la langue."
+      question: "Offrez-vous des visites privées ?",
+      answer: "Oui, nous offrons des visites privées personnalisées pour les petits groupes. Contactez-nous pour plus d'informations."
     },
     {
-      question: "Quelle est la politique d'annulation ?",
-      answer: "Nous proposons une annulation gratuite jusqu'à 48 heures avant le début du tour. Pour plus de détails, consultez notre politique d'annulation."
+      question: "La visite du Gion est-elle privée ?",
+      answer: "Non, c'est la seule visite qui est publique ; jusqu'à dix membres."
     },
     {
-      question: "Les tours sont-ils adaptés aux enfants ?",
-      answer: "La plupart de nos tours conviennent à tous les âges. Nous indiquons dans la description de chaque tour s'il y a des restrictions d'âge."
+      question: "Pouvons-nous compter sur l'assistance du guide pour obtenir des informations en plus de la visite ?",
+      answer: "Oui ! C'est un service que nous aimons offrir (sans frais) avant et après la visite."
     },
     {
-      question: "Que dois-je apporter aux tours ?",
-      answer: "Nous vous recommandons d'apporter des vêtements et des chaussures confortables, de la crème solaire, de l'eau et un appareil photo. Selon le tour, nous pourrions suggérer des articles supplémentaires."
+      question: "Le tarif change-t-il selon le nombre de personnes dans une visite ?",
+      answer: "Oui, pas de manière significative, mais il y a quelques différences que vous pouvez consulter sur la page des visites. Contactez-nous pour plus d'informations."
     },
     {
-      question: "Proposez-vous des tours privés ?",
-      answer: "Oui, nous proposons des tours privés personnalisés pour les petits groupes ou les familles. Contactez-nous pour plus d'informations."
+      question: "Combien de temps durent les visites ?",
+      answer: "Les visites d'une journée complète durent 8 heures et celles d'une demi-journée 4 heures. Cependant, nous pouvons discuter et négocier si vous souhaitez une durée spécifique."
+    },
+    {
+      question: "Les visites conviennent-elles aux enfants ?",
+      answer: "La plupart de nos visites conviennent à tous les âges, des adultes aux familles avec des bébés, des adolescents, etc. En fait, nous personnaliserons la visite pour la rendre plus adaptée aux voyageurs avec lesquels nous sommes. Contactez-nous pour plus d'informations."
+    },
+    {
+      question: "Dans quelle langue sont les visites ?",
+      answer: "Nous proposons des visites en anglais, espagnol, français et italien."
+    },
+    {
+      question: "Comment nous déplacerons-nous durant la visite ?",
+      answer: "À pied et en utilisant les transports publics tels que le métro, les trains ou les bus. À certains moments, nous pouvons prendre des taxis si vous le souhaitez. Si vous ne voulez pas marcher ou avez une limitation, nous pouvons utiliser uniquement des taxis ou engager un transport privé. Il y a des endroits avec des rues étroites où les véhicules ne peuvent pas accéder, et marcher est la seule option, mais nous pouvons les éviter dans une certaine mesure si vous le préférez."
+    },
+    {
+      question: "Devons-nous payer les frais du guide durant la visite ?",
+      answer: "Non, vous n'avez pas à payer le guide pour les frais de billets, de nourriture ou de transport public. La seule exception serait en cas d'utilisation d'un taxi ou d'un transport privé."
+    },
+    {
+      question: "Que dois-je apporter pour la visite ?",
+      answer: "Nous recommandons d'apporter des vêtements et des chaussures confortables, de l'argent liquide, de l'eau et un appareil photo. En fonction de la visite, de la saison et des conditions météorologiques, nous pourrions suggérer des articles supplémentaires tels que de la crème solaire ou un parapluie."
     }
-  ]
+  ],
 };
 
 

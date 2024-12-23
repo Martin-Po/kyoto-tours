@@ -44,7 +44,7 @@ const Concepto = () => {
         it: {
             intro: (
                 <>
-                    " Esploriamo il meglio di Kyoto e dei suoi dintorni in modo personalizzato; dai luoghi più emblematici a quelli più sconosciuti e sorprendenti, con l'obiettivo di offrirvi anche un'idea chiara della vita quotidiana in questa parte del mondo "
+                    " Cerchiamo di esplorare il meglio di Kyoto e dei suoi dintorni in modo personalizzato; dai luoghi più iconici a quelli meno conosciuti, con l'obiettivo di offrirti anche una chiara idea della vita quotidiana in questa parte del mondo "
                 </>
             ),
             details: (
@@ -59,14 +59,14 @@ const Concepto = () => {
         fr: {
             intro: (
                 <>
-                    "Explorons le meilleur de Kyoto et ses environs d’une manière personnalisée, des endroits les plus emblématiques aux plus inconnus et surprenants , dans le but de vous offrir aussi une idée claire de la vie quotidienne dans cette partie du monde "
+                    " Explorons le meilleur de Kyoto et de ses environs, de manière personnalisée ; des lieux les plus emblématiques aux plus hors des sentiers battus, dans le but de vous offrir également une idée claire de la vie quotidienne dans cette partie du monde "
                 </>
             ),
             details: (
                 <>
-                    " Vous pouvez nous laisser le soin de choisir le meilleur itinéraire en appliquant toute notre expérience de plusieurs années de guides touristiques, ou nous pouvons nous écrire ou discuter pour connaître vos principaux intérêts et ajouter des lieux à l'itinéraire que vous aimeriez certainement visiter "
+                    " Vous pouvez nous laisser le soin de choisir le meilleur itinéraire en appliquant toute notre expérience de plusieurs années en tant que guides, ou nous pouvons discuter pour découvrir vos principaux centres d'intérêt et ajouter à l'itinéraire les endroits que vous souhaitez absolument visiter "
                     <br />
-                    N’hésitez pas à nous contacter, faisons connaissance!😊
+                    Veuillez nous contacter, faisons connaissance !😊
                 </>
             ),
             buttonText: "En savour plus sur nous",

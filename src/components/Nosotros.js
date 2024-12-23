@@ -78,61 +78,65 @@ const Nosotros = () => {
             subtitle: "Il Nostro Concetto",
             concept: (
                 <>
-                    Amiamo incontrare e comunicare con persone di ogni origine e nazionalità, siano essi viaggiatori singoli, coppie, famiglie, gruppi di amici, giovani, anziani, ecc. Al punto che consideriamo questa attività molto più di un lavoro, In realtà è una parte importante della nostra vita sociale complessiva
+                    Ci piace incontrare e comunicare con persone di ogni estrazione e nazionalità, che si tratti di viaggiatori singoli, coppie, famiglie, gruppi di amici, giovani, anziani, ecc. Al punto che consideriamo questa attività molto più di un lavoro; è in realtà una parte significativa della nostra vita sociale in generale. 
                     <br />
-                    Ci adatteremo a diversi tipi di motivazioni e punti di vista per offrire i migliori visite e il tipo di informazioni più importanti a seconda della persona
+                    Ci adatteremo a diversi tipi di motivazioni e punti di vista per offrire le migliori visite e le informazioni più preziose in accordo con ciascun ospite. 
                     <br />
-                    Apprezziamo l'empatia e speriamo, come spesso accade, di concludere il percorso con un sentimento di amicizia
+                    Valutiamo l'empatia e speriamo, come di solito accade, di terminare il tour con un sentimento di amicizia.
                 </>
             ),
             biography: {
                 name: "Mi chiamo Alex (Alejandro Oberti) ",
                 text: (
                     <>
-                         Prima di stabilirmi in Giappone molti anni fa, ho vissuto per diversi anni anche una vita nomade in vari paesi dell'Asia. Ho trascorso gran parte di quel tempo in India, dove, tra le altre attività, ho avuto le mie prime esperienze come guida turistica. Lì ho conosciuto anche mia moglie e quando la nostra relazione è diventata più seria abbiamo deciso di sistemarci e condurre una vita più stabile. Abbiamo scelto il Giappone, da dove è originaria.
+                         Prima di finire in Giappone, molti anni fa, ho avuto una vita da nomade in diversi paesi asiatici per molti anni. Ho trascorso la maggior parte di quel tempo in India, dove, tra le altre attività, ho avuto le mie prime esperienze come guida turistica. Lì ho anche incontrato mia moglie e quando la nostra relazione è diventata più seria, abbiamo deciso di stabilirci e avere una vita più stabile; abbiamo scelto il Giappone, da cui proviene lei.
                         <br />
-                        Da allora ho avuto molte esperienze personali in questo Paese in diversi ambiti, come le relazioni umane, lavori in diversi settori, viaggi, situazioni curiose, ecc. Sono esperienze che mi piace condividere sempre, insieme ad alcune conoscenze su aspetti della cultura che ho studiato per anni, solo per il piacere di imparare, senza pensare che in futuro sarei diventata una guida turistica. 
+                        Da allora, ho avuto molte esperienze personali in questo paese in vari settori come le relazioni umane, lavori in diversi ambiti, viaggi, situazioni bizzarre, ecc. Esperienze che mi piace sempre condividere, insieme a qualche conoscenza sugli aspetti della cultura che ho studiato per anni, solo per il piacere di acquisire conoscenze, senza pensare mai di diventare una guida turistica qui in futuro. 
                         <br />
-                        Attualmente continuo a lavorare come guida per diverse agenzie, ma sto sviluppando questo progetto anche per conto mio. 
+                        Al momento lavoro ancora come tale per diverse agenzie, ma sono anche coinvolto in questo progetto da solo. 
                         <br />
-                        A proposito, apprezzo molto il fattore umano e, oltre alla responsabilità che implica, mi piace molto incontrare e stare con nuove persone. In altre parole: amo questo lavoro, amo la cultura che mostro e amo la comunicazione umana stessa. 
+                        A proposito, mi piace molto il fattore umano e oltre ad avere responsabilità, mi diverto molto a incontrare e stare con nuove persone. 
                         <br />
-                        Conosciamoci e passiamo del tempo insieme nella città di Kyoto, dove vivo, e nelle città vicine piene di curiosità che frequento molto spesso! 
+                        In altre parole, amo questo lavoro, amo la cultura che mostro e amo la comunicazione umana in sé. 
+                        <br/>
+                        Incontriamoci e trascorriamo del tempo insieme nella città di Kyoto, dove risiedo, e nelle sue città vicine, piene di curiosità, dove vado molto spesso.
                     </>
                 )
             },
-            ending: "Altre guide qui sono guide turistiche indipendenti nelle quali ripongo tutta la mia fiducia; per la loro cordialità, per quanto è piacevole trascorrere del tempo con loro, per avere anni di esperienza in questa attività e per le loro esperienze in generale vivendo qui."
+            ending: "Gli altri host qui sono guide turistiche freelance in cui ripongo tutta la mia fiducia; sono così amichevoli, piacevoli da trascorrere del tempo, hanno anni di esperienza in questa attività e una vasta esperienza di vita qui."
 
         },
         fr: {
-            title: "Qui Nous Sommes",
+            title: "À propos de nous",
             subtitle: "Notre Concept",
             concept: (
                 <>
-                    Nous aimons rencontrer et nous communiquer avec des personnes de toutes origines et nationalités, qu'il s'agisse de voyageurs seuls, de couples, de familles, de groupes d'amis, de jeunes, de personnes âgées, etc…Au point que nous considérons cette activité comme bien plus qu'un travail, C'est en fait une partie importante de notre vie sociale en général
+                    Nous aimons rencontrer et communiquer avec des personnes de tous horizons et nationalités, que ce soit des voyageurs solo, des couples, des familles, des groupes d'amis, des jeunes, des personnes âgées, etc. Au point où nous voyons cette activité comme bien plus qu'un travail, c'est en fait une partie significative de notre vie sociale en général. 
                     <br />
-                    Nous nous adapterons à différents types de motivations et de points de vue pour proposer les promenades et types d'informations les plus importants selon la personne
+                    Nous nous adapterons à différents types de motivations et de points de vue afin d’offrir les meilleures visites et les informations les plus précieuses en accord avec chaque invité.
                     <br />
-                    Nous valorisons l’empathie et espérons, comme c’est souvent le cas, terminer la tournée avec un sentiment d'amitié
+                    Nous valorisons l'empathie et espérons, comme cela arrive souvent, terminer la visite avec un sentiment d'amitié.
                 </>
             ),
             biography: {
                 name: "Je m'appelle Alex (Alejandro Oberti) ",
                 text: (
                     <>
-                         Avant de m'installer au Japon il y a de nombreuses années, j'ai également vécu plusieurs années une vie nomade dans divers pays d'Asie. J'ai passé la majeure partie de ce temps en Inde, où, entre autres activités, j'ai fait mes premières expériences en tant que guide touristique. Là j'ai aussi rencontré ma femme et lorsque notre relation est devenue plus sérieuse, nous avons décidé de nous installer et de mener une vie plus stable. Nous avons choisi le Japon, dont elle est originaire.
+                         Avant de me retrouver au Japon, il y a de nombreuses années, j'ai mené une vie nomade à travers plusieurs pays asiatiques pendant de nombreuses années également. J'ai passé la plupart de ce temps en Inde, où, parmi d'autres activités, j'ai eu mes premières expériences en tant que guide touristique. C'est là que j'ai également rencontré ma femme, et lorsque notre relation est devenue plus sérieuse, nous avons décidé de nous installer et d'avoir une vie plus stable ; nous avons choisi le Japon, dont elle est originaire. 
                         <br />
-                        Depuis, j'ai vécu de nombreuses expériences personnelles dans ce pays dans différents domaines, comme les relations humaines, les emplois dans différents secteurs, les voyages, les situations curieuses, etc. Ce sont des expériences que j'aime toujours partager, ainsi que quelques connaissances sur certains aspects de la culture que j'ai étudiées pendant des années, juste pour le plaisir d'apprendre, sans penser qu'à l'avenir je deviendrais guide touristique.
+                        Depuis, j'ai eu de nombreuses expériences personnelles dans ce pays dans différents domaines tels que les relations humaines, des emplois dans différents secteurs, des voyages, des situations bizarres, etc. Ce sont des expériences que j'aime toujours partager, ainsi que des connaissances sur des aspects de la culture que j'ai étudiés pendant des années, juste pour le plaisir d'acquérir des connaissances, sans penser un jour devenir guide touristique ici.
                         <br />
-                        Actuellement je continue à travailler comme guide pour différentes agences, mais je développe également ce projet par moi-même.
+                        Pour l'instant, je continue à travailler en tant que tel pour différentes agences, mais je suis aussi sur ce projet par moi-même.
                         <br />
-                        D'ailleurs, j'accorde une grande valeur au facteur humain et, en plus de la responsabilité qu'il implique, j'aime beaucoup rencontrer et être avec de nouvelles personnes. En d’autres termes : j’aime ce métier, j’aime la culture que je mets en valeur et j’aime la communication humaine elle-même.
+                        D'ailleurs, j'apprécie beaucoup le facteur humain, et au-delà de mes responsabilités, j'apprécie vraiment de rencontrer et d'être avec de nouvelles personnes.
                         <br />
-                        Faisons connaissance et passons du temps ensemble dans la ville de Kyoto, où j'habite, et dans les villes voisines pleines de curiosités que je visite très fréquemment ! 
+                        En d'autres termes, j'adore ce travail, j'adore la culture que je présente et j'adore la communication humaine en elle-même.
+                        <br/>
+                        Rencontrons-nous et passons du temps ensemble dans la ville de Kyoto où je réside, ainsi que dans ses villes voisines pleines de curiosités où je vais très souvent.
                     </>
                 )
             },
-            ending: "Les autres guides ici sont des guides touristiques indépendants en qui j'accorde toute ma confiance ; pour leur gentillesse, pour combien il est agréable de passer du temps avec eux, pour avoir des années d'expérience dans cette activité et pour leur expérience générale de vivre ici"
+            ending: "Les autres hôtes ici sont des guides touristiques indépendants en qui j'ai toute confiance ; ils sont si amicaux, agréables à côtoyer, ils ont des années d'expérience dans cette activité et ont une vaste expérience de la vie ici"
 
         },
     };

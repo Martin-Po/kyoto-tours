@@ -338,17 +338,17 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         it: {
-            title: "I nostri tour",
+            title: "I Nostri Tour",
             intro: {
                 beggining: (
                     <>
-                        Dai giardini e parchi ai monumenti e ai luoghi emblematici, dagli spazi urbani e moderni ai quartieri tradizionali e alle strade nascoste, dai mercati principali ai negozi poco appariscenti... Cerchiamo di offrire la massima varietà possibile nei nostri tour
+                        Dai giardini e parchi ai monumenti e punti di riferimento, dagli spazi urbani moderni ai quartieri tradizionali e strade nascoste, dai mercati principali ai negozi meno visibili… cerchiamo di offrire la maggiore varietà possibile.
                         <br />
-                        Ci sono itinerari per tutti i tour che condivideremo in dettaglio una volta che ci contatterete ma sono flessibili nel senso che si possono aggiungere nuovi luoghi da visitare e altri tralasciare in base ai vostri interessi e richieste
+                        Ci sono itinerari per tutti i tour che condivideremo in dettaglio dopo che ci contatterai, ma sono flessibili nel senso che nuovi luoghi da visitare possono essere aggiunti e altri rimossi in base ai tuoi interessi e richieste.
                         <br />
-                        Normalmente ci muoviamo con i mezzi pubblici per sentire meglio la vita quotidiana della città, e soprattutto per la loro notevole efficienza, tuttavia possiamo offrirvi taxi o trasporto privato se preferite
+                        Ci muoviamo solitamente con i mezzi pubblici per sentire meglio le vibrazioni della città, e principalmente per la sua notevole efficienza; tuttavia, possiamo offrire taxi o trasporti privati se preferisci. 
                         <br />
-                        Offriamo tour in inglese, spagnolo, italianoa e francese
+                        Offriamo tour in inglese, spagnolo, francese e italiano
                     </>
                 ),
                 endind: (
@@ -370,15 +370,15 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
             }
         },
         fr: {
-            title: "Nos circuits",
+            title: "Nos Visites",
             intro: {
                 beggining: (
                     <>
-                        Des jardins et parcs aux monuments et lieux emblématiques, des espaces urbains et modernes aux quartiers traditionnels et rues cachées, des principaux marchés aux boutiques discrètes...Nous essayons d'offrir la plus grande variété possible dans nos circuits.
+                        Des jardins et parcs aux monuments et sites emblématiques, des espaces urbains modernes aux quartiers traditionnels et ruelles cachées, des principaux marchés aux magasins moins visibles… nous essayons d'offrir autant de variété que possible.
                         <br />
-                        il y a des itinéraires pour tous les circuits que nous partagerons en détail une fois que vous nous contacterez, mais ils sont flexibles dans le sens où de nouveaux lieux à visiter peuvent être ajoutés et d'autres supprimés en fonction de vos intérêts et demandes
+                        Il existe des itinéraires pour toutes les visites que nous partagerons en détail après que vous nous contactiez, mais ils sont flexibles dans le sens où de nouveaux lieux à visiter peuvent être ajoutés et d'autres retirés en fonction de vos intérêts et demandes.
                         <br />
-                        Normalement, nous nous déplaçons en transports en commun pour mieux ressentir la vie quotidienne de la ville, et principalement en raison de leur efficacité notable, mais nous pouvons vous proposer un taxi ou un transport privé si vous préférez
+                        Nous nous déplacons généralement en transports en commun pour mieux ressentir l'ambiance de la ville, principalement en raison de son remarquable efficacité ; cependant, nous pouvons offrir un taxi ou un transport privé si vous préférez.
                         <br />
                         Nous proposons des visites en anglais, espagnol, français et italien
                     </>
@@ -743,7 +743,7 @@ const TourCard = ({ tour, index }) => {
                 meeting_place: "Meeting place: ",
                 duration: "Duration: ",
                 price: "Price: From ",
-                capacity: ["Capacity: Up to ", "people"],
+                capacity: ["Capacity: Up to ", " people"],
                 includes: "Inclusions",
                 excludes: "Exclusions"
 
@@ -753,26 +753,26 @@ const TourCard = ({ tour, index }) => {
                 meeting_place: "Punto de encuentro: ",
                 duration: "Duración: ",
                 price: "Precio: Desde ",
-                capacity: ["Capacidad: Hasta ", "personas"],
+                capacity: ["Capacidad: Hasta ", " personas"],
                 includes: "Incluye",
                 excludes: "No incluye"
 
         },
         it: {            
-                location: "Posizione: ",
-                meeting_place: "Luogo di incontro: ",
+                location: "Luogo: ",
+                meeting_place: "Luogo d'incontro: ",
                 duration: "Durata: ",
                 price: "Prezzo: da ",
-                capacity: ["Capacità: Fino a ", "persone"],
+                capacity: ["Capacità: Fino a ", " persone"],
                 includes: "Inclusioni",
                 excludes: "Esclusioni"
         },
         fr: {
                 location: "Lieu : ",
-                meeting_place: "Lieu de rendez-vous: ",
+                meeting_place: "Point de rencontre: ",
                 duration: "Durée: ",
                 price: "Prix: À partir de ",
-                capacity: ["Capacité: Jusqu'à ", "personnes"],
+                capacity: ["Capacité: Jusqu'à ", " personnes"],
                 includes: "Inclusions",
                 excludes: "Exclusions"
         },
@@ -782,9 +782,7 @@ const TourCard = ({ tour, index }) => {
     return (
         <Grid
             key={index}
-            size={lang === 'it' || lang === 'fr' 
-                ? { xs: 12, md: 4 } 
-                : { xs: 12, sm: 6, md: 3 }}
+            size={{ xs: 12, sm: 6, md: 3 }}
             display="flex"
             justifyContent="center"
         >

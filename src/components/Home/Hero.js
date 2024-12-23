@@ -11,7 +11,49 @@ import { SeoHelmet } from '../utils/SeoHelmet';
 
 const Hero = () => {
     const { lang } = useLang();
-  
+
+    const heroText = {
+        en: {
+            title: "KYOSAKA TOURS",
+            subtitle: (
+                <>
+                    Unique experiences designed by local experts
+                    <br/>
+                    From iconic landmarks to places where you will not see other travellers
+                </>
+            ),
+        },
+        es: {
+            title: "KYOSAKA TOURS",
+            subtitle: (
+                <>
+                    Experiencias únicas diseñadas por expertos locales
+                    <br/>
+                    Desde lugares icónicos hasta rincones donde no verás a otros viajeros
+                </>
+            ),
+        },
+        it: {
+            title: "KYOSAKA TOURS",
+            subtitle: (
+                <>
+                    Esperienze uniche create da esperti locali
+                    <br />
+                    Da luoghi iconici a posti in cui non vedrai altri viaggiatori.
+                </>
+            ),
+        },
+        fr: {
+            title: "KYOSAKA TOURS",
+            subtitle: (
+                <>
+                    Expériences uniques conçues par des experts locaux
+                    <br />
+                    Des monuments emblématiques aux endroits où vous ne rencontrerez pas d'autres voyageurs.
+                </>
+            ),
+        },
+    };
 
     return (
         <div
@@ -29,7 +71,7 @@ const Hero = () => {
                 alignItems: 'center', // Center vertically
             }}
         >
-           <SeoHelmet lang={lang} page="home" />
+            <SeoHelmet lang={lang} page="home" />
 
             <Grid
                 container
@@ -67,29 +109,9 @@ const Hero = () => {
                             },
                         }}
                     >
-                        {lang === 'en' 
-                        ? 'Best of Kyoto and Beyond' 
-                        : 'Best of Kyoto and Beyond'}    
-                        
-                    </Typography>
-                    <Typography
-                        sx={{
-                            color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: '4rem',
-                            margin: '2rem',
-                            '@media (max-width:600px)': {
-                                fontSize: '2rem',
-                                margin: '0',
-                                paddingTop: '1.25rem',
-                            },
-                        }}
-                    >
-                        {lang === 'en' 
-                        ? 'DAY TOURS' 
-                        : 'DAY TOURS'}    
-                        
-                    </Typography>
+                        {heroText[lang].title}
+
+                    </Typography>                    
                 </Grid>
                 <Grid
                     xs={3}
@@ -109,19 +131,8 @@ const Hero = () => {
                             },
                         }}
                     >
-                         {lang === 'en' 
-                        ? <>
-                            Unique experiences designed by local experts
-                            <br/>
-                            From iconic landmarks to places where you will not see other travellers
-                            </>
-                        : <>
-                            Experiencias únicas diseñadas por expertos locales
-                            <br/>
-                            Desde lugares icónicos hasta rincones donde no verás a otros viajeros
-                          </> 
-                        }
-                        
+                        {heroText[lang].subtitle}
+
                     </Typography>
                 </Grid>
                 <Grid
@@ -160,10 +171,10 @@ const Hero = () => {
                                     },
                                 }}
                             >
-                                 {lang === 'en' 
-                        ? 'See our tours' 
-                        : 'ver tours'}
-                                
+                                {lang === 'en'
+                                    ? 'See our tours'
+                                    : 'ver tours'}
+
                             </Typography>
                         </Button>
 
