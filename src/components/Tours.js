@@ -782,7 +782,9 @@ const TourCard = ({ tour, index }) => {
     return (
         <Grid
             key={index}
-            size={{ xs: 12, sm: 6, md: 3 }}
+            size={lang === 'it' || lang === 'fr' 
+                ? { xs: 12, md: 4 } 
+                : { xs: 12, sm: 6, md: 3 }}
             display="flex"
             justifyContent="center"
         >

@@ -20,11 +20,9 @@ const Concepto = () => {
             details: (
                 <>
                     " You can leave it in our hands choosing the best route itinerary applying all our experience of years on guiding, or we can chat to find out about your main interests or to add in the route places that you would definitely like to visit "
-                    <br />
-                    Please contact us, let’s know each other!😊
                 </>
             ),
-            buttonText: "More about us",
+            buttonText: "Please contact us, let’s know each other!",
         },
         es: {
             intro: (
@@ -35,11 +33,9 @@ const Concepto = () => {
             details: (
                 <>
                     " Puedes dejarlo en nuestras manos eligiendo el mejor itinerario de ruta aplicando toda nuestra experiencia de años de guías turísticas, o podemos chatear o conversar para conocer tus principales intereses y añadir a la ruta lugares que definitivamente te gustaría visitar "
-                    <br />
-                    Contáctanos por favor , Conozcámonos!😊
                 </>
             ),
-            buttonText: "Más sobre nosotros",
+            buttonText: "Contáctanos por favor , Conozcámonos!",
         },
         it: {
             intro: (
@@ -50,11 +46,9 @@ const Concepto = () => {
             details: (
                 <>
                     " Puoi lasciarlo nelle nostre mani scegliendo il miglior itinerario applicando tutta la nostra esperienza di anni di guide turistiche, oppure possiamo scrivici o parlare per scoprire i tuoi principali interessi e aggiungere all'itinerario i luoghi che vorresti sicuramente visitare "
-                    <br />
-                    Contattaci, Conosciamoci!😊
                 </>
             ),
-            buttonText: "Scopri di più su di noi",
+            buttonText: "Contattaci, Conosciamoci!",
         },
         fr: {
             intro: (
@@ -65,13 +59,11 @@ const Concepto = () => {
             details: (
                 <>
                     " Vous pouvez nous laisser le soin de choisir le meilleur itinéraire en appliquant toute notre expérience de plusieurs années en tant que guides, ou nous pouvons discuter pour découvrir vos principaux centres d'intérêt et ajouter à l'itinéraire les endroits que vous souhaitez absolument visiter "
-                    <br />
-                    Veuillez nous contacter, faisons connaissance !😊
                 </>
             ),
-            buttonText: "En savour plus sur nous",
+            buttonText: "Veuillez nous contacter, faisons connaissance !",
         },
-    };
+    };  
 
 
 

@@ -15,8 +15,10 @@ const Hero = () => {
     const heroText = {
         en: {
             title: "KYOSAKA TOURS",
-            subtitle: (
-                <>
+            subtitle_1: "The best possible tours in Kyoto, Osaka, Nara and beyond",
+
+            subtitle_2: (
+                <>                    
                     Unique experiences designed by local experts
                     <br/>
                     From iconic landmarks to places where you will not see other travellers
@@ -25,8 +27,10 @@ const Hero = () => {
         },
         es: {
             title: "KYOSAKA TOURS",
-            subtitle: (
-                <>
+            subtitle_1: "Los mejores recorridos posibles en Kioto, Osaka, Nara y más allá",
+
+            subtitle_2: (
+                <>   
                     Experiencias únicas diseñadas por expertos locales
                     <br/>
                     Desde lugares icónicos hasta rincones donde no verás a otros viajeros
@@ -35,8 +39,10 @@ const Hero = () => {
         },
         it: {
             title: "KYOSAKA TOURS",
-            subtitle: (
-                <>
+            subtitle_1: "I migliori tour possibili a Kyoto, Osaka, Nara e oltre",
+
+            subtitle_2: (
+                <>     
                     Esperienze uniche create da esperti locali
                     <br />
                     Da luoghi iconici a posti in cui non vedrai altri viaggiatori.
@@ -45,8 +51,10 @@ const Hero = () => {
         },
         fr: {
             title: "KYOSAKA TOURS",
-            subtitle: (
-                <>
+            subtitle_1: "Les meilleures visites possibles à Kyoto, Osaka, Nara et au-delà",
+
+            subtitle_2: (
+                <>       
                     Expériences uniques conçues par des experts locaux
                     <br />
                     Des monuments emblématiques aux endroits où vous ne rencontrerez pas d'autres voyageurs.
@@ -96,6 +104,7 @@ const Hero = () => {
                         textAlign: 'center', // Ensures content alignment inside the grid
                     }}
                 >
+                    
                     <Typography
                         sx={{
                             color: 'white',
@@ -123,6 +132,22 @@ const Hero = () => {
                     <Typography
                         sx={{
                             color: 'white',
+                            fontWeight: 'bold',
+                            fontSize: '2.5rem',
+                            margin: '2rem',
+                            '@media (max-width:600px)': {
+                                fontSize: '1.5rem',
+                                margin: '0',
+                                paddingTop: '1.25rem',
+                            },
+                        }}
+                    >
+                        {heroText[lang].subtitle_1}  
+                        
+                    </Typography>
+                    <Typography
+                        sx={{
+                            color: 'white',
                             marginTop: '1rem',
                             fontWeight: '300',
                             fontSize: '2rem',
@@ -131,7 +156,7 @@ const Hero = () => {
                             },
                         }}
                     >
-                        {heroText[lang].subtitle}
+                        {heroText[lang].subtitle_2}
 
                     </Typography>
                 </Grid>
