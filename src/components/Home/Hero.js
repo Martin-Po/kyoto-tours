@@ -24,6 +24,7 @@ const Hero = () => {
                     From iconic landmarks to places where you will not see other travellers
                 </>
             ),
+            buttonText: "See our tours"
         },
         es: {
             title: "KYOSAKA TOURS",
@@ -36,6 +37,7 @@ const Hero = () => {
                     Desde lugares icónicos hasta rincones donde no verás a otros viajeros
                 </>
             ),
+            buttonText: "Ver tours"
         },
         it: {
             title: "KYOSAKA TOURS",
@@ -48,6 +50,7 @@ const Hero = () => {
                     Da luoghi iconici a posti in cui non vedrai altri viaggiatori.
                 </>
             ),
+            buttonText: "Visita i nostri tour"
         },
         fr: {
             title: "KYOSAKA TOURS",
@@ -60,6 +63,7 @@ const Hero = () => {
                     Des monuments emblématiques aux endroits où vous ne rencontrerez pas d'autres voyageurs.
                 </>
             ),
+            buttonText: "Visitez nos circuits"
         },
     };
 
@@ -109,12 +113,12 @@ const Hero = () => {
                         sx={{
                             color: 'white',
                             fontWeight: 'bold',
-                            fontSize: '4rem',
+                            fontSize: '5rem',
                             margin: '2rem',
                             '@media (max-width:600px)': {
                                 fontSize: '2rem',
                                 margin: '0',
-                                paddingTop: '1.25rem',
+                                paddingTop: '1.5rem',
                             },
                         }}
                     >
@@ -196,9 +200,7 @@ const Hero = () => {
                                     },
                                 }}
                             >
-                                {lang === 'en'
-                                    ? 'See our tours'
-                                    : 'ver tours'}
+                                {heroText[lang].buttonText}
 
                             </Typography>
                         </Button>

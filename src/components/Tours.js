@@ -578,6 +578,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                 ?
                                                 (
                                                     <MenuItem
+                                                        key={1}
                                                         sx={{
                                                             justifyContent: 'space-between',
                                                             pointerEvents: 'none', // Disable pointer events for the MenuItem
@@ -609,7 +610,9 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                     </MenuItem>
                                                 )
                                                 : [
-                                                    <MenuItem sx={{
+                                                    <MenuItem 
+                                                    key={2}
+                                                    sx={{
                                                         justifyContent: 'space-between',
                                                         pointerEvents: 'none', // Disable pointer events for the MenuItem
                                                         '&:hover': {
@@ -635,7 +638,9 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                             />
                                                         </IconButton>
                                                     </MenuItem>,
-                                                    <MenuItem sx={{
+                                                    <MenuItem 
+                                                    key={3}
+                                                    sx={{
                                                         justifyContent: 'space-between',
                                                         pointerEvents: 'none', // Disable pointer events for the MenuItem
                                                         '&:hover': {

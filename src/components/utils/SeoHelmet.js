@@ -23,12 +23,12 @@ export const SeoHelmet = ({ lang, page }) => {
         <meta name="description" content={metaTexts[lang][page].description} />
         <meta property="og:title" content={metaTexts[lang][page].ogTitle} />
         <meta property="og:description" content={metaTexts[lang][page].ogDescription} />
-        <meta property="og:image" content={`${baseUrl}/images/logo_light.webp`} />
+        <meta property="og:image" content="%PUBLIC_URL%/images/logo_light.webp" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTexts[lang][page].twTitle} />
         <meta name="twitter:description" content={metaTexts[lang][page].twDescription} />
-        <meta name="twitter:image" content={`${baseUrl}/images/logo_light.webp`} />
+        <meta name="twitter:image" content="%PUBLIC_URL%/images/logo_light.webp" />
       </Helmet>
     );
   };
