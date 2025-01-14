@@ -116,7 +116,8 @@ const Hero = () => {
                             fontSize: '5rem',
                             margin: '2rem',
                             '@media (max-width:600px)': {
-                                fontSize: '2rem',
+                                fontSize: '2.2rem',
+                                fontWeight:'750',
                                 margin: '0',
                                 paddingTop: '1.5rem',
                             },
