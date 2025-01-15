@@ -24,7 +24,7 @@ const Hero = () => {
                     From iconic landmarks to places where you will not see other travellers
                 </>
             ),
-            buttonText: "See our tours"
+            buttonText: "Our tours"
         },
         es: {
             title: "KYOSAKA TOURS",
