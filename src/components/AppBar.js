@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* <img
+                     <img
                         style={{
                             width: '100%',
                             maxWidth: '70px',
@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
                         }}
                         src={Logo}
                         alt="Logo"
-                    /> */}
+                    /> 
                     <Typography sx={{color:'white', fontWeight:'bold', fontSize:'1.5rem', lineHeight:'2rem' }}>
                         bestofkyoto.com
                     </Typography>
