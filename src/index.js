@@ -11,7 +11,7 @@ import { HelmetProvider } from 'react-helmet-async';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HelmetProvider>
-    <Router>
+    <Router basename="/kyoto-tours">
       <ThemeProvider theme={theme}>
         <React.StrictMode>
           <App />

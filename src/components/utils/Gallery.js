@@ -99,7 +99,7 @@ export const Gallery = ({ images }) => {
                                 className="responsive-img"
                                 loading="lazy"
                                 src={image.url}
-                                alt="Testimonial"
+                                alt="Tour"
                             />
                         </div>
                     </Grid>

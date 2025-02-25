@@ -1,9 +1,8 @@
 import './App.css';
 import { CssBaseline } from '@mui/material';
-import { Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer';
 import { Contactenos } from './components/Contactenos';
-import { EncontranosMaps } from './components/EncontranosMaps';
 import { Hero } from './components/Home/Hero';
 import { useLayoutEffect } from 'react'
 import AppBar from './components/AppBar'
@@ -13,7 +12,6 @@ import { LangProvider } from './components/utils/LangProvider';
 import { FAQs } from './components/FAQs';
 import { Nosotros } from './components/Nosotros';
 import { Tours } from './components/Tours';
-import { Helmet } from 'react-helmet-async';
 import { PhotoGallery } from './components/PhotoGallery';
 
 
@@ -45,6 +43,7 @@ function App() {
         )
     }
  
+
     return (
         <div        
             style={{
