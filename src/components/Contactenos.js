@@ -4,6 +4,7 @@ import { useLang } from "./utils/LangProvider";
 import { Helmet } from 'react-helmet';
 import { metaTexts } from '../metaTextData';
 import { SeoHelmet } from './utils/SeoHelmet';
+import { useTheme } from '@emotion/react';
 
 const Contactenos = () => {
     const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const Contactenos = () => {
     const { lang } = useLang();
     const previousLang = useRef(lang);
     const previousErrors = useRef(errors);
+
+    const theme = useTheme();
 
 
     useEffect(() => {
@@ -231,7 +234,7 @@ const Contactenos = () => {
                         <Typography color='primary.main'>
                             <a
                                 href="mailto:info@besttoursinkyoto.com"
-                                style={{ color: 'black', textDecoration: 'none' }}
+                                style={{ color: theme.palette.primary.main, textDecoration: 'none' }}
                             >
                                 info@besttoursinkyoto.com
                             </a>
@@ -245,7 +248,7 @@ const Contactenos = () => {
                                 href="https://wa.me/818049148380"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={{ color: 'primary.main', textDecoration: 'none' }}
+                                style={{ color: theme.palette.primary.main, textDecoration: 'none' }}
                             >
                                 +81 80-4914-8380
                             </a>
