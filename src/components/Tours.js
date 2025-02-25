@@ -46,14 +46,23 @@ const Tours = () => {
 
 
     const { lang } = useLang();
+    const previousLang = useRef(lang);
+    const previousErrors = useRef(errors);
 
     useEffect(() => {
         setPeopleLabel(toursText[lang].contactForm.people.label)
         setSelectedTour([])
         setSelectedPeople({ adults: 0, children: 0, guests: 0 })
-
-
+        if (previousLang.current !== lang && Object.keys(previousErrors.current).length !== 0) {
+            validateForm();
+            previousLang.current = lang; // Actualizar el valor anterior
+        }
     }, [lang])
+
+    useEffect(() => {
+        previousErrors.current = errors; // Sync ref with latest errors
+    }, [errors]);
+
 
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
@@ -305,6 +314,12 @@ const Tours = () => {
                 people: { label: "NUMBER OF PEOPLE", guests: "GUESTS", adults: "ADULTS", children: "CHILDREN" },
                 date: "Tour date",
                 message: "Message",
+                nameError: "You must enter a name",
+                emailError: "You must enter an email",
+                emailFormatError: "You must enter a valid email",
+                tourError: "You must select a tour",
+                dateError: "You must select a date",
+                messageError: "You must enter a message",
                 formButton: "SEND MESSAGE"
             }
         },
@@ -337,7 +352,13 @@ const Tours = () => {
                 people: { label: "CANTIDAD DE PERSONAS", guests: "INVITADOS", adults: "ADULTOS", children: "NIÑOS" },
                 date: "Fecha del tour",
                 message: "Mensaje",
-                formButton: "ENVIAR MENSAJE"
+                formButton: "ENVIAR MENSAJE",
+                nameError: "Debe ingresar un nombre",
+                emailError: "Debe ingresar un mail",
+                emailFormatError: "Debe ingresar un mail válido",
+                tourError: "Debe seleccionar un tour",
+                dateError: "Debe seleccionar una fecha",
+                messageError: "Debe ingresar un mensaje",
             }
         },
         it: {
@@ -369,7 +390,13 @@ const Tours = () => {
                 people: { label: "NUMERO DI PERSONE", guests: "Ospiti", adults: "Adulti", children: "Bambini" },
                 date: "Data del tour",
                 message: "Messaggio",
-                formButton: "INVIA"
+                formButton: "INVIA",
+                nameError: "Devi inserire un nome",
+                emailError: "Devi inserire un'email",
+                emailFormatError: "Devi inserire un'email valida",
+                tourError: "Devi selezionare un tour",
+                dateError: "Devi selezionare una data",
+                messageError: "Devi inserire un messaggio",
             }
         },
         fr: {
@@ -401,7 +428,13 @@ const Tours = () => {
                 people: { label: "NOMBRE DE PERSONNES", guests: "Invités", adults: "Adultes", children: "Enfants" },
                 date: "Date du tour",
                 message: "Message",
-                formButton: "ENVOYER"
+                formButton: "ENVOYER",
+                nameError: "Vous devez entrer un nom",
+                emailError: "Vous devez entrer un e-mail",
+                emailFormatError: "Vous devez entrer un e-mail valide",
+                tourError: "Vous devez sélectionner un circuit",
+                dateError: "Vous devez sélectionner une date",
+                messageError: "Vous devez entrer un message",
             }
         },
     };
@@ -409,17 +442,19 @@ const Tours = () => {
     const validateForm = () => {
         let newErrors = {};
 
-        if (!name) newErrors.name = "Debe ingresar un nombre";
-        if (!message) newErrors.message = "Debe ingresar un mensaje";
-        if (!date) newErrors.date = "Debe seleccionar una fecha";
+        console.log(toursText[lang].contactForm);
+
+        if (!name) newErrors.name = toursText[lang].contactForm.nameError;
+        if (!message) newErrors.message = toursText[lang].contactForm.messageError;
+        if (!date) newErrors.date = toursText[lang].contactForm.dateError;
 
         if (!email) {
-            newErrors.email = "Debe ingresar un mail";
+            newErrors.email = toursText[lang].contactForm.emailError;
         } else {
             const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!mailRegex.test(email)) newErrors.email = "Debe ingresar un mail válido";
+            if (!mailRegex.test(email)) newErrors.email = toursText[lang].contactForm.emailFormatError;
         }
-        if (!selectedTour.name) newErrors.selectedTour = "Debe seleccionar un tour";
+        if (!selectedTour.name) newErrors.selectedTour = toursText[lang].contactForm.tourError;
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -547,7 +582,7 @@ const Tours = () => {
 
 
                                         <InputLabel id="demo-simple-select-autowidth-label">Tour</InputLabel>
-                                        <Select 
+                                        <Select
                                             sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
                                             labelId="Tour"
                                             id="Tour-select"

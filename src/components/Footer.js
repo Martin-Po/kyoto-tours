@@ -84,14 +84,26 @@ function Footer() {
         
                                 }}
                             >
-                               <Mail/> info@besttoursinkyoto.com
+                               <Mail/>  <a
+                                href="mailto:info@besttoursinkyoto.com"
+                                style={{ color: 'white', textDecoration: 'none' }}
+                            >
+                                info@besttoursdinkyoto.com
+                            </a>
                             </Typography>                    
                     <Typography
                         sx={{display:'flex',
                             color:'white',
                         }}
                     >
-                        <Phone/> +81 123-456-789
+                        <Phone/> <a
+                                href="https://wa.me/818049148380"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'white', textDecoration: 'none' }}
+                            >
+                                +81 80-4914-8380
+                            </a>
                     </Typography>
                 </Grid>
                 
