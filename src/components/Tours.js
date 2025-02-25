@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, CardMedia, FormControl, Grid2 as Grid, IconButton, InputLabel, ListItem, Menu, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, CardMedia, FormControl, FormHelperText, Grid2 as Grid, IconButton, InputLabel, ListItem, Menu, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useLang } from "./utils/LangProvider";
 import { ToursData } from "../data";
 import { useEffect, useState, useRef } from "react";
@@ -38,6 +38,9 @@ const Tours = () => {
 
     const [date, setDate] = useState('');
 
+    const [errors, setErrors] = useState({});
+
+
     const theme = useTheme();
 
 
@@ -45,11 +48,11 @@ const Tours = () => {
     const { lang } = useLang();
 
     useEffect(() => {
-setPeopleLabel(toursText[lang].contactForm.people.label)
-    setSelectedTour([])
-    setSelectedPeople({ adults: 0, children: 0, guests: 0 })
-        
-       
+        setPeopleLabel(toursText[lang].contactForm.people.label)
+        setSelectedTour([])
+        setSelectedPeople({ adults: 0, children: 0, guests: 0 })
+
+
     }, [lang])
 
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
@@ -131,7 +134,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                             default:
                                 return '1 Guest'; // Fallback to English
                         }
-                    };                    
+                    };
                     newLabel = getGuestLabelText(lang);
                 }
                 else {
@@ -148,7 +151,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                             default:
                                 return 'Guests'; // Fallback to English
                         }
-                    };                    
+                    };
                     newLabel = updatedPeople.guests + ' ' + getGuestsLabel(lang);
                     for (let index = 0; index < updatedPeople.guests; index++) {
                         newPrice += selectedTour.guests[index]
@@ -174,7 +177,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                 return '1 Adult'; // Fallback to English
                         }
                     };
-                    
+
                     adultLabel = getAdultLabel(lang);
                 }
                 else {
@@ -192,7 +195,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                 return ' Adults'; // Fallback to English
                         }
                     };
-                    
+
                     adultLabel = updatedPeople.adults + getAdultsLabel(lang);
                     for (let index = 0; index < updatedPeople.adults; index++) {
                         newPrice += selectedTour.adults[index]
@@ -214,8 +217,8 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                             default:
                                 return '1 Child'; // Fallback to English
                         }
-                    };                    
-                    
+                    };
+
                     childrenLabel = getChildLabel(lang);
                 }
                 else {
@@ -233,7 +236,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                 return ' Children'; // Fallback to English
                         }
                     };
-                    
+
                     childrenLabel = updatedPeople.children + getChildrenLabel(lang);
                     for (let index = 0; index < updatedPeople.children; index++) {
                         newPrice += selectedTour.children[index]
@@ -299,7 +302,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 name: "Name",
                 email: "Email",
                 tour: "Tour",
-                people: {label: "NUMBER OF PEOPLE", guests: "GUESTS", adults: "ADULTS", children: "CHILDREN"},
+                people: { label: "NUMBER OF PEOPLE", guests: "GUESTS", adults: "ADULTS", children: "CHILDREN" },
                 date: "Tour date",
                 message: "Message",
                 formButton: "SEND MESSAGE"
@@ -331,7 +334,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 name: "Nombre",
                 email: "Email",
                 tour: "Tour",
-                people: {label: "CANTIDAD DE PERSONAS", guests: "INVITADOS", adults: "ADULTOS", children: "NIÑOS"},
+                people: { label: "CANTIDAD DE PERSONAS", guests: "INVITADOS", adults: "ADULTOS", children: "NIÑOS" },
                 date: "Fecha del tour",
                 message: "Mensaje",
                 formButton: "ENVIAR MENSAJE"
@@ -346,7 +349,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                         <br />
                         Ci sono itinerari per tutti i tour che condivideremo in dettaglio dopo che ci contatterai, ma sono flessibili nel senso che nuovi luoghi da visitare possono essere aggiunti e altri rimossi in base ai tuoi interessi e richieste.
                         <br />
-                        Ci muoviamo solitamente con i mezzi pubblici per sentire meglio le vibrazioni della città, e principalmente per la sua notevole efficienza; tuttavia, possiamo offrire taxi o trasporti privati se preferisci. 
+                        Ci muoviamo solitamente con i mezzi pubblici per sentire meglio le vibrazioni della città, e principalmente per la sua notevole efficienza; tuttavia, possiamo offrire taxi o trasporti privati se preferisci.
                         <br />
                         Offriamo tour in inglese, spagnolo, francese e italiano
                     </>
@@ -363,7 +366,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 name: "Nome",
                 email: "Email",
                 tour: "Tour",
-                people: {label: "NUMERO DI PERSONE", guests: "Ospiti", adults: "Adulti", children: "Bambini"},
+                people: { label: "NUMERO DI PERSONE", guests: "Ospiti", adults: "Adulti", children: "Bambini" },
                 date: "Data del tour",
                 message: "Messaggio",
                 formButton: "INVIA"
@@ -395,7 +398,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                 name: "Nom",
                 email: "Email",
                 tour: "Tour",
-                people: {label: "NOMBRE DE PERSONNES", guests: "Invités", adults: "Adultes", children: "Enfants"},
+                people: { label: "NOMBRE DE PERSONNES", guests: "Invités", adults: "Adultes", children: "Enfants" },
                 date: "Date du tour",
                 message: "Message",
                 formButton: "ENVOYER"
@@ -403,6 +406,31 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
         },
     };
 
+    const validateForm = () => {
+        let newErrors = {};
+
+        if (!name) newErrors.name = "Debe ingresar un nombre";
+        if (!message) newErrors.message = "Debe ingresar un mensaje";
+        if (!date) newErrors.date = "Debe seleccionar una fecha";
+
+        if (!email) {
+            newErrors.email = "Debe ingresar un mail";
+        } else {
+            const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!mailRegex.test(email)) newErrors.email = "Debe ingresar un mail válido";
+        }
+        if (!selectedTour.name) newErrors.selectedTour = "Debe seleccionar un tour";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+
+    const handleSendMail = () => {
+        if (validateForm()) {
+
+        };
+    }
 
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
@@ -445,14 +473,14 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                     >
                         {toursText[lang].intro.beggining}
                         <span
-                                        style={{
-                                            fontWeight: '600',
-                                            fontSize: '1.3rem',
-                                            lineHeight: '2rem',
-                                        }}
-                                    >
-                        {toursText[lang].intro.ending}
-                                    </span>
+                            style={{
+                                fontWeight: '600',
+                                fontSize: '1.3rem',
+                                lineHeight: '2rem',
+                            }}
+                        >
+                            {toursText[lang].intro.ending}
+                        </span>
                     </Typography>
 
                 </Grid>
@@ -481,21 +509,31 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                         >
                             <Box sx={{ marginBottom: '1.5rem' }}>
                                 <Box sx={{ display: 'flex', gap: '1.5rem', flexDirection: { xs: 'column', sm: 'row' }, marginBottom: '1.5rem', }}>
-                                    <TextField
-                                        label= {toursText[lang].contactForm.name}
-                                        fullWidth
-                                        onChange={(e) => setName(e.target.value)}
-                                        value={name}
-                                        sx={{ backgroundColor: 'white' }}
-                                    />
-                                    <TextField
-                                        label={toursText[lang].contactForm.email}
-                                        fullWidth
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        value={email}
-                                        sx={{ backgroundColor: 'white' }}
+                                    <FormControl fullWidth error={!!errors.name}>
+                                        <TextField
+                                            label={toursText[lang].contactForm.name}
+                                            fullWidth
+                                            onChange={(e) => setName(e.target.value)}
+                                            value={name}
+                                            sx={{ backgroundColor: 'white' }}
+                                            error={!!errors.name}
+                                        />
+                                        <FormHelperText >{errors.name}</FormHelperText>
+                                    </FormControl>
+                                    <FormControl fullWidth error={!!errors.email}>
 
-                                    />
+                                        <TextField
+                                            label={toursText[lang].contactForm.email}
+                                            fullWidth
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            value={email}
+                                            sx={{ backgroundColor: 'white' }}
+                                            error={!!errors.email}
+                                        />
+                                        <FormHelperText >{errors.email}</FormHelperText>
+
+                                    </FormControl>
+
 
                                 </Box>
                                 <Box sx={{
@@ -505,11 +543,11 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                     flexDirection: { xs: 'column', sm: 'row' },
                                     marginBottom: '1.5rem',
                                 }}>
-                                    <FormControl fullWidth>
+                                    <FormControl fullWidth error={!!errors.selectedTour}>
 
 
                                         <InputLabel id="demo-simple-select-autowidth-label">Tour</InputLabel>
-                                        <Select
+                                        <Select 
                                             sx={{ justifyContent: 'space-around', backgroundColor: 'white' }}
                                             labelId="Tour"
                                             id="Tour-select"
@@ -524,6 +562,7 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                 </MenuItem>
                                             ))}
                                         </Select>
+                                        <FormHelperText >{errors.selectedTour}</FormHelperText>
                                     </FormControl>
                                     <FormControl fullWidth>
                                         <Button
@@ -548,9 +587,9 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                     borderColor: 'black', // Border color on hover
                                                 },
                                                 '@media (max-width: 768px)': {
-                                                   height:'56px',
-                                                   paddingLeft:'10px',
-                                                   paddingRight:'10px'
+                                                    height: '56px',
+                                                    paddingLeft: '10px',
+                                                    paddingRight: '10px'
                                                 },
                                             }}
                                             disabled={!selectedTour.name}
@@ -610,16 +649,16 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                     </MenuItem>
                                                 )
                                                 : [
-                                                    <MenuItem 
-                                                    key={2}
-                                                    sx={{
-                                                        justifyContent: 'space-between',
-                                                        pointerEvents: 'none', // Disable pointer events for the MenuItem
-                                                        '&:hover': {
-                                                            backgroundColor: 'transparent', // Prevent hover color change
-                                                            cursor: 'default', // Prevent pointer cursor change
-                                                        },
-                                                    }}>
+                                                    <MenuItem
+                                                        key={2}
+                                                        sx={{
+                                                            justifyContent: 'space-between',
+                                                            pointerEvents: 'none', // Disable pointer events for the MenuItem
+                                                            '&:hover': {
+                                                                backgroundColor: 'transparent', // Prevent hover color change
+                                                                cursor: 'default', // Prevent pointer cursor change
+                                                            },
+                                                        }}>
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("adults", -1)}
                                                         >
@@ -638,16 +677,16 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                                             />
                                                         </IconButton>
                                                     </MenuItem>,
-                                                    <MenuItem 
-                                                    key={3}
-                                                    sx={{
-                                                        justifyContent: 'space-between',
-                                                        pointerEvents: 'none', // Disable pointer events for the MenuItem
-                                                        '&:hover': {
-                                                            backgroundColor: 'transparent', // Prevent hover color change
-                                                            cursor: 'default', // Prevent pointer cursor change
-                                                        },
-                                                    }}>
+                                                    <MenuItem
+                                                        key={3}
+                                                        sx={{
+                                                            justifyContent: 'space-between',
+                                                            pointerEvents: 'none', // Disable pointer events for the MenuItem
+                                                            '&:hover': {
+                                                                backgroundColor: 'transparent', // Prevent hover color change
+                                                                cursor: 'default', // Prevent pointer cursor change
+                                                            },
+                                                        }}>
                                                         <IconButton color="black"
                                                             onClick={() => handleselectedPeople("children", -1)}
                                                         >
@@ -672,41 +711,56 @@ setPeopleLabel(toursText[lang].contactForm.people.label)
                                         </Menu>
                                     </FormControl>
 
+                                    <FormControl fullWidth error={!!errors.date}>
 
-                                    <TextField
+                                        <TextField
 
-                                        sx={{ backgroundColor: 'white', }}
-                                        label={toursText[lang].contactForm.date}
-                                        type="date"
-                                        value={date}
-                                        onChange={(e) => setDate(e.target.value)}
-                                        fullWidth
-                                        InputLabelProps={{
-                                            shrink: true, // Ensures the label stays above the input
-                                        }}
-                                        inputProps={{
-                                            min: today, // Sets the minimum date to today
-                                        }}
+                                            sx={{ backgroundColor: 'white', }}
+                                            label={toursText[lang].contactForm.date}
+                                            type="date"
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
+                                            fullWidth
+                                            error={!!errors.date}
+                                            InputLabelProps={{
+                                                shrink: true, // Ensures the label stays above the input
+                                            }}
+                                            inputProps={{
+                                                min: today, // Sets the minimum date to today
+                                            }}
 
-                                        variant="outlined"
-                                    />
+                                            variant="outlined"
+                                        />
+                                        <FormHelperText >{errors.date}</FormHelperText>
+
+                                    </FormControl>
+
                                 </Box>
 
-                                <TextField
-                                    label={toursText[lang].contactForm.message}
+                                <FormControl fullWidth error={!!errors.message}>
 
-                                    fullWidth
-                                    multiline
-                                    rows={4}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    value={message}
-                                    sx={{ marginBottom: '1.5rem', backgroundColor: 'white' }}
+                                    <TextField
+                                        label={toursText[lang].contactForm.message}
 
-                                />
+                                        fullWidth
+                                        multiline
+                                        rows={4}
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        value={message}
+                                        error={!!errors.message}
+                                        sx={{ backgroundColor: 'white' }}
+
+
+                                    />
+                                    <FormHelperText >{errors.message}</FormHelperText>
+
+                                </FormControl>
 
                             </Box>
                             <Button
                                 variant="contained"
+                                onClick={handleSendMail}
+
 
                             >
                                 <Typography
@@ -744,42 +798,42 @@ const TourCard = ({ tour, index }) => {
 
     const tourCardText = {
         en: {
-                location: "Location: ",
-                meeting_place: "Meeting place: ",
-                duration: "Duration: ",
-                price: "Price: From ",
-                capacity: ["Capacity: Up to ", " people"],
-                includes: "Inclusions",
-                excludes: "Exclusions"
-
-            },
-        es: {            
-                location: "Ubicacion: ",
-                meeting_place: "Punto de encuentro: ",
-                duration: "Duración: ",
-                price: "Precio: Desde ",
-                capacity: ["Capacidad: Hasta ", " personas"],
-                includes: "Incluye",
-                excludes: "No incluye"
+            location: "Location: ",
+            meeting_place: "Meeting place: ",
+            duration: "Duration: ",
+            price: "Price: From ",
+            capacity: ["Capacity: Up to ", " people"],
+            includes: "Inclusions",
+            excludes: "Exclusions"
 
         },
-        it: {            
-                location: "Luogo: ",
-                meeting_place: "Luogo d'incontro: ",
-                duration: "Durata: ",
-                price: "Prezzo: da ",
-                capacity: ["Capacità: Fino a ", " persone"],
-                includes: "Inclusioni",
-                excludes: "Esclusioni"
+        es: {
+            location: "Ubicacion: ",
+            meeting_place: "Punto de encuentro: ",
+            duration: "Duración: ",
+            price: "Precio: Desde ",
+            capacity: ["Capacidad: Hasta ", " personas"],
+            includes: "Incluye",
+            excludes: "No incluye"
+
+        },
+        it: {
+            location: "Luogo: ",
+            meeting_place: "Luogo d'incontro: ",
+            duration: "Durata: ",
+            price: "Prezzo: da ",
+            capacity: ["Capacità: Fino a ", " persone"],
+            includes: "Inclusioni",
+            excludes: "Esclusioni"
         },
         fr: {
-                location: "Lieu : ",
-                meeting_place: "Point de rencontre: ",
-                duration: "Durée: ",
-                price: "Prix: À partir de ",
-                capacity: ["Capacité: Jusqu'à ", " personnes"],
-                includes: "Inclusions",
-                excludes: "Exclusions"
+            location: "Lieu : ",
+            meeting_place: "Point de rencontre: ",
+            duration: "Durée: ",
+            price: "Prix: À partir de ",
+            capacity: ["Capacité: Jusqu'à ", " personnes"],
+            includes: "Inclusions",
+            excludes: "Exclusions"
         },
     };
 
@@ -787,8 +841,8 @@ const TourCard = ({ tour, index }) => {
     return (
         <Grid
             key={index}
-            size={lang === 'it' || lang === 'fr' 
-                ? { xs: 12, md: 4 } 
+            size={lang === 'it' || lang === 'fr'
+                ? { xs: 12, md: 4 }
                 : { xs: 12, sm: 6, md: 3 }}
             display="flex"
             justifyContent="center"
@@ -833,7 +887,7 @@ const TourCard = ({ tour, index }) => {
                         {tour.name}
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
-                    {tourCardText[lang].location}
+                        {tourCardText[lang].location}
                         {tour.location}
                     </Typography>
                     <Typography sx={{ color: 'text.secondary', fontSize: '1rem', marginBottom: '0.25rem' }}>
@@ -841,28 +895,28 @@ const TourCard = ({ tour, index }) => {
                         {tour.meeting_place}
                     </Typography>
                     {(tour.options.length > 1) &&
-                    <Grid container gap="0.5rem" marginBottom="1rem">
-                        {tour.options.map((option, index) => {
-                            return (
-                                <Button
-                                    key={index}
-                                    variant="contained"
-                                    size="small"
-                                    sx={{
-                                        backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.400',
-                                        '&:hover': {
-                                            backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.500',
-                                        },
-                                    }}
-                                    onClick={() => setSelectedType(option.duration_type)}
-                                >
-                                    <Typography sx={{ color: 'white', fontSize: '0.70rem' }}>
-                                        {option.duration_type}
-                                    </Typography>
-                                </Button>
-                            )
-                        })}
-                    </Grid>
+                        <Grid container gap="0.5rem" marginBottom="1rem">
+                            {tour.options.map((option, index) => {
+                                return (
+                                    <Button
+                                        key={index}
+                                        variant="contained"
+                                        size="small"
+                                        sx={{
+                                            backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.400',
+                                            '&:hover': {
+                                                backgroundColor: selectedType === option.duration_type ? 'primary.main' : 'grey.500',
+                                            },
+                                        }}
+                                        onClick={() => setSelectedType(option.duration_type)}
+                                    >
+                                        <Typography sx={{ color: 'white', fontSize: '0.70rem' }}>
+                                            {option.duration_type}
+                                        </Typography>
+                                    </Button>
+                                )
+                            })}
+                        </Grid>
 
                     }
 
@@ -886,7 +940,7 @@ const TourCard = ({ tour, index }) => {
                     </Typography>
 
                     <Typography sx={{ fontWeight: '600' }}>
-                    {tourCardText[lang].includes}
+                        {tourCardText[lang].includes}
                     </Typography>
                     {tour.inclusions.map((inclusion, index) => {
                         return (
@@ -894,7 +948,7 @@ const TourCard = ({ tour, index }) => {
                         )
                     })}
                     <Typography sx={{ fontWeight: '600' }}>
-                    {tourCardText[lang].excludes}
+                        {tourCardText[lang].excludes}
                     </Typography>
                     {tour.exclusions.map((exclusion, index) => {
                         return (

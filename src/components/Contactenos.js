@@ -6,9 +6,13 @@ import { metaTexts } from '../metaTextData';
 import { SeoHelmet } from './utils/SeoHelmet';
 
 const Contactenos = () => {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
+    const [formData, setFormData] = useState({
+        name: "",
+        email:"",
+        message:""
+      });
+    const [errors, setErrors] = useState({});
+
 
     const { lang } = useLang();
 
@@ -59,6 +63,35 @@ const Contactenos = () => {
     },
     };
 
+    const handleChange = (e) => {    
+        const { name, value } = e.target;   
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      };
+
+
+      const validateForm = () => {
+        let newErrors = {};
+      
+        if (!formData.name) newErrors.name = "Nombre es requerido";
+        if (!formData.message) newErrors.message = "Debe ingresar un mensaje";
+        if (!formData.email) {
+          newErrors.email = "Debe ingresar un mail";
+        } else {
+          const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!mailRegex.test(formData.email)) newErrors.email = "Debe ingresar un mail válido";
+        }
+        if (!formData.imageFile) newErrors.imageFile = "Imagen es requerida";
+      
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+      };
+
+    const handleSendMail = () => {
+            if (validateForm()) {
+         
+          };
+    }
+
     return (
         <div style={{ width: '100vw', maxWidth: '100%' }}>
             <SeoHelmet lang={lang} page="contact" />
@@ -100,33 +133,42 @@ const Contactenos = () => {
                         <TextField
                             label={contactUsText[lang].formLabels.name}
                             fullWidth
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
+                            onChange={handleChange}
+                            name='name'
+                            value={formData.name}
                             sx={{ marginBottom: '1.5rem' }}
+                            error={!!errors.name}
+                            helperText={errors.name}
                         />
                         <TextField
                             label={contactUsText[lang].formLabels.email}
                             fullWidth
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
+                            name='email'
+                            onChange={handleChange}
+                            value={formData.email}
                             sx={{ marginBottom: '1.5rem' }}
+                            error={!!errors.email}
+                            helperText={errors.email}
 
                         />
                         <TextField
                             label={contactUsText[lang].formLabels.message}
-
+                            name='message'
                             fullWidth
                             multiline
                             rows={4}
-                            onChange={(e) => setMessage(e.target.value)}
-                            value={message}
+                            onChange={handleChange}
+                            value={formData.message}
                             sx={{ marginBottom: '1.5rem' }}
+                            error={!!errors.message}
+                            helperText={errors.message}
 
                         />
 
                     </Box>
                     <Button
                         variant="contained"
+                        onClick={handleSendMail}
 
                     >
                         <Typography
