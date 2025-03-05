@@ -321,7 +321,15 @@ const Tours = () => {
                 dateError: "You must select a date",
                 messageError: "You must enter a message",
                 formButton: "SEND MESSAGE"
+            },
+            wspMessage: {
+                name: "Hello, my name is ",
+                tour: "and I would like more information about the tour ",
+                people: " for ",
+                date: " for the day ",
+                mail: "You can contact me at ",
             }
+          
         },
         es: {
             title: "Nuestros Tours",
@@ -359,7 +367,15 @@ const Tours = () => {
                 tourError: "Debe seleccionar un tour",
                 dateError: "Debe seleccionar una fecha",
                 messageError: "Debe ingresar un mensaje",
+            },
+            wspMessage: {
+                name: "Hola, mi nombre es ",
+                tour: "y quisiera más información sobre el tour ",
+                people: " para ",
+                date: " para el día ",
+                mail: "Me pueden contactar al ",
             }
+
         },
         it: {
             title: "I Nostri Tour",
@@ -397,6 +413,13 @@ const Tours = () => {
                 tourError: "Devi selezionare un tour",
                 dateError: "Devi selezionare una data",
                 messageError: "Devi inserire un messaggio",
+            },
+            wspMessage: {
+                name: "Ciao, mi chiamo ",
+                tour: "e vorrei maggiori informazioni sul tour ",
+                people: " per ",
+                date: " per il giorno ",
+                mail: "Potete contattarmi a ",
             }
         },
         fr: {
@@ -435,6 +458,13 @@ const Tours = () => {
                 tourError: "Vous devez sélectionner un circuit",
                 dateError: "Vous devez sélectionner une date",
                 messageError: "Vous devez entrer un message",
+            },
+            wspMessage: {
+                name: "Bonjour, je m'appelle ",
+                tour: "et je voudrais plus d'informations sur le tour ",
+                people: " pour ",
+                date: " pour le jour ",
+                mail: "Vous pouvez me contacter à ",
             }
         },
     };
@@ -445,15 +475,15 @@ const Tours = () => {
         console.log(toursText[lang].contactForm);
 
         if (!name) newErrors.name = toursText[lang].contactForm.nameError;
-        if (!message) newErrors.message = toursText[lang].contactForm.messageError;
-        if (!date) newErrors.date = toursText[lang].contactForm.dateError;
+        // if (!message) newErrors.message = toursText[lang].contactForm.messageError;
+        // if (!date) newErrors.date = toursText[lang].contactForm.dateError;
 
-        if (!email) {
-            newErrors.email = toursText[lang].contactForm.emailError;
-        } else {
-            const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!mailRegex.test(email)) newErrors.email = toursText[lang].contactForm.emailFormatError;
-        }
+        // if (!email) {
+        //     newErrors.email = toursText[lang].contactForm.emailError;
+        // } else {
+        //     const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //     if (!mailRegex.test(email)) newErrors.email = toursText[lang].contactForm.emailFormatError;
+        // }
         if (!selectedTour.name) newErrors.selectedTour = toursText[lang].contactForm.tourError;
 
         setErrors(newErrors);
@@ -461,9 +491,45 @@ const Tours = () => {
     };
 
 
+    const generateWspMessage = () => {
+
+        let wspMessage = ""
+
+            let [year, month, day] = date.split("-")
+            const dateMsg = `${day}/${month}/${year}`
+
+            wspMessage += toursText[lang].wspMessage.name + name + " "
+            wspMessage += toursText[lang].wspMessage.tour + " '" + selectedTour.name + "' "
+            let peopleText = ""
+            if (selectedPeople.guests !== 0) {
+                peopleText = selectedPeople.guests + " " + toursText[lang].contactForm.people.guests
+            }
+            else {
+                peopleText = selectedPeople.adults + " " + toursText[lang].contactForm.people.adults
+                if (selectedPeople.children !== 0) {
+                    peopleText += " + " + selectedPeople.children + " " + toursText[lang].contactForm.people.children
+                }
+            }
+            wspMessage += toursText[lang].wspMessage.people + peopleText.toLocaleLowerCase()
+            if (date) {wspMessage += toursText[lang].wspMessage.date + dateMsg + ". "}
+            if (email) {wspMessage += toursText[lang].wspMessage.mail + email + ". "}
+            if (message) {wspMessage += message}
+
+            return wspMessage
+    }
+
     const handleSendMail = () => {
         if (validateForm()) {
+            
 
+            const encodedMessage = encodeURIComponent(generateWspMessage());
+
+            // Replace 'PHONE_NUMBER' with the target WhatsApp number
+            const phoneNumber = "1234567890"; // example: "1234567890"
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+            // Redirect to the WhatsApp link
+            window.open(whatsappURL, "_blank");
         };
     }
 
